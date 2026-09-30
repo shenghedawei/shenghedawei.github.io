@@ -32,21 +32,21 @@
 
     <p>目标：2027 年 1 月赴中国香港珠海学院读研（中文授课，每天上课 &gt;6 小时），课堂上 AI 全程记录 → 自动整理归纳 → 便于查询与期末复习。原则：核心处理本地化，数据不出本机。<span class="en">Goal: record every HK class with AI, auto-organize for review. Principle: local processing, data never leaves the machine.</span></p>
 
-    <h2>一、设备清单与分工<span class="en">1. Gear & Roles</span></h2>
-    <p><strong>Insta360 Mic Pro</strong>（课堂录音主力）：发射器自带 32GB 存储，独立内录约 60h / 续航 10h，领夹级人声收音，不占手机、不依赖 WiFi。<span class="en">Insta360 Mic Pro: 32GB onboard, ~60h record / 10h battery, clip-on, phone-free.</span></p>
-    <p><strong>Mac Mini M4</strong>（处理层主力）：Apple Silicon 本地跑 Whisper 转写 + 本地 LLM 归纳。<span class="en">Mac Mini M4: local Whisper transcription + local LLM summarization.</span></p>
-    <p>大疆 Mic Mini 2（备用领夹麦）、小米 18 Pro Max（飞行模式录音）、MacBook Pro 2017（日常轻办公）、安卓平板（复习看笔记）、15.6" 便携屏（M4 显示屏）。<span class="en">DJI Mic Mini 2 (backup), phone (airplane-mode record), MacBook 2017 (light office), Android tablet (review), 15.6" portable monitor.</span></p>
+    <h2>设备清单与分工<span class="en">Gear &amp; Roles</span></h2>
+    <p><strong class="term">Insta360 Mic Pro</strong>（课堂录音主力）：发射器自带 32GB 存储，独立内录约 60h / 续航 10h，领夹级人声收音，不占手机、不依赖 WiFi。<span class="en">Insta360 Mic Pro: 32GB onboard, ~60h record / 10h battery, clip-on, phone-free.</span></p>
+    <p><strong class="term">Mac Mini M4</strong>（处理层主力）：Apple Silicon 本地跑 Whisper 转写 + 本地 LLM 归纳。<span class="en">Mac Mini M4: local Whisper transcription + local LLM summarization.</span></p>
+    <p>大疆 <span class="term">Mic Mini 2</span>（备用领夹麦）、小米 <span class="term">18 Pro Max</span>（飞行模式录音）、<span class="term">MacBook Pro 2017</span>（日常轻办公）、安卓平板（复习看笔记）、15.6" 便携屏（M4 显示屏）。<span class="en">DJI Mic Mini 2 (backup), phone (airplane-mode record), MacBook 2017 (light office), Android tablet (review), 15.6" portable monitor.</span></p>
 
-    <h2>二、需购买清单<span class="en">2. What to Buy</span></h2>
+    <h2>需购买清单<span class="en">What to Buy</span></h2>
     <p>经盘点，领夹麦、录音设备、便携屏、处理机均已具备，<strong>当前没有任何必须新买的设备</strong>。<span class="en">After inventory: mic, recorder, portable monitor and M4 are all owned — nothing must be bought.</span></p>
 
-    <h2>三、每日工作流<span class="en">3. Daily Workflow</span></h2>
-    <p>① 课前：Mic Pro 夹衣领 → 开机独立内录；② 课中：平板可装实时转写 App 看字幕（走云端时），纯本地方案课后处理；③ 课后回住处：音频经 Type-C 导出到 M4 → Whisper 转写（中文强）→ 本地 LLM 归纳成结构化笔记（章节 / 重点 / 疑点 / 提纲 / 思维导图）→ 存可搜索笔记；④ 复习：平板 / 笔记本 / 手机随时关键词搜索。<span class="en">① Clip & record. ② Optional live caption. ③ Export to M4 → Whisper → LLM notes. ④ Search anywhere.</span></p>
+    <h2>每日工作流<span class="en">Daily Workflow</span></h2>
+    <p>① 课前：Mic Pro 夹衣领 → 开机独立内录；② 课中：平板可装实时转写 App 看字幕（走云端时），纯本地方案课后处理；③ 课后回住处：音频经 Type-C 导出到 M4 → Whisper 转写（中文强）→ 本地 LLM 归纳成结构化笔记（章节 / 重点 / 疑点 / 提纲 / 思维导图）→ 存可搜索笔记；④ 复习：平板 / 笔记本 / 手机随时关键词搜索。<span class="en">① Clip &amp; record. ② Optional live caption. ③ Export to M4 → Whisper → LLM notes. ④ Search anywhere.</span></p>
 
-    <h2>四、Mac Mini M4 本地部署<span class="en">4. Local M4 Setup</span></h2>
-    <p>转写用 <strong>openai-whisper</strong>（或 whisper.cpp，Apple Silicon 原生更快）；归纳用 <strong>Ollama 跑 Qwen3-VL</strong> 本地推理。流程：课堂录音 → Whisper 转写中文 → 喂给本地 LLM → 输出结构化笔记，可写成脚本批量处理整周音频。<span class="en">Transcribe with Whisper; summarize with local Qwen3-VL via Ollama. Chain both in a script to batch a week's audio.</span></p>
+    <h2>Mac Mini M4 本地部署<span class="en">Local M4 Setup</span></h2>
+    <p>转写用 <strong class="term">openai-whisper</strong>（或 whisper.cpp，Apple Silicon 原生更快）；归纳用 <strong class="term">Ollama 跑 Qwen3-VL</strong> 本地推理。流程：课堂录音 → <span class="term">Whisper</span> 转写中文 → 喂给本地 LLM → 输出结构化笔记，可写成脚本批量处理整周音频。<span class="en">Transcribe with Whisper; summarize with local Qwen3-VL via Ollama. Chain both in a script to batch a week's audio.</span></p>
 
-    <h2>五、注意事项<span class="en">5. Notes</span></h2>
+    <h2>注意事项<span class="en">Notes</span></h2>
     <p>· 收音：Mic Pro 夹衣领、距嘴 15–20cm，人声最干净；· 合规：录音前跟老师知会一声（香港课堂隐私礼仪）；· 备份：笔记多重备份（iCloud / WPS 知识库 / 移动硬盘）；· 电量：M4 在宿舍插电，便携屏选 Type-C 一线连。<span class="en">Mic 15–20cm from mouth; inform the teacher before recording; multi-backup notes; M4 on power at dorm.</span></p>
 
     <p class="meta">— 方案终版 v3（2026-09-25）· 阿禾整理 —</p>

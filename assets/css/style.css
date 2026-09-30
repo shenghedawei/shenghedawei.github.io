@@ -5,6 +5,7 @@
   --graphite:#6a6a6a;
   --insurance:#3f7a5e;
   --living:#6b7ba0;
+  --en-trans:#50697d;        /* 翻译英文：钢蓝，与中文（墨色）明显区分 */
   --maxw:1000px;
   --card:rgba(255,253,248,.94);
   --overlay:rgba(22,19,15,.52);
@@ -22,6 +23,13 @@ body{
 img{max-width:100%;height:auto;}
 h1,h2,h3{font-family:"Noto Serif SC","Songti SC","SimSun",serif;font-weight:600;line-height:1.3;margin:0;}
 a{text-decoration:none;}
+
+/* 颜色约定（全站统一）：
+   中文 + 英文专有名词（物品本名，须用英文名者，如 PADI / DAN / Mac Mini M4）→ 墨色 --ink，与中文同色
+   翻译英文（中文的英文对照）→ 钢蓝 --en-trans，与中文区分
+   用法：正文英文名牌用 <span class="term">；翻译整段/整句英文用 <span class="en"> */
+.term{color:var(--ink);}
+
 .bg{position:fixed;inset:0;background-size:cover;background-position:center;z-index:-2;}
 .overlay{position:fixed;inset:0;background:var(--overlay);z-index:-1;}
 
@@ -59,9 +67,9 @@ a{text-decoration:none;}
 .tag-insurance{background:var(--insurance);}
 .tag-living{background:var(--living);}
 .card h3{font-size:1.45rem;color:var(--ink);}
-.card h3 .en{display:block;font-size:.8rem;font-family:"Noto Sans SC";font-weight:400;color:#5c544a;margin-top:.2rem;letter-spacing:.05em;}
+.card h3 .en{display:block;font-size:.8rem;font-family:"Noto Sans SC";font-weight:400;color:var(--en-trans);margin-top:.2rem;letter-spacing:.05em;}
 .card p{color:#5c544a;font-size:.95rem;margin:.6rem 0 0;}
-.card p .en{display:block;font-size:.85rem;opacity:.85;margin-top:.25rem;}
+.card p .en{display:block;font-size:.85rem;color:var(--en-trans);opacity:.95;margin-top:.25rem;}
 
 /* 板块标题区 */
 .pagehead{padding:3.8rem 0 1.4rem;text-align:center;}
@@ -83,20 +91,21 @@ a{text-decoration:none;}
 .post h3{margin:.25rem 0;font-size:1.2rem;color:var(--ink);}
 .post p{color:#5c544a;font-size:.92rem;margin:.25rem 0 0;}
 .section-h{font-size:1.4rem;margin:1.6rem 0 .3rem;color:var(--ink);border-left:4px solid var(--terra);padding-left:.7rem;}
-.section-h .en{font-size:.85rem;font-weight:400;color:#8a8070;margin-left:.4rem;}
+.section-h .en{font-size:.85rem;font-weight:400;color:var(--en-trans);margin-left:.4rem;}
 .section-h.sea{border-color:var(--sea);}
 
 /* 文章 */
 .article{max-width:760px;margin:0 auto;}
 .article .meta{color:#8a8070;font-size:.85rem;}
 .article h1{font-size:2.1rem;margin:.4rem 0 1.2rem;color:var(--ink);}
-.article h1 .en{display:block;font-size:.95rem;font-weight:400;color:#8a8070;margin-top:.3rem;}
+.article h1 .en{display:block;font-size:.95rem;font-weight:400;color:var(--en-trans);margin-top:.3rem;}
 .article h2{font-size:1.4rem;margin:1.8rem 0 .5rem;color:var(--ink);}
 .article p{margin:1rem 0;color:#3a342c;}
+.article p .en{color:var(--en-trans);}   /* 翻译英文：钢蓝，与中文区分 */
 .placeholder{text-align:center;padding:3rem 1rem;color:#5c544a;}
 .placeholder .badge{display:inline-block;background:var(--graphite);color:#fff;font-size:.75rem;padding:.2rem .8rem;border-radius:999px;margin-bottom:1.2rem;letter-spacing:.05em;}
 .placeholder h1{color:var(--ink);}
-.placeholder h1 .en{display:block;font-size:1rem;font-weight:400;opacity:.7;margin-top:.3rem;}
+.placeholder h1 .en{display:block;font-size:1rem;font-weight:400;color:var(--en-trans);opacity:.85;margin-top:.3rem;}
 .placeholder a{color:var(--graphite);}
 
 .footer{border-top:1px solid rgba(255,255,255,.15);padding:1.6rem 0;color:rgba(255,255,255,.75);font-size:.82rem;text-align:center;margin-top:2.5rem;text-shadow:0 1px 6px rgba(0,0,0,.4);}
