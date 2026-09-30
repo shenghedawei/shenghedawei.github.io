@@ -1,6 +1,9 @@
 # WorkBuddy 内部/隐私目录，不入库
 .workbuddy/
 
+# 本地校验临时文件（下划线开头），不发布到站点
+_*
+
 # 系统/编辑器
 .DS_Store
 Thumbs.db
