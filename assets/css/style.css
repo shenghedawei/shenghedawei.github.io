@@ -3,6 +3,8 @@
   --sea:#3a8aa0;
   --terra:#c2683a;
   --graphite:#6a6a6a;
+  --insurance:#3f7a5e;
+  --living:#6b7ba0;
   --maxw:1000px;
   --card:rgba(255,253,248,.94);
   --overlay:rgba(22,19,15,.52);
@@ -54,6 +56,8 @@ a{text-decoration:none;}
 .tag-diving{background:var(--sea);}
 .tag-heritage{background:var(--terra);}
 .tag-making{background:var(--graphite);}
+.tag-insurance{background:var(--insurance);}
+.tag-living{background:var(--living);}
 .card h3{font-size:1.45rem;color:var(--ink);}
 .card h3 .en{display:block;font-size:.8rem;font-family:"Noto Sans SC";font-weight:400;color:#5c544a;margin-top:.2rem;letter-spacing:.05em;}
 .card p{color:#5c544a;font-size:.95rem;margin:.6rem 0 0;}
