@@ -5,6 +5,7 @@
   --graphite:#6a6a6a;
   --insurance:#3f7a5e;
   --living:#6b7ba0;
+  --notes:#7d6aa6;           /* 日常手札 */
   --en-trans:#50697d;        /* 翻译英文：钢蓝，与中文（墨色）明显区分 */
   --maxw:1000px;
   --card:rgba(255,253,248,.94);
@@ -66,6 +67,7 @@ a{text-decoration:none;}
 .tag-making{background:var(--graphite);}
 .tag-insurance{background:var(--insurance);}
 .tag-living{background:var(--living);}
+.tag-notes{background:var(--notes);}
 .card h3{font-size:1.45rem;color:var(--ink);}
 .card h3 .en{display:block;font-size:.8rem;font-family:"Noto Sans SC";font-weight:400;color:var(--en-trans);margin-top:.2rem;letter-spacing:.05em;}
 .card p{color:#5c544a;font-size:.95rem;margin:.6rem 0 0;}
