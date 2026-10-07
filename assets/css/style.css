@@ -10,26 +10,65 @@
   --maxw:1000px;
   --card:rgba(255,253,248,.94);
   --overlay:rgba(22,19,15,.52);
+
+  /* ============ 排版标准（2026-10-07 定，全站唯一标准）============
+     规范文档见 .workbuddy/排版标准.md ；改动前先读它，别凭感觉调。
+     中文正文 17px / 英文对照 15.6px(.975rem) / 行高 1.75 —— 桌面基准。
+     手机端在文件末尾 @media(max-width:640px) 统一收一档（正文 16px）。
+  */
+  /* 字号阶梯（桌面） */
+  --fs-body:17px;        /* 正文中文基准 */
+  --fs-en:.975rem;       /* 英文对照 = 中文 ×0.92，略小以区分 */
+  --fs-h1:2.1rem;        /* 文章主标题 */
+  --fs-h2:1.4rem;        /* 小节标题 */
+  --fs-h3:1.45rem;       /* 卡片标题 */
+  --fs-section:1.4rem;   /* 板块小标题 */
+  --fs-meta:.85rem;      /* 日期/元信息 */
+  --fs-crumb:.85rem;     /* 面包屑 */
+  --fs-post:.92rem;      /* 列表摘要 */
+  --fs-post-h3:1.2rem;   /* 列表条目标题 */
+  --fs-tag:.7rem;        /* 标签胶囊 */
+  --fs-foot:.82rem;      /* 页脚 */
+  /* 行高 */
+  --lh-body:1.75;        /* 正文 */
+  --lh-title:1.3;        /* 标题 */
+  --lh-en:1.7;           /* 英文对照 */
+  /* 文字颜色 */
+  --c-ink:var(--ink);        /* 中文正文：墨色 */
+  --c-en:var(--en-trans);   /* 英文翻译：钢蓝 */
+  --c-term:var(--ink);       /* 英文专有名词本名：与中文同色 */
+  --c-muted:#5c544a;    /* 次要中文（卡片摘要） */
+  --c-faint:#8a8070;    /* 元信息/日期 */
+  --c-crumb:#7a7060;    /* 面包屑 */
+  /* 字体栈：等线（Windows/Office）→ Noto Sans SC（开源兜底）→ 苹方 → 雅黑 → 黑体 */
+  --font-hei:"DengXian","等线","Noto Sans SC","PingFang SC","Microsoft YaHei","Heiti SC","SimHei",sans-serif;
+  --font-hei-bold:"DengXian Bold","等线","Noto Sans SC","PingFang SC","Microsoft YaHei","Heiti SC","SimHei",sans-serif;
 }
 *{box-sizing:border-box;}
 html{-webkit-text-size-adjust:100%;}
 body{
   margin:0;
-  font-family:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;
+  font-family:var(--font-hei);
   color:#f4efe6;
-  font-size:17px;line-height:1.75;
+  font-size:var(--fs-body);line-height:var(--lh-body);
   -webkit-font-smoothing:antialiased;
   overflow-wrap:break-word;
 }
 img{max-width:100%;height:auto;}
-h1,h2,h3{font-family:"Noto Serif SC","Songti SC","SimSun",serif;font-weight:600;line-height:1.3;margin:0;}
+/* 标题：2026-10-07 由「思源宋体类 600」改为「等线优先无衬线 700」。
+   原因：宋体笔画有粗细对比，小字号下发丝笔画显细；等线/黑体笔画均匀、清晰。
+   ⚠️ 等线只有 Windows/Office 有，手机与 Mac 会回退到 Noto Sans SC / 苹方，
+      均为无衬线，同样清晰——不要为省事改回宋体。 */
+h1,h2,h3{font-family:var(--font-hei-bold);font-weight:700;line-height:var(--lh-title);margin:0;}
 a{text-decoration:none;}
 
-/* 颜色约定（全站统一）：
-   中文 + 英文专有名词（物品本名，须用英文名者，如 PADI / DAN / Mac Mini M4）→ 墨色 --ink，与中文同色
-   翻译英文（中文的英文对照）→ 钢蓝 --en-trans，与中文区分
-   用法：正文英文名牌用 <span class="term">；翻译整段/整句英文用 <span class="en"> */
-.term{color:var(--ink);}
+/* 颜色约定（全站统一，2026-10-07 固化）：
+   1) 中文正文 → 墨色 --ink（--c-ink）
+   2) 英文专有名词/物品本名（必须写英文者：PADI / DAN / Nitrox / Mac Mini M4…）
+      → 墨色，与中文同色，用 <span class="term">
+   3) 英文翻译（中文的英文对照）→ 钢蓝 --en-trans，用 <span class="en">
+   字体：中文与英文对照用同一无衬线栈，英文仅靠字号(0.92×)与颜色区分。 */
+.term{color:var(--c-term);}
 
 .bg{position:fixed;inset:0;background-size:cover;background-position:center;z-index:-2;}
 .overlay{position:fixed;inset:0;background:var(--overlay);z-index:-1;}
@@ -37,7 +76,7 @@ a{text-decoration:none;}
 /* 导航 */
 .topbar{position:sticky;top:0;z-index:50;background:rgba(20,18,15,.45);backdrop-filter:blur(6px);border-bottom:1px solid rgba(255,255,255,.15);}
 .topbar .wrap{max-width:var(--maxw);margin:0 auto;padding:.7rem 1.2rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;}
-.brand{display:block;font-family:"Noto Serif SC",serif;font-size:1.35rem;font-weight:700;color:#fff;line-height:1.15;white-space:nowrap;flex:0 0 auto;background:url("../img/logo.svg") left center/30px 30px no-repeat;padding-left:2.38rem;}
+.brand{display:block;font-family:var(--font-hei-bold);font-size:1.35rem;font-weight:700;color:#fff;line-height:1.15;white-space:nowrap;flex:0 0 auto;background:url("../img/logo.svg") left center/30px 30px no-repeat;padding-left:2.38rem;}
 .brand small{display:block;font-family:"Noto Sans SC";font-size:.62rem;color:rgba(255,255,255,.7);letter-spacing:.18em;margin-top:.16rem;}
 .brand:hover{color:#fff;}
 .nav{display:flex;align-items:center;gap:1.1rem;flex:0 1 auto;}
@@ -53,7 +92,7 @@ a{text-decoration:none;}
 .hero{padding:5.5rem 0 3.5rem;text-align:center;}
 .hero .kicker{letter-spacing:.35em;font-size:.78rem;color:#f0c9a8;text-transform:uppercase;}
 .hero h1{font-size:3rem;margin:.6rem 0;color:#fff;text-shadow:0 2px 18px rgba(0,0,0,.5);}
-.hero h1 .en{display:block;font-size:1.1rem;letter-spacing:.18em;font-weight:400;opacity:.9;margin-top:.35rem;font-family:"Noto Serif SC",serif;}
+.hero h1 .en{display:block;font-size:1.1rem;letter-spacing:.18em;font-weight:400;opacity:.9;margin-top:.35rem;font-family:var(--font-hei-bold);}
 .hero p{color:rgba(255,255,255,.92);max-width:44rem;margin:1rem auto 0;font-size:1.05rem;text-shadow:0 1px 8px rgba(0,0,0,.5);}
 .hero p .en{display:block;font-size:.92rem;opacity:.82;margin-top:.3rem;font-style:italic;}
 
@@ -61,61 +100,90 @@ a{text-decoration:none;}
 .boards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem;margin-top:1rem;}
 .card{background:var(--card);color:var(--ink);border-radius:16px;padding:1.7rem;box-shadow:0 12px 40px rgba(0,0,0,.35);transition:transform .2s,box-shadow .2s;display:block;}
 .card:hover{transform:translateY(-5px);box-shadow:0 18px 50px rgba(0,0,0,.45);text-decoration:none;}
-.card .tag{display:inline-block;font-size:.7rem;padding:.18rem .65rem;border-radius:999px;color:#fff;margin-bottom:.9rem;letter-spacing:.05em;}
+.card .tag{display:inline-block;font-size:var(--fs-tag);padding:.18rem .65rem;border-radius:999px;color:#fff;margin-bottom:.9rem;letter-spacing:.05em;}
 .tag-diving{background:var(--sea);}
 .tag-heritage{background:var(--terra);}
 .tag-making{background:var(--graphite);}
 .tag-insurance{background:var(--insurance);}
 .tag-living{background:var(--living);}
 .tag-notes{background:var(--notes);}
-.card h3{font-size:1.45rem;color:var(--ink);}
-.card h3 .en{display:block;font-size:.8rem;font-family:"Noto Sans SC";font-weight:400;color:var(--en-trans);margin-top:.2rem;letter-spacing:.05em;}
-.card p{color:#5c544a;font-size:.95rem;margin:.6rem 0 0;}
-.card p .en{display:block;font-size:.85rem;color:var(--en-trans);opacity:.95;margin-top:.25rem;}
+.card h3{font-size:var(--fs-h3);color:var(--ink);}
+.card h3 .en{display:block;font-size:.8rem;font-family:var(--font-hei);font-weight:400;color:var(--c-en);margin-top:.2rem;letter-spacing:.05em;}
+.card p{color:var(--c-muted);font-size:.95rem;margin:.6rem 0 0;}
+.card p .en{display:block;font-size:.85rem;color:var(--c-en);opacity:.95;margin-top:.25rem;}
 
 /* 板块标题区 */
 .pagehead{padding:3.8rem 0 1.4rem;text-align:center;}
 .pagehead h1{font-size:2.4rem;color:#fff;text-shadow:0 2px 16px rgba(0,0,0,.5);}
-.pagehead h1 .en{display:block;font-size:1rem;font-weight:400;opacity:.9;margin-top:.3rem;letter-spacing:.08em;}
+.pagehead h1 .en{display:block;font-size:1rem;font-weight:400;opacity:.9;margin-top:.3rem;letter-spacing:.08em;font-family:var(--font-hei-bold);}
 .pagehead p{color:rgba(255,255,255,.92);max-width:42rem;margin:.8rem auto 0;text-shadow:0 1px 8px rgba(0,0,0,.5);}
 .pagehead p .en{display:block;font-size:.92rem;opacity:.82;margin-top:.3rem;font-style:italic;}
 
 /* 内容面板（列表/文章） */
 .panel{background:var(--card);color:var(--ink);border-radius:16px;padding:1.8rem 2rem;box-shadow:0 12px 40px rgba(0,0,0,.35);margin:1rem 0;}
-.crumb{font-size:.85rem;color:#7a7060;margin-bottom:1rem;}
+.crumb{font-size:var(--fs-crumb);color:var(--c-crumb);margin-bottom:1rem;}
 .crumb>*{white-space:nowrap;}
-.crumb a{color:#7a7060;}
+.crumb a{color:var(--c-crumb);}
 .crumb .en{opacity:.7;}
 .post{display:block;padding:1.1rem 0;border-bottom:1px solid #e3dcca;color:var(--ink);}
 .post:last-child{border-bottom:none;}
 .post:hover{text-decoration:none;}
-.post .meta{font-size:.76rem;color:#8a8070;letter-spacing:.03em;}
-.post h3{margin:.25rem 0;font-size:1.2rem;color:var(--ink);}
-.post p{color:#5c544a;font-size:.92rem;margin:.25rem 0 0;}
-.section-h{font-size:1.4rem;margin:1.6rem 0 .3rem;color:var(--ink);border-left:4px solid var(--terra);padding-left:.7rem;}
-.section-h .en{font-size:.85rem;font-weight:400;color:var(--en-trans);margin-left:.4rem;}
+.post .meta{font-size:.76rem;color:var(--c-faint);letter-spacing:.03em;}
+.post h3{margin:.25rem 0;font-size:var(--fs-post-h3);color:var(--ink);}
+.post p{color:var(--c-muted);font-size:var(--fs-post);margin:.25rem 0 0;}
+.section-h{font-size:var(--fs-section);margin:1.6rem 0 .3rem;color:var(--ink);border-left:4px solid var(--terra);padding-left:.7rem;}
+.section-h .en{font-size:.85rem;font-weight:400;color:var(--c-en);margin-left:.4rem;}
 .section-h.sea{border-color:var(--sea);}
 
 /* 文章 */
+/* 文章（正文宽度 760px） */
 .article{max-width:760px;margin:0 auto;}
-.article .meta{color:#8a8070;font-size:.85rem;}
-.article h1{font-size:2.1rem;margin:.4rem 0 1.2rem;color:var(--ink);}
-.article h1 .en{display:block;font-size:.95rem;font-weight:400;color:var(--en-trans);margin-top:.3rem;}
-.article h2 .en{display:block;font-size:.95rem;font-weight:400;color:var(--en-trans);margin-top:.3rem;}
-.article h2{font-size:1.4rem;margin:1.8rem 0 .5rem;color:var(--ink);}
-.article p{margin:1rem 0;color:#3a342c;}
-.article p .en{display:block;font-size:.92rem;line-height:1.7;color:var(--en-trans);margin-top:.45rem;}   /* 翻译英文：另起一段，钢蓝与中文区分 */
-.placeholder{text-align:center;padding:3rem 1rem;color:#5c544a;}
-.placeholder .badge{display:inline-block;background:var(--graphite);color:#fff;font-size:.75rem;padding:.2rem .8rem;border-radius:999px;margin-bottom:1.2rem;letter-spacing:.05em;}
+.article .meta{color:var(--c-faint);font-size:var(--fs-meta);}
+.article h1{font-size:var(--fs-h1);margin:.4rem 0 1.2rem;color:var(--ink);}
+.article h1 .en{display:block;font-size:var(--fs-en);font-weight:400;color:var(--c-en);margin-top:.3rem;}
+.article h2{font-size:var(--fs-h2);margin:1.8rem 0 .5rem;color:var(--ink);}
+.article h2 .en{display:block;font-size:var(--fs-en);font-weight:400;color:var(--c-en);margin-top:.3rem;}
+/* 中文正文：墨色，17px / 行高 1.75 */
+.article p{margin:1rem 0;color:var(--c-ink);font-size:var(--fs-body);line-height:var(--lh-body);}
+/* 英文对照：钢蓝，字号为中文的 0.92 倍，另起一段 */
+.article p .en{display:block;font-size:var(--fs-en);line-height:var(--lh-en);color:var(--c-en);margin-top:.45rem;}
+/* 强调：中文正文用墨色加粗，英文名牌用 .term（与中文同色） */
+.article p b{font-weight:700;color:var(--ink);}
+/* 表格：中文墨色、英文对照钢蓝且缩小，与正文规则一致 */
+.article table{width:100%;border-collapse:collapse;background:#fffdf8;border-radius:10px;overflow:hidden;margin-top:.4rem;font-size:var(--fs-post);color:var(--c-ink);}
+.article table th,.article table td{border:1px solid #e3dcca;padding:.6rem .7rem;text-align:left;vertical-align:top;}
+.article table th{background:#efe9da;color:var(--c-ink);font-weight:700;}
+.article table .en{color:var(--c-en);font-size:var(--fs-en);}
+/* 表格里用作分类标记的语义色（便利度分级：易/中/难），统一为一个基类 + 修饰类 */
+.article table td .mk,.article p .mk{font-weight:700;}
+.article .mk.g{color:#2f7d4f;}   /* 绿：平日可去 / 易 */
+.article .mk.o{color:#b9770e;}   /* 橙：周末专程 / 中 */
+.article .mk.r{color:#c0392b;}   /* 红：需包船/徒步 / 难 */
+/* 列表：与正文同色，行高略宽便于呼吸 */
+.article ul,.article ol{color:var(--c-ink);line-height:1.9;}
+.article li{margin:.35rem 0;}
+.placeholder{text-align:center;padding:3rem 1rem;color:var(--c-muted);}
+.placeholder .badge{display:inline-block;background:var(--graphite);color:#fff;font-size:var(--fs-tag);padding:.2rem .8rem;border-radius:999px;margin-bottom:1.2rem;letter-spacing:.05em;}
 .placeholder h1{color:var(--ink);}
-.placeholder h1 .en{display:block;font-size:1rem;font-weight:400;color:var(--en-trans);opacity:.85;margin-top:.3rem;}
+.placeholder h1 .en{display:block;font-size:1rem;font-weight:400;color:var(--c-en);opacity:.85;margin-top:.3rem;}
 .placeholder a{color:var(--graphite);}
 
-.footer{border-top:1px solid rgba(255,255,255,.15);padding:1.6rem 0;color:rgba(255,255,255,.75);font-size:.82rem;text-align:center;margin-top:2.5rem;text-shadow:0 1px 6px rgba(0,0,0,.4);}
+.footer{border-top:1px solid rgba(255,255,255,.15);padding:1.6rem 0;color:rgba(255,255,255,.75);font-size:var(--fs-foot);text-align:center;margin-top:2.5rem;text-shadow:0 1px 6px rgba(0,0,0,.4);}
 
-/* ============ 手机适配 ============ */
+/* ============ 手机适配（≤640px）============
+   规则：只改「一个」变量来整体收档，避免逐条硬改。
+   字号 = 桌面值 × 0.94（正文 17→16px，英文对照同步缩放），字重行高不变。 */
 @media(max-width:640px){
-  body{font-size:16px;}
+  :root{
+    --fs-body:16px;
+    --fs-en:.92rem;
+    --fs-h1:1.6rem;
+    --fs-h2:1.22rem;
+    --fs-h3:1.26rem;
+    --fs-section:1.2rem;
+    --fs-post-h3:1.05rem;
+  }
+  body{font-size:var(--fs-body);}
   .wrap{padding:0 1.05rem;}
 
   /* 顶部栏改两行：品牌独占一行，导航另起一行；避免汉字/英文被挤断行 */
@@ -134,7 +202,6 @@ a{text-decoration:none;}
 
   .boards{gap:1.1rem;}
   .card{padding:1.35rem;border-radius:14px;}
-  .card h3{font-size:1.26rem;}
 
   .pagehead{padding:2.3rem 0 1rem;}
   .pagehead h1{font-size:1.72rem;}
@@ -142,11 +209,6 @@ a{text-decoration:none;}
 
   .panel{padding:1.35rem 1.15rem;border-radius:14px;}
   .crumb{font-size:.78rem;line-height:1.6;}
-  .post h3{font-size:1.05rem;}
-  .section-h{font-size:1.2rem;}
-
-  .article h1{font-size:1.6rem;}
-  .article h2{font-size:1.22rem;}
   .placeholder{padding:2.2rem .8rem;}
 
   .footer{font-size:.76rem;margin-top:2rem;}
