@@ -36,7 +36,7 @@ a{text-decoration:none;}
 /* 导航 */
 .topbar{position:sticky;top:0;z-index:50;background:rgba(20,18,15,.45);backdrop-filter:blur(6px);border-bottom:1px solid rgba(255,255,255,.15);}
 .topbar .wrap{max-width:var(--maxw);margin:0 auto;padding:.7rem 1.2rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;}
-.brand{display:block;font-family:"Noto Serif SC",serif;font-size:1.35rem;font-weight:700;color:#fff;line-height:1.15;white-space:nowrap;flex:0 0 auto;}
+.brand{display:block;font-family:"Noto Serif SC",serif;font-size:1.35rem;font-weight:700;color:#fff;line-height:1.15;white-space:nowrap;flex:0 0 auto;background:url("../img/logo.svg") left center/30px 30px no-repeat;padding-left:2.38rem;}
 .brand small{display:block;font-family:"Noto Sans SC";font-size:.62rem;color:rgba(255,255,255,.7);letter-spacing:.18em;margin-top:.16rem;}
 .brand:hover{color:#fff;}
 .nav{display:flex;align-items:center;gap:1.1rem;flex:0 1 auto;}
@@ -118,7 +118,7 @@ a{text-decoration:none;}
 
   /* 顶部栏改两行：品牌独占一行，导航另起一行；避免汉字/英文被挤断行 */
   .topbar .wrap{padding:.62rem 1.05rem .5rem;row-gap:.42rem;}
-  .brand{font-size:1.12rem;letter-spacing:.01em;}
+  .brand{font-size:1.12rem;letter-spacing:.01em;background-size:26px 26px;padding-left:2.1rem;}
   .brand small{font-size:.54rem;letter-spacing:.14em;margin-top:.1rem;}
   .nav{width:100%;justify-content:space-between;gap:.35rem;border-top:1px solid rgba(255,255,255,.14);padding-top:.5rem;}
   .nav a{flex:1 1 0;min-width:0;display:flex;flex-direction:column;align-items:center;text-align:center;font-size:.86rem;line-height:1.2;padding:.42rem .1rem;}
@@ -152,7 +152,7 @@ a{text-decoration:none;}
 
 /* 窄屏（≤380px，如 iPhone SE）再收一档 */
 @media(max-width:380px){
-  .brand{font-size:1.02rem;}
+  .brand{font-size:1.02rem;background-size:23px 23px;padding-left:1.9rem;}
   .brand small{font-size:.5rem;}
   .nav a{font-size:.8rem;}
   .nav a .en{font-size:.55rem;}
