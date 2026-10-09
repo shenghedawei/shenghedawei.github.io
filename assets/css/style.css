@@ -130,8 +130,9 @@ a{text-decoration:none;}
 .post:hover{text-decoration:none;}
 .post .meta{font-size:.76rem;color:var(--c-faint);letter-spacing:.03em;}
 .post h3{margin:.25rem 0;font-size:var(--fs-post-h3);color:var(--ink);}
+.post h3 .en{display:block;font-size:var(--fs-en);font-weight:400;color:var(--c-en);margin-top:.2rem;line-height:var(--lh-en);}
 .post p{color:var(--c-muted);font-size:var(--fs-post);margin:.25rem 0 0;}
-.section-h{font-size:var(--fs-section);margin:1.6rem 0 .3rem;color:var(--ink);border-left:4px solid var(--terra);padding-left:.7rem;}
+.section-h{font-family:var(--font-hei-bold);font-weight:700;font-size:var(--fs-section);margin:1.6rem 0 .3rem;color:var(--ink);border-left:4px solid var(--terra);padding-left:.7rem;}
 .section-h .en{font-size:.85rem;font-weight:400;color:var(--c-en);margin-left:.4rem;}
 .section-h.sea{border-color:var(--sea);}
 
