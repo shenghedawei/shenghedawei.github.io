@@ -461,27 +461,49 @@ const RES=[
   plan:"建议方向：<b>先做小额测试（15 年缴的低门槛档）</b>，放 5 年不动，感受一下它的节奏，再决定是否加大。"}
 ];
 let i=0,score=0,lastRes=null;
-const QR_URL='wechat-qr.png?v=2';
+// 二维码多源回退：任一路径命中即可，避免部署目录/文件名不一致导致加载失败
+const QR_SRCS=['wechat-qr.png','wechat-qr-clean.png','insurance/wechat-qr.png'];
 
 /* ── 生成客户专属结果图（3:4，1080×1440） ── */
 function genShot(){
   if(!lastRes)return;
   const r=lastRes, C=document.createElement('canvas');
-  C.width=1080; C.height=1440;
-  const x=C.getContext('2d');
   const W=1080;
+  const T=(()=>{ // 临时离屏画布，仅用于量文字
+    const t=document.createElement('canvas'); t.width=W; t.height=10;
+    return t.getContext('2d');
+  })();
+  const F='"Microsoft YaHei","PingFang SC","PingFang TC",sans-serif';
+  T.textAlign='left'; T.font='32px '+F;
+  const words=r.plan.replace(/<[^>]+>/g,'');
+  const maxW=W-250, LH=52, lines=[]; let line='';
+  for(const ch of words){
+    if(T.measureText(line+ch).width>maxW){ lines.push(line); line=ch; }
+    else line+=ch;
+  }
+  if(line) lines.push(line);
+
+  // 垂直版位（全部由内容推导，任何文案长度都不会压字）
+  const yBody0=790, yBodyEnd=yBody0+(lines.length-1)*LH;
+  const yNote=yBodyEnd+52;
+  const QS=248, cw=QS+28, chh=QS+28, cx0=(W-cw)/2;
+  const cy0=yNote+96;                 // 白框顶
+  const B=cy0+chh;                   // 白框底
+  const H=B+228+70;                  // 画布总高（底部留 70px 呼吸）
+
+  C.width=W; C.height=H;
+  const x=C.getContext('2d');
 
   // 背景渐变
-  const g=x.createLinearGradient(0,0,0,1440);
+  const g=x.createLinearGradient(0,0,0,H);
   g.addColorStop(0,'#1C1C1C'); g.addColorStop(.5,'#3A2E12'); g.addColorStop(1,'#6B5312');
-  x.fillStyle=g; x.fillRect(0,0,W,1440);
+  x.fillStyle=g; x.fillRect(0,0,W,H);
   const rg=x.createRadialGradient(W/2,0,0,W/2,0,620);
   rg.addColorStop(0,'rgba(212,160,23,.30)'); rg.addColorStop(1,'rgba(212,160,23,0)');
-  x.fillStyle=rg; x.fillRect(0,0,W,1440);
+  x.fillStyle=rg; x.fillRect(0,0,W,H);
   x.strokeStyle='rgba(140,112,45,.9)'; x.lineWidth=3;
-  x.strokeRect(30,30,W-60,1440-60);
+  x.strokeRect(30,30,W-60,H-60);
 
-  const F='"Microsoft YaHei","PingFang SC","PingFang TC",sans-serif';
   const ctr=(t,y,size,color,weight)=>{
     x.font=(weight||'normal')+' '+size+'px '+F; x.fillStyle=color; x.textAlign='center';
     x.fillText(t,W/2,y);
@@ -495,57 +517,70 @@ function genShot(){
 
   // 匹配度卡片
   x.fillStyle='rgba(255,255,255,.07)'; x.strokeStyle='rgba(212,160,23,.35)'; x.lineWidth=2;
-  x.beginPath(); x.roundRect(90,344,W-180,286,24); x.fill(); x.stroke();
-  ctr('匹 配 得 分',394,28,'#D8C79C');
-  ctr(r.score+' / 15',468,86,'#F5D97A','bold');
-  ctr(r.lv,558,56,'#F5D97A','bold');
-  ctr(r.tone,614,29,'#EFE4C6');
-  ctr('—— 關鍵配置方向 ——',666,26,'#C9A96A');
-  ctr('本測評為產品邏輯簡化推演 · 具體以正式建議書為準',704,20,'#9A8E72');
+  x.beginPath(); x.roundRect(90,344,W-180,300,24); x.fill(); x.stroke();
+  ctr('匹 配 得 分',388,28,'#D8C79C');
+  ctr(r.score+' / 15',470,86,'#F5D97A','bold');
+  ctr(r.lv,562,52,'#F5D97A','bold');
+  ctr(r.tone,624,28,'#EFE4C6');
+  ctr('—— 關鍵配置方向 ——',700,26,'#C9A96A');
 
-  // 建议正文（逐字换行）
-  x.textAlign='left';
-  const words=r.plan.replace(/<[^>]+>/g,'');
-  x.font='32px '+F; x.fillStyle='#F0E8D2';
-  let line='', yy=714;
-  const maxW=W-250;
-  for(const ch of words){
-    if(x.measureText(line+ch).width>maxW){ x.fillText(line,125,yy); line=ch; yy+=48; }
-    else line+=ch;
-  }
-  x.fillText(line,125,yy);
+  // 建议正文
+  x.textAlign='left'; x.font='32px '+F; x.fillStyle='#F0E8D2';
+  lines.forEach((t,k)=>x.fillText(t,125,yBody0+k*LH));
 
-  // 白框：紧贴二维码
-  const qs=272, cw=qs+28, chh=qs+28, cx0=(W-cw)/2, cy0=822;
+  // 免责声明（正文之下，固定不争位）
+  ctr('本測評為產品邏輯簡化推演 · 具體以正式建議書為準',yNote,20,'#9A8E72');
+
+  // 白框
   x.fillStyle='#fff';
   x.beginPath(); x.roundRect(cx0,cy0,cw,chh,16); x.fill();
 
+  const finish=()=>{
+    document.getElementById('shot').src=C.toDataURL('image/png');
+    document.getElementById('mask').classList.add('on');
+  };
+
   const qr=new Image();
   qr.onload=()=>{
-    x.drawImage(qr, cx0+14, cy0+14, qs, qs);
-    const B = cy0+chh;   // 白框底边
-
-    // 框外：行动指引
+    x.drawImage(qr, cx0+14, cy0+14, QS, QS);
     ctr('長按識別二維碼 · 添加專屬顧問微信',B+46,28,'#F5D97A','bold');
-
-    // 框外：添加微信的好处（大字）
     ctr('為您做一份專屬測算表',B+100,40,'#FFFFFF','bold');
     ctr('保額 · 繳付期 · 入息起點 · 利益演示 全部算給您看',B+148,28,'#E8DCB8');
     ctr('不強推銷，先把數字攤開  再一起決定',B+188,28,'#E8DCB8');
-
     ctr('備註「宏摯傳承」+ 您的年齡',B+228,25,'#D4A017','bold');
-
-
-    document.getElementById('shot').src=C.toDataURL('image/png');
-    document.getElementById('mask').classList.add('on');
+    finish();
   };
-  qr.onerror=()=>{
-    x.textAlign='center'; x.fillStyle='#333'; x.font='26px '+F;
-    x.fillText('二維碼加載失敗，請長按網頁上的二維碼圖片', W/2, cy0+chh/2);
-    document.getElementById('shot').src=C.toDataURL('image/png');
-    document.getElementById('mask').classList.add('on');
+  let tries=0;
+  const nextQR=()=>{
+    if(tries>=QR_SRCS.length){
+      // 全部失败：给出补救指引
+      x.textAlign='center';
+      x.fillStyle='#8A6508'; x.font='30px '+F;
+      x.fillText('二維碼暫時加載失敗', W/2, cy0+QS/2-16);
+      x.fillStyle='#666'; x.font='22px '+F;
+      x.fillText('請關閉本頁重試，或稍後重新測一次', W/2, cy0+QS/2+22);
+      ctr('長按識別二維碼 · 添加專屬顧問微信',B+46,28,'#F5D97A','bold');
+      ctr('為您做一份專屬測算表',B+100,40,'#FFFFFF','bold');
+      ctr('保額 · 繳付期 · 入息起點 · 利益演示 全部算給您看',B+148,28,'#E8DCB8');
+      ctr('不強推銷，先把數字攤開  再一起決定',B+188,28,'#E8DCB8');
+      ctr('備註「宏摯傳承」+ 您的年齡',B+228,25,'#D4A017','bold');
+      finish();
+      return;
+    }
+    const s=QR_SRCS[tries++];
+    qr.onload=()=>{
+      x.drawImage(qr, cx0+14, cy0+14, QS, QS);
+      ctr('長按識別二維碼 · 添加專屬顧問微信',B+46,28,'#F5D97A','bold');
+      ctr('為您做一份專屬測算表',B+100,40,'#FFFFFF','bold');
+      ctr('保額 · 繳付期 · 入息起點 · 利益演示 全部算給您看',B+148,28,'#E8DCB8');
+      ctr('不強推銷，先把數字攤開  再一起決定',B+188,28,'#E8DCB8');
+      ctr('備註「宏摯傳承」+ 您的年齡',B+228,25,'#D4A017','bold');
+      finish();
+    };
+    qr.onerror=()=>{ setTimeout(nextQR, 120); };   // 换下一个源
+    qr.src=s+'?r='+Date.now();
   };
-  qr.src=QR_URL;
+  nextQR();
 }
 function closeShot(){document.getElementById('mask').classList.remove('on');}
 document.getElementById('mask').addEventListener('click',e=>{
