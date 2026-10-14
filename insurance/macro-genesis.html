@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#1C1C1C">
+<meta property="og:type" content="website">
+<meta property="og:title" content="宏摯傳承保障計劃 · 一生傳承的終身財富方案">
+<meta property="og:description" content="30 秒测一测：这份终身分红寿险适不适合你？更改受保人不限次数、身心守护预支保障、第3年起可转换7种货币。">
+<meta property="og:url" content="https://macro-genesis-legacy.app.workbuddy.host/">
+<title>宏摯傳承保障計劃 · 一生傳承的終身財富方案</title>
+<style>
+:root{
+  --gold:#B8860B; --gold2:#D4A017; --goldbg:#FDF6E3;
+  --ink:#1A1A1A; --sub:#5A5A5A; --line:#E8E2D0;
+  --red:#B23A2E; --green:#2E7D4F; --blue:#1F5F8B;
+  --card:#FFFFFF; --bg:#FBF9F4;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{font-size:20px;-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","PingFang SC","Microsoft YaHei","Noto Sans TC",sans-serif;
+  line-height:1.75;letter-spacing:.01em;
+}
+img{max-width:100%}
+.wrap{max-width:720px;margin:0 auto;padding:0 18px 130px}
+
+/* ── Hero ── */
+.hero{
+  background:linear-gradient(165deg,#1C1C1C 0%,#3A2E12 55%,#6B5312 100%);
+  color:#fff;padding:46px 22px 40px;text-align:center;position:relative;overflow:hidden;
+}
+.hero:before{content:"";position:absolute;inset:0;
+  background:radial-gradient(circle at 50% 0%,rgba(212,160,23,.28),transparent 62%);}
+.hero>*{position:relative}
+.hero .brand{font-size:.8rem;letter-spacing:.42em;color:var(--gold2);margin-bottom:16px}
+.hero h1{font-size:2.15rem;line-height:1.28;margin:0 0 14px;font-weight:800;letter-spacing:.02em}
+.hero .sub{font-size:1.02rem;color:#E8DCB8;font-weight:400;margin-bottom:22px}
+.hero .tags{display:flex;flex-wrap:wrap;gap:9px;justify-content:center}
+.hero .tags span{
+  font-size:.8rem;padding:6px 14px;border:1px solid rgba(212,160,23,.55);
+  border-radius:99px;color:#F2E4B8;background:rgba(212,160,23,.1);
+}
+.hero .hl{
+  margin-top:26px;background:rgba(255,255,255,.08);border:1px solid rgba(212,160,23,.32);
+  border-radius:16px;padding:18px 16px;
+}
+.hero .hl b{color:#F5D97A;font-size:1.28rem;display:block;margin-bottom:4px}
+.hero .hl small{color:#DCCFA8;font-size:.8rem}
+
+/* ── Sections ── */
+section{margin-top:34px}
+h2{
+  font-size:1.5rem;font-weight:800;margin:0 0 6px;line-height:1.35;
+  display:flex;align-items:flex-start;gap:10px;
+}
+h2 .no{
+  flex:0 0 auto;background:var(--gold);color:#fff;font-size:.82rem;font-weight:800;
+  width:30px;height:30px;border-radius:9px;display:flex;align-items:center;justify-content:center;
+  margin-top:5px;
+}
+.lead{color:var(--sub);font-size:.95rem;margin:0 0 18px}
+
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:18px;
+  padding:20px 18px;margin-bottom:14px;box-shadow:0 2px 10px rgba(80,60,10,.045);
+}
+.card h3{font-size:1.16rem;margin:0 0 8px;font-weight:800;display:flex;align-items:center;gap:9px}
+.card h3 .ic{
+  flex:0 0 auto;width:34px;height:34px;border-radius:10px;background:var(--goldbg);
+  display:flex;align-items:center;justify-content:center;font-size:1.05rem;
+}
+.card p{margin:8px 0 0;font-size:.95rem;color:#333}
+.card p.mut{color:var(--sub);font-size:.88rem}
+.card ul{margin:10px 0 0;padding-left:1.15em}
+.card li{margin-bottom:7px;font-size:.95rem}
+.card li b{color:var(--gold)}
+.kw{color:var(--red);font-weight:800}
+.ok{color:var(--green);font-weight:800}
+
+table{width:100%;border-collapse:collapse;font-size:.88rem;margin-top:10px}
+th,td{border:1px solid var(--line);padding:9px 8px;text-align:left;vertical-align:top}
+th{background:var(--goldbg);font-weight:800;font-size:.84rem}
+td b{color:var(--red)}
+
+.pill{
+  display:inline-block;font-size:.78rem;font-weight:800;padding:4px 11px;border-radius:99px;
+  background:var(--goldbg);color:#8A6508;border:1px solid #EBD9A6;margin:0 5px 5px 0;
+}
+.pill.r{background:#FDECEA;color:var(--red);border-color:#F3CFC9}
+.pill.g{background:#EAF6EF;color:var(--green);border-color:#C9E5D6}
+
+/* bar chart */
+.bars{margin-top:14px}
+.bar-row{display:flex;align-items:center;gap:10px;margin-bottom:11px}
+.bar-lab{flex:0 0 5.2em;font-size:.82rem;color:var(--sub);text-align:right}
+.bar-track{flex:1;background:#F1EDE2;border-radius:8px;height:26px;position:relative;overflow:hidden}
+.bar-fill{height:100%;border-radius:8px;background:linear-gradient(90deg,#D4A017,#8A6508);color:#fff;
+  font-size:.76rem;font-weight:700;display:flex;align-items:center;justify-content:flex-end;padding-right:9px;min-width:56px}
+.bar-fill.gd{background:linear-gradient(90deg,#C9A96A,#6E5A28)}
+
+/* quiz */
+.qz{background:var(--card);border:2px solid var(--gold);border-radius:20px;padding:22px 18px;margin-top:8px}
+.qz-title{text-align:center;margin-bottom:6px}
+.qz-title h2{margin-bottom:4px;justify-content:center}
+.qz-title p{color:var(--sub);font-size:.88rem;margin:0}
+.prog{height:9px;background:#EFEADC;border-radius:99px;overflow:hidden;margin:16px 0 8px}
+.prog i{display:block;height:100%;background:linear-gradient(90deg,#D4A017,#8A6508);border-radius:99px;transition:width .3s}
+.qnum{font-size:.8rem;color:var(--gold);font-weight:800;letter-spacing:.1em}
+.qtext{font-size:1.16rem;font-weight:800;margin:6px 0 16px;line-height:1.5}
+.opt{
+  display:block;width:100%;text-align:left;background:#FFF;border:2px solid var(--line);
+  border-radius:14px;padding:15px 16px;margin-bottom:11px;font-size:1rem;color:var(--ink);
+  font-family:inherit;cursor:pointer;transition:.15s;
+}
+.opt:active{transform:scale(.985)}
+.opt.sel{border-color:var(--gold);background:var(--goldbg);font-weight:700}
+.opt small{display:block;color:var(--sub);font-size:.8rem;font-weight:400;margin-top:3px}
+
+/* result */
+.result{display:none}
+.res-top{text-align:center;padding:6px 0 12px}
+.res-score{font-size:.78rem;color:var(--sub);letter-spacing:.15em}
+.res-lv{font-size:1.8rem;font-weight:800;color:var(--gold);line-height:1.3;margin:6px 0}
+.res-pg{font-size:.98rem;color:#333}
+.res-fit{margin-top:16px;text-align:left;background:var(--goldbg);border:1px solid #EBD9A6;
+  border-radius:14px;padding:16px}
+.res-fit h4{margin:0 0 8px;font-size:1rem;color:#8A6508}
+.res-fit li{font-size:.92rem;margin-bottom:6px}
+.res-plan{margin-top:14px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;text-align:left}
+.res-plan h4{margin:0 0 8px;font-size:1rem}
+.badge{display:inline-block;background:var(--red);color:#fff;font-size:.72rem;font-weight:800;
+  padding:3px 10px;border-radius:6px;margin-left:6px;vertical-align:middle}
+
+/* CTA */
+.cta{
+  position:fixed;left:0;right:0;bottom:0;z-index:50;
+  background:rgba(251,249,244,.97);backdrop-filter:blur(10px);
+  border-top:1px solid var(--line);padding:11px 14px calc(11px + env(safe-area-inset-bottom));
+}
+.cta-in{max-width:720px;margin:0 auto;display:flex;gap:10px;align-items:center}
+.cta-txt{flex:1;line-height:1.3}
+.cta-txt b{display:block;font-size:.9rem}
+.cta-txt small{font-size:.74rem;color:var(--sub)}
+.btn{
+  border:none;border-radius:12px;padding:14px 20px;font-size:1rem;font-weight:800;
+  font-family:inherit;cursor:pointer;background:linear-gradient(135deg,#D4A017,#8A6508);color:#fff;
+  white-space:nowrap;
+}
+.btn.ghost{background:#fff;color:var(--gold);border:2px solid var(--gold)}
+.btn:active{opacity:.85}
+.btn.wide{width:100%;display:block;margin-top:14px}
+
+.note{font-size:.8rem;color:var(--sub);line-height:1.65;background:#F4F1E8;border-radius:12px;padding:14px;margin-top:12px}
+.faq{border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line);padding:14px 0}
+.faq summary{font-size:1rem;font-weight:700;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:10px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:after{content:"＋";color:var(--gold);font-weight:800;flex:0 0 auto}
+.faq details[open] summary:after{content:"－"}
+.faq .a{font-size:.93rem;color:#444;padding-top:8px}
+/* 结果图弹层 */
+.mask{
+  display:none;position:fixed;inset:0;z-index:100;background:rgba(12,10,6,.88);
+  padding:24px 16px;overflow:auto;text-align:center;
+}
+.mask.on{display:flex;flex-direction:column;align-items:center;justify-content:center}
+.mask img{max-width:min(92vw,430px);border-radius:14px;box-shadow:0 10px 40px rgba(0,0,0,.5);
+  user-select:none;-webkit-user-select:none;-webkit-touch-callout:default;pointer-events:auto}
+.mask h4{color:#fff;font-size:1.15rem;margin:20px 0 6px}
+.mask p{color:#D8C79C;font-size:.86rem;margin:0 0 18px;line-height:1.7}
+.mask .row{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.mask .btn{font-size:.95rem;padding:13px 22px}
+
+footer{text-align:center;font-size:.76rem;color:#8A8578;padding:26px 10px 10px;line-height:1.7}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="brand">MANULIFE 宏利</div>
+  <h1>宏摯傳承保障計劃</h1>
+  <div class="sub">Genesis 終身分紅壽險 · 一張保單，三代人</div>
+  <div class="tags">
+    <span>終身保障</span><span>財富傳承</span><span>非保證終期紅利</span>
+    <span>7種貨幣</span><span>身心守護預支</span><span>更改受保人</span>
+  </div>
+  <div class="hl">
+    <b>長期總回報率最高 6.50%</b>
+    <small>第40 年起計（0 歲男性·整付保費·美元·截至 2025 年 8 月）</small>
+  </div>
+</div>
+
+<div class="wrap">
+
+<!-- 1 一句话 -->
+<section>
+  <h2><span class="no">1</span>它到底解决什么问题？</h2>
+  <p class="lead">一句话：<b>把钱放在一个既有保底、又能长期增值、还能随时切换下一代的地方。</b></p>
+  <div class="card">
+    <h3><span class="ic">💰</span>保证现金价值 —— 写进合同的底线</h3>
+    <p>保单累积的<b>保证现金价值</b>（可办理保单贷款）与<b>非保证终期红利</b>两部分。保证部分是宏利白纸黑字的合同承诺，不随市场波动。</p>
+    <p class="mut">红利部分由公司全权决定，但市场比较显示：持有到第 40 年，<b>含红利总回报率封顶 6.50%</b>，且多数竞品在第 30 年就触顶。</p>
+  </div>
+  <div class="card">
+    <h3><span class="ic">🛡️</span>身故赔偿 —— 给家人一个下限</h3>
+    <p>取两者较高者：<span class="kw">保证现金价值 + 终期红利</span>，或<span class="kw">已缴保费总额 + 累积入息/已锁定红利</span>。也就是说——<b>最坏情况，也不会亏掉已交的保费</b>。</p>
+  </div>
+</section>
+
+<!-- 2 六大特色 -->
+<section>
+  <h2><span class="no">2</span>六大核心特色</h2>
+  <p class="lead">每一项都是别家「有条件才有」，这里写进计划书。</p>
+
+  <div class="card">
+    <h3><span class="ic">🏥</span>身心守护预支保障</h3>
+    <p><b>唯一一款把「精神疾病」写进预支保障的同级产品。</b>指定疾病一旦确诊并获批，可<b>一次性锁定最高 100% 的终期红利</b>，钱立刻到手，不必等几十年。</p>
+    <p>覆盖：癌症、中风、心肌梗塞、昏迷、瘫痪、严重头部创伤、末期疾病、<b>自闭症、躁狂抑郁症、精神分裂症、严重认知障碍</b>等。保单满 1 年后生效，90 天缓冲期。</p>
+    <span class="pill g">每张保单仅可行使一次</span><span class="pill g">不占用红利锁定额度</span><span class="pill">满1年即可</span>
+  </div>
+
+  <div class="card">
+    <h3><span class="ic">💱</span>货币转换权益</h3>
+    <p>第 3 个保单周年日起，每年一次，<b>31 天内可申请把保单换成另一种货币</b>，全程无需重新验身。</p>
+    <p class="mut">孩子 18 岁出国读书、 grandchildren 将来赴美 —— 一张保单跟着家族的需求换币，不用退保重来。7 种货币可选：美元／港元／人民币／英镑／澳元／加元／新加坡元。</p>
+    <span class="pill">市面少数含此权益</span>
+  </div>
+
+  <div class="card">
+    <h3><span class="ic">👨‍👩‍👧</span>更改受保人 —— 世代传承的核心</h3>
+    <p>第一个保单周年日起，<b>受保人可更换，不限次数</b>，新受保人保障期仍为<b>终身</b>。</p>
+    <p class="mut">市场比较：多数竞品的新受保人保障到 138 岁或受限于投保年龄，本計劃新受保人上限放宽至 <b>80 岁</b>。陈先生 50 岁投保，一年后即可把受保人改为刚出生的儿子。</p>
+    <span class="pill g">不限次数</span><span class="pill g">新受保人终身</span><span class="pill g">上限80岁</span>
+  </div>
+
+  <div class="card">
+    <h3><span class="ic">🧩</span>保单分拆</h3>
+    <p>第 5 个保单周年日或保费缴付期结束（以较迟者为准）起，<b>可把保单拆成多份</b>，按比例分给不同家人。拆分后每份都要达到最低名义金额与最低保费。</p>
+    <p class="mut">市场比较显示：另两家竞品最早要到第 3 年才能分拆，本計劃更早；且本計劃<b>分拆后新增的所有附加保障仍保留在原保单</b>。</p>
+  </div>
+
+  <div class="card">
+    <h3><span class="ic">🧘</span>安枕无忧服务 + 保单承继人</h3>
+    <p><b>安枕无忧服务</b>：指定 1 位家人可在你精神上无行为能力时，代你行使保单选项（每年最多提取 50% 保单价值）。市场比较中，<b>只有本计划和另两款覆盖「精神上无行为能力」</b>。</p>
+    <p><b>保单承继人（连保单暂托选项）</b>：你身故后，保单所有权可<b>延至指定日期或指定岁数</b>再转给孩子——孩子不会在 18 岁被迫接管一笔自己没能力处理的保单。此服务只适用于香港签发的保单。</p>
+  </div>
+
+  <div class="card">
+    <h3><span class="ic">🛟</span>保费假期 + 意外身故赔偿</h3>
+    <p><b>两年保费假期</b>：第 2 个保单周年日后可申请停缴最长 2 年，无需财务状况证明，恢复缴费时也无需重新核保。<span class="mut">（适用 5／10／15 年缴，仅本计划与一款竞品有。）</span></p>
+    <p><b>意外身故赔偿</b>：首 5 个保单年度内意外身故，额外赔付<b>已缴保费的 100%</b>，上限 125,000 美元／100 万港元／75 万人民币。<span class="mut">市场比较中，另两家竞品的意外保障仅限首 12 个月或整个供款期，本计划为前 5 个保单年度。</span></p>
+  </div>
+</section>
+
+<!-- 3 数字 -->
+<section>
+  <h2><span class="no">3</span>数字说话</h2>
+  <p class="lead">0 岁男性·标准保费·美元·截至 2025 年 8 月，<b>退保价值 ÷ 已缴总保费</b>：</p>
+  <div class="card">
+    <div class="bars">
+      <div class="bar-row"><div class="bar-lab">第 10 年</div><div class="bar-track"><div class="bar-fill" style="width:33%">154%</div></div></div>
+      <div class="bar-row"><div class="bar-lab">第 20 年</div><div class="bar-track"><div class="bar-fill" style="width:52%">315%</div></div></div>
+      <div class="bar-row"><div class="bar-lab">第 30 年</div><div class="bar-track"><div class="bar-fill" style="width:78%">632%</div></div></div>
+      <div class="bar-row"><div class="bar-lab">第 40 年</div><div class="bar-track"><div class="bar-fill gd" style="width:100%">1242%</div></div></div>
+    </div>
+    <p class="mut">换句话说：<b>10 万元本金，第 40 年账户价值约 124 万元</b>。长期持有才有这个数字——这也正是这份保单的设计逻辑。</p>
+  </div>
+
+  <div class="card">
+    <h3><span class="ic">📊</span>市场横向比较（同条件下 5 家）</h3>
+    <table>
+      <tr><th>项目</th><th>宏摯傳承</th><th>竞品 A</th><th>竞品 B</th></tr>
+      <tr><td>保证回本年期</td><td><b>17 年</b></td><td>16 年</td><td>16 年</td></tr>
+      <tr><td>预期回本年期</td><td><b>3 年</b></td><td>5 年</td><td>5 年</td></tr>
+      <tr><td>第100年总回报率</td><td><b>6.50%</b></td><td>6.50%</td><td>6.50%</td></tr>
+      <tr><td>红利锁定起始</td><td><b>第 5 年</b></td><td>第 15 年</td><td>第 10 年</td></tr>
+      <tr><td>保单分拆起始</td><td><b>第 5 年</b></td><td>第 1 年</td><td>第 3 年</td></tr>
+      <tr><td>更改受保人后保障</td><td><b>新受保人终身</b></td><td>138 岁</td><td>受投保年龄限制</td></tr>
+      <tr><td>分拆后附加保障</td><td><b>全部保留</b></td><td>全部终止</td><td>视核保可再附加</td></tr>
+    </table>
+    <p class="mut" style="margin-top:12px"><span class="kw">结论</span>：回报率打平，但<b>「能拿多少钱、能拿多早、能传给谁」这三件事，本计划明显更宽</b>。买储蓄险买的是灵活性，不只是收益率。</p>
+  </div>
+</section>
+
+<!-- 4 提取与入息 -->
+<section>
+  <h2><span class="no">4</span>钱怎么拿出来？三种方式</h2>
+  <div class="card">
+    <h3><span class="ic">①</span>无忧选 —— 退休后年年领钱</h3>
+    <p>缴清保费后即可选择开始领取，<b>按年或按月</b>领，也可选择积存生息。<b>第一个保单周年日后可随时更改或取消</b>——别的产品一旦设定很难改。</p>
+    <p class="mut">领取比例（占已缴保费总额，5 年缴，截至 2025 年 7 月）：第 10 年起领约 <b>7.6%</b>，第 15 年约 <b>9.7%</b>，第 20 年约 <b>11.7%</b>，第 25 年约 <b>14.0%</b>，且<b>领取期限终身</b>。</p>
+  </div>
+  <div class="card">
+    <h3><span class="ic">②</span>终期红利锁定 —— 想拿多少拿多少</h3>
+    <p>第 5 个保单周年日起，每年可锁定一部分终期红利现金取出，<b>提取时间和金额由你决定</b>。锁定的钱留在保单内可继续生息，也可随时拿走。</p>
+    <p class="mut">规则：第 5–9 年每年锁 ≤10%；任意连续 5 年累计锁 ≤50%。<br><span class="kw">对比</span>：竞品有的要等到第 15 年、有的锁定量只有 10%–75% 且没上限——本计划<b>起步早 5 至 10 年</b>。</p>
+  </div>
+  <div class="card">
+    <h3><span class="ic">③</span>部分退保 —— 应急取用</h3>
+    <p>通过<b>调减名义金额</b>提取部分保证现金价值及红利，其余继续滚存放大。适合临时大额支出，不必退保。</p>
+  </div>
+  <div class="note">⚠️ 以上三种为<b>非保证</b>红利相关利益，由宏利不时检讨调整。保证部分为保证现金价值。本页所有数字均来自产品手册（2026 年 8 月版），仅供说明，最终以保单条款及建议书为准。</div>
+</section>
+
+<!-- 5 投保须知 -->
+<section>
+  <h2><span class="no">5</span>投保要点</h2>
+  <div class="card">
+    <ul>
+      <li><b>投保年龄</b>：整付/2年/3年缴 0–80 岁；5年缴 0–75 岁；10年缴 0–70 岁；15年缴 0–60 岁</li>
+      <li><b>保障期</b>：终身</li>
+      <li><b>保费结构</b>：水平式保证保费，<b>不因年龄、性别、吸烟习惯而加费</b></li>
+      <li><b>缴付期</b>：整付 / 2年（限量发售）/ 3年 / 5年 / 10年 / 15年</li>
+      <li><b>最低年缴保费</b>（15年缴）：约 <b>¥68,000</b> 或 1,000 美元 / 8,000 港元</li>
+      <li><b>核保</b>：不超过指定名义金额限额，<b>无需任何健康审查</b>，程序简易</li>
+      <li><b>保单贷款</b>：可申请（保证现金价值可质押）</li>
+      <li><b>身故赔偿支付方式</b>：5 种可选——一笔过、分期定额、延迟支付（可延至身故后 30 年内）、递增分期（每年递增 2–100%）、分期至指定年龄再一笔过。<b>可混搭不同选项，并为不同受益人设定不同支付方式</b></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 6 Quiz -->
+<section>
+  <div class="qz" id="quiz">
+    <div class="qz-title">
+      <h2><span class="no">?</span>30 秒测一测：你适合买吗？</h2>
+      <p>5 道题，没有对错。答完立刻看到你的专属建议。</p>
+    </div>
+
+    <div class="prog"><i id="bar" style="width:20%"></i></div>
+    <div class="qnum" id="qnum">第 1 / 5 题</div>
+    <div class="qtext" id="qtext">—</div>
+    <div id="opts"></div>
+
+    <div class="result" id="result"></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section>
+  <h2><span class="no">6</span>常见疑问</h2>
+  <div class="card faq">
+    <details><summary>已经有储蓄险/基金了，还要不要再买？</summary>
+      <div class="a">这份计划的核心差异不在收益率，而在三点：<b>①保证与非保证双轨，账户不会被市场全部抹平；②更改受保人 + 保单分拆 + 保单承继人，这套传承工具竞品极少有；③终身现金流（无忧选）能领到 90 岁以后</b>。如果你已有的资产里没有这三块，缺口就是这份保单的位置。</div>
+    </details>
+    <details><summary>非保证红利会不会拿不到？</summary>
+      <div class="a">有可能。产品手册显示：整付保费第 10 年保证回报率为 <b>-1.97%</b>（这是行业惯例的缴费前期成本），但<b>预期回本期只需 3 年</b>，含红利总回报率第 10 年约 4.40%、第 20 年约 5.91%、第 40 年起 6.50%。保守做法是<b>当作长期不动用的钱</b>，短期支出用其他工具。</div>
+    </details>
+    <details><summary>为什么要等那么久才划算？</summary>
+      <div class="a">因为它是<b>终身寿险</b>，成本前置是行业规律。但注意两个加速点：预期回本 3 年（整付）、保证回本 17–18 年，之后每一年都在放大；并且<b>第 1 年就可以加保额</b>，第 1 年后就可以更换受保人——时间站在你这边，早买一年，滚存多一年。</div>
+    </details>
+    <details><summary>孩子还小，现在买合适吗？</summary>
+      <div class="a">非常合适。0 岁投保年费统一、不因年龄加费，锁定当前费率；且本计划<b>更改受保人不限次数</b>——今天为孩子投保，将来孩子成年后可把受保人改回自己，或改给他的子女，实现<b>三代传承、一张保单</b>。若孩子将来有海外教育资金需求，还可用<b>货币转换权益</b>换币种。</div>
+    </details>
+    <details><summary>我自己身体不太好，能买吗？</summary>
+      <div class="a">本计划<b>不设健康审查</b>（在指定名义金额限额内），只看居住地与年龄，比医疗险宽松得多。已有健康告知的可联系我做个初步判断。</div>
+    </details>
+    <details><summary>非香港居民可以买吗？</summary>
+      <div class="a">产品接受非香港居民投保，但受居住地核保指引限制。具体请直接联系我确认你的居住地是否在受理范围。</div>
+    </details>
+  </div>
+</section>
+
+<footer>
+  本页资料摘编自《宏摯傳承保障計劃》产品手册（2026 年 8 月版），由宏利人寿保险（国际）有限公司编制，仅供参考。<br>
+  非保证利益由宏利全权决定并可不时调整；保证现金价值及保单条款以正式保单文件为准。<br>
+  本页不构成要约或投资建议。<br>
+</footer>
+
+</div><!-- /wrap -->
+
+<div class="cta">
+  <div class="cta-in">
+    <div class="cta-txt"><b>30 秒测完，带走你的专属测算</b><small>结果图内含顾问微信二维码</small></div>
+    <button class="btn" onclick="document.getElementById('quiz').scrollIntoView({behavior:'smooth'})">测一测</button>
+  </div>
+</div>
+
+<div class="mask" id="mask">
+  <h4>长按图片保存到手机</h4>
+  <p>按住上图不放 → 选「保存到手机」或「发送给朋友」<br>图片里已含你的测评结果和顾问微信二维码</p>
+  <img id="shot" alt="测评结果图">
+  <div class="row" style="margin-top:18px">
+    <button class="btn ghost" onclick="closeShot()">关闭</button>
+  </div>
+</div>
+
+<script>
+const QS=[
+ {q:"你的年龄区间是？",
+  o:[["30 岁以下","保费不因年龄加费，越早开始滚存越有利",3],
+     ["30–45 岁","正在积累期，正是配置长期现金流的窗口",3],
+     ["46–60 岁","距退休不远，需要确定性现金流",2],
+     ["60 岁以上","子女传承与财富分配的好时机",2]]},
+ {q:"你更关心下面哪一件事？",
+  o:[["给孩子/孙辈留一笔钱","更改受保人 + 保单分拆，专为传承设计",3],
+     ["退休后有稳定现金流","无憂选终身按年/月领取",3],
+     ["资产要在不同国家用","7种货币 + 第3年起可免费换币",3],
+     ["生病/精神健康出问题时的资金","身心守护预支保障，最高锁定100%红利",3],
+     ["短期高收益","这款是长期工具，收益靠时间堆出来",1]]},
+ {q:"你打算这笔钱放多久？",
+  o:[["5 年以内可能要用","不合适",0],
+     ["5–10 年","偏短，红利滚存空间不足",1],
+     ["10–20 年","及格，可以开始了",2],
+     ["20 年以上不动用","正是这款产品的主战场",3]]},
+ {q:"你现在的资产主要放在？",
+  o:[["银行理财/存款","缺少长期复利工具，本计划可补位",2],
+     ["基金/股票","比例不错，可考虑用保单锁定一部分长期利率",2],
+     ["房产为主","流动性偏弱，本计划提供现金流与传承工具",3],
+     ["没有太多长期规划","越早开始越好，本计划正是起点工具",3],
+     ["其他保险储蓄险","注意是否有更改受保人与分拆功能",2]]},
+ {q:"家庭里有下一代吗？（18岁以下或待婚育）",
+  o:[["有，且正是适龄","本计划最有价值的用法，0岁起即可投保",3],
+     ["有但已成年","仍适用——更改受保人可把保障传给伴侣或子女",2],
+     ["暂时没有/已婚未育","可先为自己锁定长期保单利率，生育后再更改受保人",2],
+     ["暂无此规划","家族资产分散是普遍风险，值得提前布防",2]]}
+];
+const RES=[
+ {min:13, lv:"极适合 · 强推荐", tone:"你几乎踩中了这款产品的每一个设计意图。",
+  fit:["你是典型的<strong>富裕阶层 / 准退休</strong>目标客户，正是宏利设计这份保单时瞄准的人群。",
+       "更改受保人 + 保单分拆 + 货币转换 + 传承服务，四大传承工具你都用得上。",
+       "长期不动用的规划，与 6.50% 的长期总回报率完美契合。"],
+  plan:"建议方向：<b>5 年或 10 年缴、终身持有</b>，第 5 年起分批锁定红利供子女使用，第 10 年后开放保单分拆给下一代。"},
+ {min:9, lv:"适合 · 值得配置", tone:"你缺的可能不是收益率，而是「确定性 + 灵活性」。",
+  fit:["你已有一定的资产基础，但缺少一份<b>保证与非保证兼顾</b>的长期工具。",
+       "本计划不设健康审查、且红利可第 5 年起提取，中途资金需求能应对。"],
+  plan:"建议方向：<b>10 年或 15 年缴</b>，前期压力小，第 5 年可申请两年保费假期；持有满 10 年后视情况开启无憂选或保单分拆。"},
+ {min:5, lv:"可以再想想", tone:"你现在的规划重心可能不在这里——但不代表不需要。",
+  fit:["你对资金的时间要求较高，而这类分红保单的<strong>价值要到第 10 年以后才真正显现</strong>。",
+       "不过它的「传承工具」是别的产品难以替代的，越早布防越省心。"],
+  plan:"建议方向：先做一份<b>中长期（15 年以上）不动用</b>的小额配置，把「保证 + 传承」这块缺口补上，流动性强的部分另作安排。"},
+ {min:-99, lv:"暂时不匹配", tone:"坦率说：现在的规划节奏，这款产品的优势发挥不出来。",
+  fit:["你近期要用钱、或已有其他高流动性的储蓄安排——硬买反而会锁死你的现金流。",
+       "但请保留这份计划：<b>3 年预期回本、终身传承工具</b>，等你资金节奏稳定后再启动同样有效。"],
+  plan:"建议方向：<b>先做小额测试（15 年缴的低门槛档）</b>，放 5 年不动，感受一下它的节奏，再决定是否加大。"}
+];
+let i=0,score=0,lastRes=null;
+const QR_URL='wechat-qr.png?v=2';
+
+/* ── 生成客户专属结果图（3:4，1080×1440） ── */
+function genShot(){
+  if(!lastRes)return;
+  const r=lastRes, C=document.createElement('canvas');
+  C.width=1080; C.height=1440;
+  const x=C.getContext('2d');
+  const W=1080;
+
+  // 背景渐变
+  const g=x.createLinearGradient(0,0,0,1440);
+  g.addColorStop(0,'#1C1C1C'); g.addColorStop(.5,'#3A2E12'); g.addColorStop(1,'#6B5312');
+  x.fillStyle=g; x.fillRect(0,0,W,1440);
+  const rg=x.createRadialGradient(W/2,0,0,W/2,0,620);
+  rg.addColorStop(0,'rgba(212,160,23,.30)'); rg.addColorStop(1,'rgba(212,160,23,0)');
+  x.fillStyle=rg; x.fillRect(0,0,W,1440);
+  x.strokeStyle='rgba(140,112,45,.9)'; x.lineWidth=3;
+  x.strokeRect(30,30,W-60,1440-60);
+
+  const F='"Microsoft YaHei","PingFang SC","PingFang TC",sans-serif';
+  const ctr=(t,y,size,color,weight)=>{
+    x.font=(weight||'normal')+' '+size+'px '+F; x.fillStyle=color; x.textAlign='center';
+    x.fillText(t,W/2,y);
+  };
+
+  ctr('MANULIFE  宏利',108,34,'#D4A017','bold');
+  ctr('宏摯傳承保障計劃',190,74,'#fff','bold');
+  ctr('Genesis 終身分紅壽險 · 專屬測評報告',268,32,'#E8DCB8');
+  x.strokeStyle='#967C32'; x.lineWidth=3;
+  x.beginPath(); x.moveTo(W/2-60,312); x.lineTo(W/2+60,312); x.stroke();
+
+  // 匹配度卡片
+  x.fillStyle='rgba(255,255,255,.07)'; x.strokeStyle='rgba(212,160,23,.35)'; x.lineWidth=2;
+  x.beginPath(); x.roundRect(90,344,W-180,286,24); x.fill(); x.stroke();
+  ctr('匹 配 得 分',394,28,'#D8C79C');
+  ctr(r.score+' / 15',468,86,'#F5D97A','bold');
+  ctr(r.lv,558,56,'#F5D97A','bold');
+  ctr(r.tone,614,29,'#EFE4C6');
+  ctr('—— 關鍵配置方向 ——',666,26,'#C9A96A');
+  ctr('本測評為產品邏輯簡化推演 · 具體以正式建議書為準',704,20,'#9A8E72');
+
+  // 建议正文（逐字换行）
+  x.textAlign='left';
+  const words=r.plan.replace(/<[^>]+>/g,'');
+  x.font='32px '+F; x.fillStyle='#F0E8D2';
+  let line='', yy=714;
+  const maxW=W-250;
+  for(const ch of words){
+    if(x.measureText(line+ch).width>maxW){ x.fillText(line,125,yy); line=ch; yy+=48; }
+    else line+=ch;
+  }
+  x.fillText(line,125,yy);
+
+  // 白框：紧贴二维码
+  const qs=272, cw=qs+28, chh=qs+28, cx0=(W-cw)/2, cy0=822;
+  x.fillStyle='#fff';
+  x.beginPath(); x.roundRect(cx0,cy0,cw,chh,16); x.fill();
+
+  const qr=new Image();
+  qr.onload=()=>{
+    x.drawImage(qr, cx0+14, cy0+14, qs, qs);
+    const B = cy0+chh;   // 白框底边
+
+    // 框外：行动指引
+    ctr('長按識別二維碼 · 添加專屬顧問微信',B+46,28,'#F5D97A','bold');
+
+    // 框外：添加微信的好处（大字）
+    ctr('為您做一份專屬測算表',B+100,40,'#FFFFFF','bold');
+    ctr('保額 · 繳付期 · 入息起點 · 利益演示 全部算給您看',B+148,28,'#E8DCB8');
+    ctr('不強推銷，先把數字攤開  再一起決定',B+188,28,'#E8DCB8');
+
+    ctr('備註「宏摯傳承」+ 您的年齡',B+228,25,'#D4A017','bold');
+
+
+    document.getElementById('shot').src=C.toDataURL('image/png');
+    document.getElementById('mask').classList.add('on');
+  };
+  qr.onerror=()=>{
+    x.textAlign='center'; x.fillStyle='#333'; x.font='26px '+F;
+    x.fillText('二維碼加載失敗，請長按網頁上的二維碼圖片', W/2, cy0+chh/2);
+    document.getElementById('shot').src=C.toDataURL('image/png');
+    document.getElementById('mask').classList.add('on');
+  };
+  qr.src=QR_URL;
+}
+function closeShot(){document.getElementById('mask').classList.remove('on');}
+document.getElementById('mask').addEventListener('click',e=>{
+  if(e.target.id!=='mask')return;
+  const t=e.touches?e.touches[0]:e;
+  const moved=Math.abs((t.clientX||0)-(closeShot._x||0))+Math.abs((t.clientY||0)-(closeShot._y||0));
+  if(moved<10) closeShot();               // 点击（非长按）才关闭
+});
+document.getElementById('mask').addEventListener('touchstart',e=>{
+  const t=e.touches[0]; closeShot._x=t.clientX; closeShot._y=t.clientY;
+},{passive:true});
+
+function render(){
+  const bar=document.getElementById('bar');
+  if(i<QS.length){
+    bar.style.width=((i+1)/QS.length*100)+'%';
+    document.getElementById('qnum').textContent='第 '+(i+1)+' / '+QS.length+' 题';
+    document.getElementById('qtext').textContent=QS[i].q;
+    const box=document.getElementById('opts'); box.innerHTML='';
+    QS[i].o.forEach(([t,d,s])=>{
+      const b=document.createElement('button'); b.className='opt';
+      b.innerHTML=t+'<small>'+d+'</small>';
+      b.onclick=()=>{score+=s;[...box.children].forEach(x=>x.style.opacity=.4);
+        setTimeout(()=>{i++;render()},260);};
+      box.appendChild(b);
+    });
+    document.getElementById('result').style.display='none';
+  }else{
+    bar.style.width='100%';
+    document.getElementById('qnum').textContent='测完了';
+    document.getElementById('qtext').textContent='你的专属结果 ↓';
+    document.getElementById('opts').innerHTML='';
+    let r=RES.find(x=>score>=x.min);
+    const el=document.getElementById('result'); el.style.display='block';
+    const hot=score>=13?'强烈建议本周面谈':(score>=9?'建议做一份正式方案测算':'先了解清楚，再决定节奏');
+    lastRes={score:score,lv:r.lv,tone:r.tone,plan:r.plan};
+    el.innerHTML=
+     '<div class="res-top"><div class="res-score">匹配得分 '+score+' / 15</div>'+
+     '<div class="res-lv">'+r.lv+'</div><div class="res-pg">'+r.tone+'</div></div>'+
+     '<div class="res-fit"><h4>为什么适合/需要关注</h4><ul>'+r.fit.map(x=>'<li>'+x+'</li>').join('')+'</ul></div>'+
+     '<div class="res-plan"><h4>给你的配置建议 <span class="badge">'+hot+'</span></h4><p style="margin:0;font-size:.95rem">'+r.plan+'</p>'+
+     '<button class="btn wide" onclick="genShot()">保存我的专属结果图</button>'+
+     '<button class="btn wide ghost" onclick="restart()">重新测一次</button></div>'+
+     '<p class="mut" style="font-size:.8rem;margin-top:12px">本测评为产品逻辑的简化推演，不构成投保建议。具体保额、缴付期与利益演示请以正式建议书为准。</p>';
+    el.scrollIntoView({behavior:'smooth',block:'nearest'});
+  }
+}
+function restart(){i=0;score=0;lastRes=null;render();document.querySelector('.qz').scrollIntoView({behavior:'smooth'});}
+render();
+</script>
+</body>
+</html>
