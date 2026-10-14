@@ -169,16 +169,22 @@ h2 .no{
 .faq .a{font-size:.93rem;color:#444;padding-top:8px}
 /* 结果图弹层 */
 .mask{
-  display:none;position:fixed;inset:0;z-index:100;background:rgba(12,10,6,.88);
-  padding:24px 16px;overflow:auto;text-align:center;
+  display:none;position:fixed;inset:0;z-index:100;
+  background:#0C0A06;
+  padding:14px 14px 0;overflow:auto;text-align:center;
 }
-.mask.on{display:flex;flex-direction:column;align-items:center;justify-content:center}
-.mask img{max-width:min(92vw,430px);border-radius:14px;box-shadow:0 10px 40px rgba(0,0,0,.5);
+.mask.on{display:flex;flex-direction:column;align-items:center;justify-content:flex-start}
+/* 结果图按视口高度自适应，保证标题+图+关闭键总能一屏放下 */
+.mask img{max-width:min(90vw,420px);max-height:calc(100vh - 250px);width:auto;height:auto;
+  border-radius:14px;box-shadow:0 10px 40px rgba(0,0,0,.5);
   user-select:none;-webkit-user-select:none;-webkit-touch-callout:default;pointer-events:auto}
-.mask h4{color:#fff;font-size:1.15rem;margin:20px 0 6px}
-.mask p{color:#D8C79C;font-size:.86rem;margin:0 0 18px;line-height:1.7}
+.mask h4{color:#fff;font-size:1.15rem;margin:0 0 6px}
+.mask p{color:#D8C79C;font-size:.86rem;margin:0 0 8px;line-height:1.6}
 .mask .row{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
 .mask .btn{font-size:.95rem;padding:13px 22px}
+/* 关闭按钮固定在底部，永远可见可点，不压图 */
+.mask .row{position:sticky;bottom:0;margin-top:auto;padding:14px 0 calc(14px + env(safe-area-inset-bottom));
+  background:linear-gradient(180deg,rgba(12,10,6,0),#0C0A06 40%)}
 
 footer{text-align:center;font-size:.76rem;color:#8A8578;padding:26px 10px 10px;line-height:1.7}
 </style>
