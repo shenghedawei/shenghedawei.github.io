@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#14120f">
+<title>香港保险业数据：161 家保险公司与持牌中介人统计 · 大威的网兜</title>
+<meta name="description" content="基于香港保险业监管局官方公开数据的整理：161 家获授权保险公司按业务类别与注册地分类、持牌保险代理与经纪中介人数量。">
+<link rel="stylesheet" href="../../assets/css/style.css">
+<link rel="icon" href="../../favicon.ico" sizes="32x32">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<style>
+/* 本页专用：数字对齐、表格横向滚动（窄屏不挤压）、小节 KPI 条。
+   数值仍走 :root 变量，仅此处补本站未定义的少量布局值。 */
+.num{font-variant-numeric:tabular-nums;font-weight:700;}
+.tot td{background:#efe9da;font-weight:700;}
+.ext{color:var(--insurance);border-bottom:1px solid rgba(63,122,94,.35);white-space:nowrap;font-size:.82em;}
+.ext:hover{border-bottom-color:var(--insurance);}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:.6rem;}
+.tw table{min-width:34rem;}
+.cols2{display:flex;gap:1rem;flex-wrap:wrap;margin:.6rem 0 .2rem;}
+.cols2>div{flex:1 1 15rem;}
+.kpis{display:flex;flex-wrap:wrap;gap:.7rem;margin:.9rem 0 .3rem;}
+.kpi{flex:1 1 8.2rem;background:#fffdf8;border:1px solid #e3dcca;border-radius:10px;padding:.75rem .85rem;}
+.kpi b{display:block;font-size:1.5rem;line-height:1.2;color:var(--insurance);font-family:var(--font-hei-bold);}
+.kpi span{font-size:var(--fs-post);color:var(--c-muted);}
+.note{background:#fbf7ec;border-left:3px solid var(--insurance);border-radius:0 8px 8px 0;
+ padding:.8rem .95rem;margin:1rem 0;font-size:var(--fs-post);color:var(--c-muted);}
+.note b{color:var(--c-ink);}
+.tabs{display:flex;flex-wrap:wrap;gap:.5rem;margin:1rem 0 .2rem;}
+.tabs button{font-family:var(--font-hei);font-size:var(--fs-post);line-height:1.4;
+ padding:.42rem .85rem;border:1px solid #d8cfb8;border-radius:999px;background:#fffdf8;
+ color:var(--c-ink);cursor:pointer;}
+.tabs button.on{background:var(--insurance);border-color:var(--insurance);color:#fff;font-weight:700;}
+.pane{display:none;}
+.pane.on{display:block;}
+.srch{width:100%;max-width:22rem;font-family:var(--font-hei);font-size:var(--fs-post);
+ padding:.5rem .7rem;border:1px solid #d8cfb8;border-radius:8px;margin:.7rem 0 .1rem;background:#fffdf8;}
+.fine{font-size:var(--fs-post);color:var(--c-muted);}
+</style>
+</head>
+<body>
+<div class="bg" style="background-image:url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1600&amp;q=70&amp;auto=format&amp;fit=crop')"></div>
+<div class="overlay"></div>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="../../index.html">大威的网兜<small>DAVID'S NET</small></a>
+    <nav class="nav">
+      <a href="../../heritage/index.html">文化遗产<span class="en">Heritage</span></a>
+      <a href="../../diving/index.html">潜水<span class="en">Diving</span></a>
+      <a class="active" href="../../insurance/index.html">保险<span class="en">Insurance</span></a>
+      <a href="../../living/index.html">旅居<span class="en">Living</span></a>
+      <a href="../../making/index.html">3D打印<span class="en">Making</span></a>
+      <a href="../../notes/index.html">日常手札<span class="en">Journal</span></a>
+    </nav>
+  </div>
+</header>
+
+<section class="wrap" style="padding:2.6rem 0 3.2rem">
+  <div class="panel article">
+    <div class="crumb"><a href="../../index.html">首页 <span class="en">Home</span></a> / <a href="../../insurance/index.html">保险 <span class="en">Insurance</span></a> / <span>行业数据 <span class="en">Industry Data</span></span></div>
+    <div class="meta">香港保险业监管局官方数据 · 2026-10 整理</div>
+    <h1>香港保险业数据：161 家保险公司与持牌中介人统计<span class="en">Hong Kong Insurance Market:161 Authorized Insurers &amp; Licensed Intermediaries</span></h1>
+
+    <p>香港保险业监管局（Insurance Authority, IA）公开统计的整理页。公司与中介人数据全部取自保监局官网，不做二次估算。
+      <span class="en">A digest of official Insurance Authority statistics. All figures are taken from the IA website; nothing is estimated.</span>
+    </p>
+
+    <div class="note">
+      <b>四个数字口径不同，最容易混用，先看清：</b><br>
+      · <b>161 家</b>——截至 2026-03-31 的获授权保险公司总数（保监局市场概览，最新口径）。<br>
+      · <b>98 家</b>——在香港注册成立<b>或已迁册至香港</b>的<b>合计</b>数。保监局把两者<b>合并统计，并未拆分</b>，官方从未公布单独的迁册家数或名单。<br>
+      · <b>160 家</b>——官方《按注册成立地点／本籍所在地分类表》的版次截至 2025-12-05，与上面的 161 家差 1 家，属正常更新节奏。<br>
+      · 中介人数据取<b>最新一期 2026-08-31</b>，比公司数据更新，<b>不可与公司数据混用同一时间点</b>。
+    </div>
+
+    <h2>获授权保险公司总数与分类<span class="en">Authorized Insurers by Class of Business</span></h2>
+    <p>截至 2026 年 3 月 31 日，保监局市场概览口径。
+      <span class="en">As at 31March 2026, per the IA market overview.</span></p>
+
+    <div class="kpis">
+      <div class="kpi"><b>161</b><span>获授权保险公司总数</span></div>
+      <div class="kpi"><b>98</b><span>香港注册成立或已迁册</span></div>
+      <div class="kpi"><b>21</b><span>来自其他国家／地区</span></div>
+      <div class="kpi"><b>10</b><span>英国（外籍第一）</span></div>
+      <div class="kpi"><b>9</b><span>百慕达</span></div>
+      <div class="kpi"><b>9</b><span>美国</span></div>
+    </div>
+
+    <div class="tw"><table>
+      <thead><tr><th>业务类别</th><th>家数</th><th>占比</th><th>英文对照<span class="en">English</span></th></tr></thead>
+      <tbody>
+<tr><td>纯一般业务保险公司</td><td><span class="num">87</span></td><td><span class="num">54.0%</span></td><td><span class="en">Pure general insurers</span></td></tr>
+<tr><td>纯长期业务／人寿保险公司</td><td><span class="num">52</span></td><td><span class="num">32.3%</span></td><td><span class="en">Pure long term insurers</span></td></tr>
+<tr><td>综合保险公司</td><td><span class="num">19</span></td><td><span class="num">11.8%</span></td><td><span class="en">Composite insurers</span></td></tr>
+<tr><td>特定目的保险公司</td><td><span class="num">3</span></td><td><span class="num">1.9%</span></td><td><span class="en">Special purpose insurers</span></td></tr><tr class="tot"><td><b>合计</b></td><td><span class="num">161</span></td><td>100%</td><td></td></tr>
+      </tbody>
+    </table></div>
+
+    <h2>按注册成立地点与本籍所在地分布<span class="en">By Place of Incorporation or Domicile</span></h2>
+    <p>保监局《获授权保险人数目按注册成立地点或本籍所在地分类表》，截至 2025-12-05，合计 160 家。
+      <span class="en">IA official table as at 5 December 2025, 160 insurers in total.</span></p>
+    <div class="tw"><table>
+      <thead><tr><th>注册成立地点／本籍所在地</th><th>数目</th><th>纯长期</th><th>纯一般</th><th>综合</th><th>特定目的</th></tr></thead>
+      <tbody>
+<tr><td>中国，香港</td><td><span class="num">96</span></td><td><span class="num">27</span></td><td><span class="num">56</span></td><td><span class="num">1</span></td><td><span class="num">3</span></td></tr>
+<tr><td>百慕达</td><td><span class="num">10</span></td><td><span class="num">6</span></td><td><span class="num">2</span></td><td><span class="num">2</span></td><td><span class="num">-</span></td></tr>
+<tr><td>英国</td><td><span class="num">10</span></td><td><span class="num">4</span></td><td><span class="num">5</span></td><td><span class="num">1</span></td><td><span class="num">-</span></td></tr>
+<tr><td>美国</td><td><span class="num">9</span></td><td><span class="num">4</span></td><td><span class="num">5</span></td><td><span class="num">-</span></td><td><span class="num">-</span></td></tr>
+<tr><td>加拿大</td><td><span class="num">3</span></td><td><span class="num">3</span></td><td><span class="num">-</span></td><td><span class="num">-</span></td><td><span class="num">-</span></td></tr>
+<tr><td>德国</td><td><span class="num">5</span></td><td><span class="num">-</span></td><td><span class="num">2</span></td><td><span class="num">3</span></td><td><span class="num">-</span></td></tr>
+<tr><td>马恩岛</td><td><span class="num">5</span></td><td><span class="num">5</span></td><td><span class="num">-</span></td><td><span class="num">-</span></td><td><span class="num">-</span></td></tr>
+<tr><td>中国（内地）</td><td><span class="num">2</span></td><td><span class="num">1</span></td><td><span class="num">1</span></td><td><span class="num">-</span></td><td><span class="num">-</span></td></tr>
+<tr><td>卢森堡</td><td><span class="num">4</span></td><td><span class="num">-</span></td><td><span class="num">4</span></td><td><span class="num">-</span></td><td><span class="num">-</span></td></tr>
+<tr><td>意大利</td><td><span class="num">1</span></td><td><span class="num">-</span></td><td><span class="num">-</span></td><td><span class="num">1</span></td><td><span class="num">-</span></td></tr>
+<tr><td>新加坡</td><td><span class="num">2</span></td><td><span class="num">-</span></td><td><span class="num">1</span></td><td><span class="num">1</span></td><td><span class="num">-</span></td></tr>
+<tr><td>爱尔兰共和国</td><td><span class="num">2</span></td><td><span class="num">-</span></td><td><span class="num">1</span></td><td><span class="num">1</span></td><td><span class="num">-</span></td></tr>
+<tr><td>挪威</td><td><span class="num">2</span></td><td><span class="num">-</span></td><td><span class="num">2</span></td><td><span class="num">-</span></td><td><span class="num">-</span></td></tr>
+<tr><td>法国</td><td><span class="num">1</span></td><td><span class="num">-</span></td><td><span class="num">1</span></td><td><span class="num">-</span></td><td><span class="num">-</span></td></tr>
+<tr><td>西班牙</td><td><span class="num">1</span></td><td><span class="num">-</span></td><td><span class="num">1</span></td><td><span class="num">-</span></td><td><span class="num">-</span></td></tr>
+<tr><td>瑞士</td><td><span class="num">1</span></td><td><span class="num">-</span></td><td><span class="num">1</span></td><td><span class="num">-</span></td><td><span class="num">-</span></td></tr>
+<tr><td>印度</td><td><span class="num">1</span></td><td><span class="num">-</span></td><td><span class="num">1</span></td><td><span class="num">-</span></td><td><span class="num">-</span></td></tr>
+<tr><td>日本</td><td><span class="num">1</span></td><td><span class="num">-</span></td><td><span class="num">1</span></td><td><span class="num">-</span></td><td><span class="num">-</span></td></tr>
+<tr><td>瑞典</td><td><span class="num">1</span></td><td><span class="num">-</span></td><td><span class="num">1</span></td><td><span class="num">-</span></td><td><span class="num">-</span></td></tr>
+<tr><td>菲律宾</td><td><span class="num">1</span></td><td><span class="num">-</span></td><td><span class="num">1</span></td><td><span class="num">-</span></td><td><span class="num">-</span></td></tr>
+<tr><td>比利时</td><td><span class="num">1</span></td><td><span class="num">-</span></td><td><span class="num">1</span></td><td><span class="num">-</span></td><td><span class="num">-</span></td></tr>
+<tr><td>格恩西</td><td><span class="num">1</span></td><td><span class="num">1</span></td><td><span class="num">-</span></td><td><span class="num">-</span></td><td><span class="num">-</span></td></tr>
+<tr class="tot"><td>总计</td><td><span class="num">160</span></td><td><span class="num">51</span></td><td><span class="num">87</span></td><td><span class="num">19</span></td><td><span class="num">3</span></td></tr>
+      </tbody>
+    </table></div>
+
+    <h2>161 家明细<span class="en">Full List of 161 Insurers</span></h2>
+    <p>名单取自保监局《获授权保险人的登记册》，截至 2026-10-08 更新。<b>「注册地」一栏系依据公司名称与集团归属所作判定，标「待核」者需以官方详情页为准</b>；官方逐家详情页有访问保护，本次未能逐家抄录，故未填注册地址——每行给出官方详情页直连，可点开核对。
+      <span class="en">Names from the IA Register of Authorized Insurers (updated 8 Oct 2026). The domicile column is inferred from company name and group affiliation, not transcribed from the IA detail pages; entries marked 待核 (to be verified) need confirmation via the official link.</span>
+    </p>
+
+    <div class="tabs">
+      <button class="on" data-p="p1">在香港注册成立或已迁册至香港</button>
+      <button data-p="p2">其他国家／地区</button>
+      <button data-p="p3">注册地待核</button>
+      <button data-p="p4">全部 161 家</button>
+    </div>
+
+    <div class="pane on" id="p1">
+      <div class="note">
+        <b>关于「已迁册至香港」：</b>保监局在统计上把「香港注册成立」与「已迁册至香港」<b>合并披露为 98 家</b>，官方公开文件<b>未拆分这两个子项，也未公布迁册名单</b>，故此处合并呈现，不另设专栏。可确认的政策背景是：特区政府正推动引入公司迁册制度，便利海外注册公司（含保险公司）迁册来港，香港保险业联会表示已有「为数不少」公司有兴趣；但<b>截至目前无官方迁册名单可引用</b>，本页不作任何推测填写。
+      </div>
+      <input type="search" class="srch" data-t="tb1" placeholder="输入公司名搜索…">
+      <div class="tw"><table>
+        <thead><tr><th>#</th><th>中文名称</th><th>英文全称<span class="en">English Name</span></th><th>注册地</th><th>官方详情</th></tr></thead>
+        <tbody id="tb1">
+<tr><td>1</td><td>友邦保险有限公司</td><td><span class="en">AIA COMPANY LIMITED</span></td><td>香港</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=00003901" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>2</td><td>友邦隽峰人寿有限公司</td><td><span class="en">AIA EVEREST LIFE COMPANY LIMITED</span></td><td>香港</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=37320150" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>3</td><td>友邦保险(国际)有限公司</td><td><span class="en">AIA INTERNATIONAL LIMITED</span></td><td>香港</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=02420056" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>4</td><td>—</td><td><span class="en">AIG INSURANCE HONG KONG LIMITED</span></td><td>香港</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=00007701" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>5</td><td>亚洲保险有限公司</td><td><span class="en">ASIA INSURANCE COMPANY, LIMITED</span></td><td>香港</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=00912655" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>6</td><td>—</td><td><span class="en">AXA CHINA REGION INSURANCE COMPANY (HONG KONG) LIMITED</span></td><td>香港</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=06056536" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>7</td><td>—</td><td><span class="en">AXA GENERAL INSURANCE HONG KONG LIMITED</span></td><td>香港</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=00059520" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>8</td><td>—</td><td><span class="en">AXA LIFE INSURANCE COMPANY LIMITED</span></td><td>香港</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=00126151" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>9</td><td>—</td><td><span class="en">AXA WEALTH MANAGEMENT (HK) LIMITED</span></td><td>香港</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=34805305" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>10</td><td>蓝十字(亚太)保险有限公司</td><td><span class="en">BLUE CROSS (ASIA-PACIFIC) INSURANCE LIMITED</span></td><td>香港</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=02881781" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>11</td><td>—</td><td><span class="en">BOLTTECH INSURANCE (HONG KONG) COMPANY LIMITED</span></td><td>香港</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=35808859" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>12</td><td>—</td><td><span class="en">BOWTIE LIFE INSURANCE COMPANY LIMITED</span></td><td>香港</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=68545626" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>13</td><td>其士保险有限公司</td><td><span class="en">CHEVALIER INSURANCE COMPANY LIMITED</span></td><td>香港</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=19987768" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>14</td><td>创兴保险有限公司</td><td><span class="en">CHONG HING INSURANCE COMPANY LIMITED</span></td><td>香港</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=01014472" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>15</td><td>周大福人寿保险有限公司</td><td><span class="en">CHOW TAI FOOK LIFE INSURANCE COMPANY LIMITED</span></td><td>香港</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=09983114" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>16</td><td>大新保险有限公司</td><td><span class="en">DAH SING INSURANCE COMPANY LIMITED</span></td><td>香港</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=04893762" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>17</td><td>—</td><td><span class="en">FALCON INSURANCE COMPANY (HONG KONG) LIMITED</span></td><td>香港</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=05313086" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>18</td><td>富卫人寿(香港)有限公司</td><td><span class="en">FWD LIFE (HONG KONG) LIMITED</span></td><td>香港</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=32114500" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>19</td><td>富卫人寿保险(香港)有限公司</td><td><span class="en">FWD LIFE ASSURANCE COMPANY (HONG KONG) LIMITED</span></td><td>香港</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=05591749" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>20</td><td>恒生保险有限公司</td><td><span class="en">HANG SENG INSURANCE COMPANY LIMITED</span></td><td>香港</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=01816462" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>21</td><td>香港年金有限公司</td><td><span class="en">HKMC ANNUITY LIMITED</span></td><td>香港</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=67907869" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>22</td><td>香港按证保险有限公司</td><td><span class="en">HKMC INSURANCE LIMITED</span></td><td>香港</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=67907851" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>23</td><td>香港人寿保险有限公司</td><td><span class="en">HONG KONG LIFE INSURANCE LIMITED</span></td><td>香港</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=31578143" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>24</td><td>汇丰保险(亚洲)有限公司</td><td><span class="en">HSBC INSURANCE (ASIA) LIMITED</span></td><td>香港</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=05240807" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>25</td><td>宏利人寿保险(国际)有限公司</td><td><span class="en">HSBC LIFE (INTERNATIONAL) LIMITED</span></td><td>香港</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=07531599" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>26</td><td>—</td><td><span class="en">HSH CAPTIVE LIMITED</span></td><td>香港</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=80149890" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>27</td><td>新鸿基地产保险有限公司</td><td><span class="en">SUN HUNG KAI PROPERTIES INSURANCE LIMITED</span></td><td>香港</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=05984263" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>28</td><td>德高保险有限公司</td><td><span class="en">TUGU INSURANCE COMPANY LIMITED</span></td><td>香港</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=02043094" target="_blank" rel="noopener">官方详情</a></td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <div class="pane" id="p2">
+      <input type="search" class="srch" data-t="tb2" placeholder="输入公司名或注册地搜索…">
+      <div class="tw"><table>
+        <thead><tr><th>#</th><th>中文名称</th><th>英文全称<span class="en">English Name</span></th><th>注册地</th><th>官方详情</th></tr></thead>
+        <tbody id="tb2">
+<tr><td>1</td><td>—</td><td><span class="en">ABCI INSURANCE COMPANY LIMITED</span></td><td><span class="mk o">待核</span></td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=07227203" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>2</td><td>—</td><td><span class="en">ALLIANZ GLOBAL CORPORATE &amp; SPECIALTY SE</span></td><td>德国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=59108554" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>3</td><td>—</td><td><span class="en">ALLIED WORLD ASSURANCE COMPANY, LTD</span></td><td>百慕达</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=50079233" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>4</td><td>—</td><td><span class="en">AMERICAN FAMILY LIFE ASSURANCE COMPANY OF COLUMBUS</span></td><td>美国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=10019291" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>5</td><td>—</td><td><span class="en">ASSICURAZIONI GENERALI SOCIETÀ PER AZIONI</span></td><td>意大利</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=06246715" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>6</td><td>—</td><td><span class="en">ASSURANCEFORENINGEN GARD-GJENSIDIG-</span></td><td>挪威</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=37582853" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>7</td><td>—</td><td><span class="en">ASSURANCEFORENINGEN SKULD (GJENSIDIG)</span></td><td>挪威</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=61775290" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>8</td><td>—</td><td><span class="en">ATRADIUS CRÉDITO Y CAUCIÓN SA DE SEGUROS Y REASEGUROS</span></td><td>西班牙</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=66248260" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>9</td><td>安我保险有限公司</td><td><span class="en">AVO INSURANCE COMPANY LIMITED</span></td><td>新西兰</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=68888444" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>10</td><td>—</td><td><span class="en">BE REINSURANCE LIMITED</span></td><td>英国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=63299925" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>11</td><td>—</td><td><span class="en">BERKLEY INSURANCE COMPANY</span></td><td>美国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=36380636" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>12</td><td>—</td><td><span class="en">BERKSHIRE HATHAWAY SPECIALTY INSURANCE COMPANY</span></td><td>美国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=63706247" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>13</td><td>—</td><td><span class="en">BLACK KITE RE LIMITED</span></td><td><span class="mk o">待核</span></td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=73854614" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>14</td><td>微蓝保险有限公司</td><td><span class="en">BLUE INSURANCE COMPANY LIMITED</span></td><td>新加坡</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=31221938" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>15</td><td>—</td><td><span class="en">BRITANNIA STEAM SHIP INSURANCE ASSOCIATION EUROPE - THE</span></td><td>英国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=72265783" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>16</td><td>保柏(亚洲)有限公司</td><td><span class="en">BUPA (ASIA) LIMITED</span></td><td>英国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=07441524" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>17</td><td>加利福尼亚保险有限公司</td><td><span class="en">CALIFORNIA INSURANCE COMPANY, LIMITED</span></td><td>美国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=05042693" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>18</td><td>—</td><td><span class="en">CHUBB INSURANCE HONG KONG LIMITED</span></td><td>英国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=20105113" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>19</td><td>—</td><td><span class="en">CHUBB LIFE INSURANCE HONG KONG LIMITED</span></td><td>美国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=36022561" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>20</td><td>信诺环球保险有限公司</td><td><span class="en">CIGNA WORLDWIDE GENERAL INSURANCE COMPANY LIMITED</span></td><td>美国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=36022553" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>21</td><td>法国再保险(亚洲)有限公司</td><td><span class="en">COMPAGNIE FRANÇAISE D'ASSURANCE POUR LE COMMERCE EXTÉRIEUR</span></td><td>法国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=22240389" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>22</td><td>—</td><td><span class="en">CONCORD INSURANCE COMPANY LIMITED</span></td><td>美国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=04746242" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>23</td><td>—</td><td><span class="en">DESJARDINS SÉCURITÉ FINANCIÈRE, COMPAGNIE D'ASSURANCE VIE (DESJARDINS FINANCIAL SECURITY LIFE ASSURANCE COMPANY)</span></td><td>加拿大</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=09227603" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>24</td><td>—</td><td><span class="en">EULER HERMES</span></td><td>法国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=62010590" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>25</td><td>—</td><td><span class="en">FACTORY MUTUAL INSURANCE COMPANY</span></td><td>澳大利亚</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=61007108" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>26</td><td>第一太平保险有限公司</td><td><span class="en">FAI FIRST PACIFIC INSURANCE COMPANY LIMITED</span></td><td>澳大利亚</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=05064463" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>27</td><td>第一美国业权保险公司</td><td><span class="en">FIRST AMERICAN TITLE INSURANCE COMPANY</span></td><td>美国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=31534286" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>28</td><td>—</td><td><span class="en">FRIENDS PROVIDENT INTERNATIONAL LIMITED</span></td><td>百慕达</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=06334819" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>29</td><td>—</td><td><span class="en">FUSURE REINSURANCE COMPANY LIMITED</span></td><td>英国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=71898032" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>30</td><td>富卫人寿保险(百慕达)有限公司</td><td><span class="en">FWD LIFE INSURANCE COMPANY (BERMUDA) LIMITED</span></td><td>百慕达</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=09061605" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>31</td><td>—</td><td><span class="en">GARD MARINE &amp; ENERGY LIMITED</span></td><td>挪威</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=39543231" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>32</td><td>—</td><td><span class="en">GENERAL REINSURANCE AG</span></td><td>德国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=11900235" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>33</td><td>—</td><td><span class="en">GENERALI LIFE (HONG KONG) LIMITED</span></td><td>意大利</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=65391492" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>34</td><td>—</td><td><span class="en">GREAT WALL RE LIMITED</span></td><td>英国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=74452576" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>35</td><td>—</td><td><span class="en">HANNOVER RÜCK SE</span></td><td>德国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=22265733" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>36</td><td>—</td><td><span class="en">HDI GLOBAL SE</span></td><td>德国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=38244060" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>37</td><td>丰隆保险(亚洲)有限公司</td><td><span class="en">HONG LEONG INSURANCE (ASIA) LIMITED</span></td><td>马来西亚</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=03843871" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>38</td><td>利宝国际保险有限公司</td><td><span class="en">LIBERTY INTERNATIONAL INSURANCE LIMITED</span></td><td>美国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=03967394" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>39</td><td>劳合社</td><td><span class="en">LLOYD'S</span></td><td>英国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=20577651" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>40</td><td>—</td><td><span class="en">LONDON STEAM-SHIP OWNERS' MUTUAL INSURANCE ASSOCIATION LIMITED - THE</span></td><td>英国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=30173631" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>41</td><td>—</td><td><span class="en">MANUFACTURERS LIFE INSURANCE COMPANY - THE</span></td><td>美国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=00001111" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>42</td><td>—</td><td><span class="en">MANULIFE (INTERNATIONAL) LIMITED</span></td><td>加拿大</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=09760645" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>43</td><td>—</td><td><span class="en">MASSACHUSETTS MUTUAL LIFE INSURANCE COMPANY</span></td><td>美国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=F0003850" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>44</td><td>—</td><td><span class="en">MSIG INSURANCE (HONG KONG) LIMITED</span></td><td>英国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=34945375" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>45</td><td>—</td><td><span class="en">MÜNCHENER RÜCKVERSICHERUNGS-GESELLSCHAFT (MUNICH REINSURANCE COMPANY)</span></td><td>德国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=09384841" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>46</td><td>—</td><td><span class="en">NEW INDIA ASSURANCE COMPANY, LIMITED - THE</span></td><td>印度</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=00062660" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>47</td><td>—</td><td><span class="en">NORTHSTANDARD LIMITED</span></td><td>英国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=19234606" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>48</td><td>—</td><td><span class="en">PARTNER REINSURANCE EUROPE SE</span></td><td>卢森堡</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=58258136" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>49</td><td>—</td><td><span class="en">PHOENIX LIFE LIMITED</span></td><td>英国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=36410069" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>50</td><td>—</td><td><span class="en">PIONEER INSURANCE AND SURETY CORPORATION</span></td><td>美国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=03209857" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>51</td><td>—</td><td><span class="en">PRINCIPAL INSURANCE COMPANY (HONG KONG) LIMITED</span></td><td>美国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=20024925" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>52</td><td>保诚财险有限公司</td><td><span class="en">PRUDENTIAL GENERAL INSURANCE HONG KONG LIMITED</span></td><td>英国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=39870416" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>53</td><td>保诚保险有限公司</td><td><span class="en">PRUDENTIAL HONG KONG LIMITED</span></td><td>英国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=39314925" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>54</td><td>—</td><td><span class="en">PRUDENTIAL INSURANCE COMPANY OF AMERICA - THE</span></td><td>美国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=03747637" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>55</td><td>—</td><td><span class="en">QBE HONGKONG &amp; SHANGHAI INSURANCE LIMITED</span></td><td>澳大利亚</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=01989895" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>56</td><td>昆士兰按揭保险(亚洲)有限公司</td><td><span class="en">QBE MORTGAGE INSURANCE (ASIA) LIMITED</span></td><td>澳大利亚</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=35761439" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>57</td><td>—</td><td><span class="en">RGA REINSURANCE COMPANY</span></td><td>美国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=18856710" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>58</td><td>—</td><td><span class="en">RL360 INSURANCE COMPANY LIMITED</span></td><td>百慕达</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=21903948" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>59</td><td>—</td><td><span class="en">RL360 LIFE INSURANCE COMPANY LIMITED</span></td><td>百慕达</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=13989316" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>60</td><td>—</td><td><span class="en">SCOR REINSURANCE ASIA-PACIFIC PTE LTD</span></td><td>新加坡</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=78823062" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>61</td><td>—</td><td><span class="en">SCOR REINSURANCE COMPANY (ASIA) LIMITED</span></td><td>法国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=09812555" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>62</td><td>—</td><td><span class="en">SCOTTISH WIDOWS LIMITED</span></td><td>英国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=20771382" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>63</td><td>—</td><td><span class="en">SF CAPTIVE LIMITED</span></td><td><span class="mk o">待核</span></td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=78818027" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>64</td><td>—</td><td><span class="en">SHIPOWNERS' MUTUAL PROTECTION AND INDEMNITY ASSOCIATION (LUXEMBOURG) - THE</span></td><td>卢森堡</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=33313850" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>65</td><td>—</td><td><span class="en">SOMPO INSURANCE (HONG KONG) COMPANY LIMITED</span></td><td>日本</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=05078101" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>66</td><td>—</td><td><span class="en">ST. JAMES'S PLACE INTERNATIONAL (HONG KONG) LIMITED</span></td><td>英国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=64458142" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>67</td><td>—</td><td><span class="en">STANDARD CLUB ASIA LTD. - THE</span></td><td>英国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=69691141" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>68</td><td>—</td><td><span class="en">STARR INTERNATIONAL INSURANCE (ASIA) LIMITED</span></td><td>美国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=51183916" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>69</td><td>—</td><td><span class="en">STEAMSHIP MUTUAL UNDERWRITING ASSOCIATION LIMITED</span></td><td>英国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=66809591" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>70</td><td>香港永明金融有限公司</td><td><span class="en">SUN LIFE HONG KONG LIMITED</span></td><td>加拿大</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=10737079" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>71</td><td>—</td><td><span class="en">SVERIGES ÅNGFARTYGS ASSURANS FÖRENING</span></td><td>瑞典</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=64650211" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>72</td><td>—</td><td><span class="en">SWISS RE ASIA PTE. LTD.</span></td><td>新加坡</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=70045503" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>73</td><td>—</td><td><span class="en">SWISS RE INTERNATIONAL SE</span></td><td>瑞士</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=65406895" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>74</td><td>—</td><td><span class="en">TOA REINSURANCE COMPANY, LIMITED - THE</span></td><td>日本</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=07332012" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>75</td><td>东京海上火灾保险(香港)有限公司</td><td><span class="en">TOKIO MARINE AND FIRE INSURANCE COMPANY (HONG KONG) LIMITED - THE</span></td><td>日本</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=03850347" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>76</td><td>—</td><td><span class="en">TRANSAMERICA LIFE (BERMUDA) LTD.</span></td><td>百慕达</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=36306777" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>77</td><td>—</td><td><span class="en">TRANSATLANTIC REINSURANCE COMPANY</span></td><td><span class="mk o">待核</span></td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=08832576" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>78</td><td>—</td><td><span class="en">TRINITY GENERAL INSURANCE COMPANY LIMITED</span></td><td><span class="mk o">待核</span></td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=05289455" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>79</td><td>—</td><td><span class="en">TT CLUB MUTUAL INSURANCE LIMITED</span></td><td>英国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=18974041" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>80</td><td>—</td><td><span class="en">UNITED KINGDOM MUTUAL STEAM SHIP ASSURANCE ASSOCIATION LIMITED - THE</span></td><td>英国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=60245193" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>81</td><td>—</td><td><span class="en">UTMOST INTERNATIONAL ISLE OF MAN LIMITED</span></td><td>马恩岛</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=14185977" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>82</td><td>—</td><td><span class="en">UTMOST WORLDWIDE LIMITED</span></td><td>英国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=08743329" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>83</td><td>—</td><td><span class="en">WEST OF ENGLAND SHIP OWNERS MUTUAL INSURANCE ASSOCIATION (LUXEMBOURG) - THE</span></td><td>卢森堡</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=F0002596" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>84</td><td>—</td><td><span class="en">XL INSURANCE COMPANY SE</span></td><td>爱尔兰</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=21422728" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>85</td><td>—</td><td><span class="en">YF LIFE INSURANCE INTERNATIONAL LIMITED</span></td><td><span class="mk o">待核</span></td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=04472576" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>86</td><td>—</td><td><span class="en">ZURICH ASSURANCE LTD</span></td><td>瑞士</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=13784095" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>87</td><td>—</td><td><span class="en">ZURICH GENERAL INSURANCE (HONG KONG) LIMITED</span></td><td>瑞士</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=07339917" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>88</td><td>—</td><td><span class="en">ZURICH INTERNATIONAL LIFE LIMITED</span></td><td>瑞士</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=10583149" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>89</td><td>苏黎世人寿保险(香港)有限公司</td><td><span class="en">ZURICH LIFE INSURANCE (HONG KONG) LIMITED</span></td><td>瑞士</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=69324362" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>90</td><td>—</td><td><span class="en">ZÜRICH VERSICHERUNGS-GESELLSCHAFT AG (ZURICH INSURANCE COMPANY LTD)</span></td><td>瑞士</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=06262864" target="_blank" rel="noopener">官方详情</a></td></tr>
+        </tbody>
+      </table></div>
+
+      <h2>按注册地汇总<span class="en">Summary by Domicile</span></h2>
+      <p>本次 161 家名单口径（与上文官方表的 160 家存在 1 家时间差）。
+        <span class="en">Based on the 161-name list; one insurer more than the official 160-company table above.</span></p>
+      <div class="tw"><table>
+        <thead><tr><th>注册成立地点／本籍所在地</th><th>家数</th></tr></thead>
+        <tbody>
+<tr><td>百慕达</td><td><span class="num">10</span></td></tr>
+<tr><td>英国</td><td><span class="num">20</span></td></tr>
+<tr><td>美国</td><td><span class="num">17</span></td></tr>
+<tr><td>加拿大</td><td><span class="num">3</span></td></tr>
+<tr><td>德国</td><td><span class="num">5</span></td></tr>
+<tr><td>马恩岛</td><td><span class="num">1</span></td></tr>
+<tr><td>卢森堡</td><td><span class="num">3</span></td></tr>
+<tr><td>意大利</td><td><span class="num">2</span></td></tr>
+<tr><td>新加坡</td><td><span class="num">3</span></td></tr>
+<tr><td>挪威</td><td><span class="num">3</span></td></tr>
+<tr><td>法国</td><td><span class="num">3</span></td></tr>
+<tr><td>西班牙</td><td><span class="num">1</span></td></tr>
+<tr><td>瑞士</td><td><span class="num">6</span></td></tr>
+<tr><td>印度</td><td><span class="num">1</span></td></tr>
+<tr><td>日本</td><td><span class="num">3</span></td></tr>
+<tr><td>瑞典</td><td><span class="num">1</span></td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <div class="pane" id="p3">
+      <p>以下公司名称本身不含明确注册地线索，或属近年新设／改名主体，需打开官方详情页查看 <span class="term">Place of Domicile</span> 确认。
+        <span class="en">Names that carry no clear domicile clue; check the official detail page.</span></p>
+      <input type="search" class="srch" data-t="tb3" placeholder="输入公司名搜索…">
+      <div class="tw"><table>
+        <thead><tr><th>#</th><th>中文名称</th><th>英文全称<span class="en">English Name</span></th><th>注册地</th><th>官方详情</th></tr></thead>
+        <tbody id="tb3">
+<tr><td>1</td><td>—</td><td><span class="en">HIH CASUALTY AND GENERAL INSURANCE (ASIA) LIMITED</span></td><td><span class="mk o">待核</span></td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=05923722" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>2</td><td>—</td><td><span class="en">MYPACE LIFE LIMITED</span></td><td><span class="mk o">待核</span></td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=76631693" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>3</td><td>信诚人寿保险有限公司</td><td><span class="en">SINCERE LIFE ASSURANCE COMPANY LIMITED - THE</span></td><td><span class="mk o">待核</span></td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=00058689" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>4</td><td>—</td><td><span class="en">TAHOE LIFE INSURANCE COMPANY LIMITED</span></td><td><span class="mk o">待核</span></td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=13643566" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>5</td><td>—</td><td><span class="en">WAYFOONG (ASIA) LIMITED</span></td><td><span class="mk o">待核</span></td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=77793379" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>6</td><td>—</td><td><span class="en">WELL LINK GENERAL INSURANCE COMPANY LIMITED</span></td><td><span class="mk o">待核</span></td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=51311933" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>7</td><td>—</td><td><span class="en">WELL LINK LIFE INSURANCE COMPANY LIMITED</span></td><td><span class="mk o">待核</span></td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=67027760" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>8</td><td>—</td><td><span class="en">ZA LIFE LIMITED</span></td><td><span class="mk o">待核</span></td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=70410675" target="_blank" rel="noopener">官方详情</a></td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <div class="pane" id="p4">
+      <input type="search" class="srch" data-t="tb4" placeholder="输入公司名搜索…">
+      <div class="tw"><table>
+        <thead><tr><th>#</th><th>中文名称</th><th>英文全称<span class="en">English Name</span></th><th>注册地</th><th>官方详情</th></tr></thead>
+        <tbody id="tb4">
+<tr><td>1</td><td>—</td><td><span class="en">ABCI INSURANCE COMPANY LIMITED</span></td><td><span class="mk o">待核</span></td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=07227203" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>2</td><td>友邦保险有限公司</td><td><span class="en">AIA COMPANY LIMITED</span></td><td>香港</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=00003901" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>3</td><td>友邦隽峰人寿有限公司</td><td><span class="en">AIA EVEREST LIFE COMPANY LIMITED</span></td><td>香港</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=37320150" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>4</td><td>友邦保险(国际)有限公司</td><td><span class="en">AIA INTERNATIONAL LIMITED</span></td><td>香港</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=02420056" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>5</td><td>—</td><td><span class="en">AIG INSURANCE HONG KONG LIMITED</span></td><td>香港</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=00007701" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>6</td><td>—</td><td><span class="en">ALLIANZ GLOBAL CORPORATE &amp; SPECIALTY SE</span></td><td>德国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=59108554" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>7</td><td>—</td><td><span class="en">ALLIED WORLD ASSURANCE COMPANY, LTD</span></td><td>百慕达</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=50079233" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>8</td><td>—</td><td><span class="en">AMERICAN FAMILY LIFE ASSURANCE COMPANY OF COLUMBUS</span></td><td>美国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=10019291" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>9</td><td>亚洲保险有限公司</td><td><span class="en">ASIA INSURANCE COMPANY, LIMITED</span></td><td>香港</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=00912655" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>10</td><td>亚太财产保险有限公司</td><td><span class="en">ASIA-PACIFIC PROPERTY &amp; CASUALTY INSURANCE CO., LTD.</span></td><td>中国内地</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=36962082" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>11</td><td>—</td><td><span class="en">ASSICURAZIONI GENERALI SOCIETÀ PER AZIONI</span></td><td>意大利</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=06246715" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>12</td><td>—</td><td><span class="en">ASSURANCEFORENINGEN GARD-GJENSIDIG-</span></td><td>挪威</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=37582853" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>13</td><td>—</td><td><span class="en">ASSURANCEFORENINGEN SKULD (GJENSIDIG)</span></td><td>挪威</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=61775290" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>14</td><td>—</td><td><span class="en">ATRADIUS CRÉDITO Y CAUCIÓN SA DE SEGUROS Y REASEGUROS</span></td><td>西班牙</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=66248260" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>15</td><td>安我保险有限公司</td><td><span class="en">AVO INSURANCE COMPANY LIMITED</span></td><td>新西兰</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=68888444" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>16</td><td>—</td><td><span class="en">AXA CHINA REGION INSURANCE COMPANY (HONG KONG) LIMITED</span></td><td>香港</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=06056536" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>17</td><td>—</td><td><span class="en">AXA CHINA REGION INSURANCE COMPANY LIMITED</span></td><td>中国内地</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=01058371" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>18</td><td>—</td><td><span class="en">AXA GENERAL INSURANCE HONG KONG LIMITED</span></td><td>香港</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=00059520" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>19</td><td>—</td><td><span class="en">AXA LIFE INSURANCE COMPANY LIMITED</span></td><td>香港</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=00126151" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>20</td><td>—</td><td><span class="en">AXA WEALTH MANAGEMENT (HK) LIMITED</span></td><td>香港</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=34805305" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>21</td><td>中银集团保险有限公司</td><td><span class="en">BANK OF CHINA GROUP INSURANCE COMPANY LIMITED</span></td><td>中国内地</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=04441123" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>22</td><td>—</td><td><span class="en">BC REINSURANCE LIMITED</span></td><td>中国内地</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=31311131" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>23</td><td>—</td><td><span class="en">BE REINSURANCE LIMITED</span></td><td>英国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=63299925" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>24</td><td>—</td><td><span class="en">BERKLEY INSURANCE COMPANY</span></td><td>美国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=36380636" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>25</td><td>—</td><td><span class="en">BERKSHIRE HATHAWAY SPECIALTY INSURANCE COMPANY</span></td><td>美国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=63706247" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>26</td><td>—</td><td><span class="en">BLACK KITE RE LIMITED</span></td><td><span class="mk o">待核</span></td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=73854614" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>27</td><td>蓝十字(亚太)保险有限公司</td><td><span class="en">BLUE CROSS (ASIA-PACIFIC) INSURANCE LIMITED</span></td><td>香港</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=02881781" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>28</td><td>微蓝保险有限公司</td><td><span class="en">BLUE INSURANCE COMPANY LIMITED</span></td><td>新加坡</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=31221938" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>29</td><td>中银集团人寿保险有限公司</td><td><span class="en">BOC GROUP LIFE ASSURANCE COMPANY LIMITED</span></td><td>中国内地</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=20724864" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>30</td><td>—</td><td><span class="en">BOLTTECH INSURANCE (HONG KONG) COMPANY LIMITED</span></td><td>香港</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=35808859" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>31</td><td>—</td><td><span class="en">BOWTIE LIFE INSURANCE COMPANY LIMITED</span></td><td>香港</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=68545626" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>32</td><td>—</td><td><span class="en">BRITANNIA STEAM SHIP INSURANCE ASSOCIATION EUROPE - THE</span></td><td>英国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=72265783" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>33</td><td>保柏(亚洲)有限公司</td><td><span class="en">BUPA (ASIA) LIMITED</span></td><td>英国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=07441524" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>34</td><td>加利福尼亚保险有限公司</td><td><span class="en">CALIFORNIA INSURANCE COMPANY, LIMITED</span></td><td>美国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=05042693" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>35</td><td>—</td><td><span class="en">CGN CAPTIVE INSURANCE LIMITED</span></td><td><span class="mk o">待核</span></td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=52589856" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>36</td><td>其士保险有限公司</td><td><span class="en">CHEVALIER INSURANCE COMPANY LIMITED</span></td><td>香港</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=19987768" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>37</td><td>中国交银保险有限公司</td><td><span class="en">CHINA BOCOM INSURANCE COMPANY LIMITED</span></td><td>中国内地</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=31415713" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>38</td><td>中国人寿保险(海外)股份有限公司</td><td><span class="en">CHINA LIFE INSURANCE (OVERSEAS) COMPANY LIMITED</span></td><td>中国内地</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=09331694" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>39</td><td>中国海外保险有限公司</td><td><span class="en">CHINA OVERSEAS INSURANCE LIMITED</span></td><td>中国内地</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=32179558" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>40</td><td>中国太平洋保险(香港)有限公司</td><td><span class="en">CHINA PACIFIC INSURANCE CO., (H.K.) LIMITED</span></td><td>中国内地</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=04814748" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>41</td><td>中国太平洋人寿保险(香港)有限公司</td><td><span class="en">CHINA PACIFIC LIFE INSURANCE (H.K.) COMPANY LIMITED</span></td><td>中国内地</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=73452648" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>42</td><td>中国平安保险(香港)有限公司</td><td><span class="en">CHINA PING AN INSURANCE (HONG KONG) COMPANY LIMITED</span></td><td>中国内地</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=05198044" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>43</td><td>中国再保险(香港)股份有限公司</td><td><span class="en">CHINA REINSURANCE (HONG KONG) COMPANY LIMITED</span></td><td>中国内地</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=66961755" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>44</td><td>中国太平保险(香港)有限公司</td><td><span class="en">CHINA TAIPING INSURANCE (HK) COMPANY LIMITED</span></td><td>中国内地</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=00088175" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>45</td><td>中国太平人寿保险(香港)有限公司</td><td><span class="en">CHINA TAIPING LIFE INSURANCE (HONG KONG) COMPANY LIMITED</span></td><td>中国内地</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=64995659" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>46</td><td>创兴保险有限公司</td><td><span class="en">CHONG HING INSURANCE COMPANY LIMITED</span></td><td>香港</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=01014472" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>47</td><td>周大福人寿保险有限公司</td><td><span class="en">CHOW TAI FOOK LIFE INSURANCE COMPANY LIMITED</span></td><td>香港</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=09983114" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>48</td><td>—</td><td><span class="en">CHUBB INSURANCE HONG KONG LIMITED</span></td><td>英国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=20105113" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>49</td><td>—</td><td><span class="en">CHUBB LIFE INSURANCE HONG KONG LIMITED</span></td><td>美国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=36022561" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>50</td><td>信诺环球保险有限公司</td><td><span class="en">CIGNA WORLDWIDE GENERAL INSURANCE COMPANY LIMITED</span></td><td>美国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=36022553" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>51</td><td>招商永隆保险有限公司</td><td><span class="en">CMB WING LUNG INSURANCE COMPANY LIMITED</span></td><td>中国内地</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=07181708" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>52</td><td>—</td><td><span class="en">CNNC CAPTIVE INSURANCE LIMITED</span></td><td>中国内地</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=79100984" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>53</td><td>中海石油保险有限公司</td><td><span class="en">CNOOC INSURANCE LIMITED</span></td><td>中国内地</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=31195931" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>54</td><td>法国再保险(亚洲)有限公司</td><td><span class="en">COMPAGNIE FRANÇAISE D'ASSURANCE POUR LE COMMERCE EXTÉRIEUR</span></td><td>法国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=22240389" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>55</td><td>—</td><td><span class="en">CONCORD INSURANCE COMPANY LIMITED</span></td><td>美国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=04746242" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>56</td><td>大新保险有限公司</td><td><span class="en">DAH SING INSURANCE COMPANY LIMITED</span></td><td>香港</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=04893762" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>57</td><td>—</td><td><span class="en">DESJARDINS SÉCURITÉ FINANCIÈRE, COMPAGNIE D'ASSURANCE VIE (DESJARDINS FINANCIAL SECURITY LIFE ASSURANCE COMPANY)</span></td><td>加拿大</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=09227603" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>58</td><td>永和再保险有限公司</td><td><span class="en">EAST POINT REINSURANCE COMPANY OF HONG KONG LIMITED</span></td><td>中国内地</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=05895252" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>59</td><td>—</td><td><span class="en">EULER HERMES</span></td><td>法国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=62010590" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>60</td><td>—</td><td><span class="en">FACTORY MUTUAL INSURANCE COMPANY</span></td><td>澳大利亚</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=61007108" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>61</td><td>第一太平保险有限公司</td><td><span class="en">FAI FIRST PACIFIC INSURANCE COMPANY LIMITED</span></td><td>澳大利亚</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=05064463" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>62</td><td>—</td><td><span class="en">FALCON INSURANCE COMPANY (HONG KONG) LIMITED</span></td><td>香港</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=05313086" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>63</td><td>第一美国业权保险公司</td><td><span class="en">FIRST AMERICAN TITLE INSURANCE COMPANY</span></td><td>美国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=31534286" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>64</td><td>—</td><td><span class="en">FRIENDS PROVIDENT INTERNATIONAL LIMITED</span></td><td>百慕达</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=06334819" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>65</td><td>富邦人寿保险(香港)有限公司</td><td><span class="en">FUBON LIFE INSURANCE (HONG KONG) COMPANY LIMITED</span></td><td>中国台湾</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=65025504" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>66</td><td>—</td><td><span class="en">FUSURE REINSURANCE COMPANY LIMITED</span></td><td>英国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=71898032" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>67</td><td>富卫人寿(香港)有限公司</td><td><span class="en">FWD LIFE (HONG KONG) LIMITED</span></td><td>香港</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=32114500" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>68</td><td>富卫人寿保险(香港)有限公司</td><td><span class="en">FWD LIFE ASSURANCE COMPANY (HONG KONG) LIMITED</span></td><td>香港</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=05591749" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>69</td><td>富卫人寿保险(百慕达)有限公司</td><td><span class="en">FWD LIFE INSURANCE COMPANY (BERMUDA) LIMITED</span></td><td>百慕达</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=09061605" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>70</td><td>—</td><td><span class="en">GARD MARINE &amp; ENERGY LIMITED</span></td><td>挪威</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=39543231" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>71</td><td>—</td><td><span class="en">GENERAL REINSURANCE AG</span></td><td>德国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=11900235" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>72</td><td>—</td><td><span class="en">GENERALI LIFE (HONG KONG) LIMITED</span></td><td>意大利</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=65391492" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>73</td><td>—</td><td><span class="en">GREAT WALL RE LIMITED</span></td><td>英国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=74452576" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>74</td><td>恒生保险有限公司</td><td><span class="en">HANG SENG INSURANCE COMPANY LIMITED</span></td><td>香港</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=01816462" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>75</td><td>—</td><td><span class="en">HANNOVER RÜCK SE</span></td><td>德国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=22265733" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>76</td><td>—</td><td><span class="en">HDI GLOBAL SE</span></td><td>德国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=38244060" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>77</td><td>恒安标准人寿(亚洲)有限公司</td><td><span class="en">HENG AN STANDARD LIFE (ASIA) LIMITED</span></td><td>中国内地</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=30420587" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>78</td><td>—</td><td><span class="en">HIH CASUALTY AND GENERAL INSURANCE (ASIA) LIMITED</span></td><td><span class="mk o">待核</span></td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=05923722" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>79</td><td>香港年金有限公司</td><td><span class="en">HKMC ANNUITY LIMITED</span></td><td>香港</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=67907869" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>80</td><td>香港按证保险有限公司</td><td><span class="en">HKMC INSURANCE LIMITED</span></td><td>香港</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=67907851" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>81</td><td>香港人寿保险有限公司</td><td><span class="en">HONG KONG LIFE INSURANCE LIMITED</span></td><td>香港</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=31578143" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>82</td><td>丰隆保险(亚洲)有限公司</td><td><span class="en">HONG LEONG INSURANCE (ASIA) LIMITED</span></td><td>马来西亚</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=03843871" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>83</td><td>汇丰保险(亚洲)有限公司</td><td><span class="en">HSBC INSURANCE (ASIA) LIMITED</span></td><td>香港</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=05240807" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>84</td><td>宏利人寿保险(国际)有限公司</td><td><span class="en">HSBC LIFE (INTERNATIONAL) LIMITED</span></td><td>香港</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=07531599" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>85</td><td>—</td><td><span class="en">HSH CAPTIVE LIMITED</span></td><td>香港</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=80149890" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>86</td><td>利宝国际保险有限公司</td><td><span class="en">LIBERTY INTERNATIONAL INSURANCE LIMITED</span></td><td>美国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=03967394" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>87</td><td>劳合社</td><td><span class="en">LLOYD'S</span></td><td>英国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=20577651" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>88</td><td>—</td><td><span class="en">LONDON STEAM-SHIP OWNERS' MUTUAL INSURANCE ASSOCIATION LIMITED - THE</span></td><td>英国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=30173631" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>89</td><td>—</td><td><span class="en">MANUFACTURERS LIFE INSURANCE COMPANY - THE</span></td><td>美国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=00001111" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>90</td><td>—</td><td><span class="en">MANULIFE (INTERNATIONAL) LIMITED</span></td><td>加拿大</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=09760645" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>91</td><td>—</td><td><span class="en">MASSACHUSETTS MUTUAL LIFE INSURANCE COMPANY</span></td><td>美国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=F0003850" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>92</td><td>闽信保险有限公司</td><td><span class="en">MIN XIN INSURANCE COMPANY LIMITED</span></td><td>中国内地</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=04095093" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>93</td><td>—</td><td><span class="en">MSIG INSURANCE (HONG KONG) LIMITED</span></td><td>英国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=34945375" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>94</td><td>—</td><td><span class="en">MYPACE LIFE LIMITED</span></td><td><span class="mk o">待核</span></td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=76631693" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>95</td><td>—</td><td><span class="en">MÜNCHENER RÜCKVERSICHERUNGS-GESELLSCHAFT (MUNICH REINSURANCE COMPANY)</span></td><td>德国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=09384841" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>96</td><td>—</td><td><span class="en">NEW INDIA ASSURANCE COMPANY, LIMITED - THE</span></td><td>印度</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=00062660" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>97</td><td>—</td><td><span class="en">NORTHSTANDARD LIMITED</span></td><td>英国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=19234606" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>98</td><td>—</td><td><span class="en">ONEDEGREE HONG KONG LIMITED</span></td><td><span class="mk o">待核</span></td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=69551286" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>99</td><td>太平洋保险有限公司</td><td><span class="en">PACIFIC INSURANCE COMPANY, LIMITED - THE</span></td><td>中国内地</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=01030123" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>100</td><td>太平洋人寿保险有限公司</td><td><span class="en">PACIFIC LIFE ASSURANCE COMPANY, LIMITED - THE</span></td><td>中国内地</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=00992918" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>101</td><td>宝丰保险(香港)有限公司</td><td><span class="en">PAOFOONG INSURANCE COMPANY (HONG KONG) LIMITED</span></td><td>中国内地</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=00005246" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>102</td><td>—</td><td><span class="en">PARTNER REINSURANCE EUROPE SE</span></td><td>卢森堡</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=58258136" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>103</td><td>鼎睿再保险有限公司</td><td><span class="en">PEAK REINSURANCE COMPANY LIMITED</span></td><td>中国内地</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=53738745" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>104</td><td>中国人民保险(香港)有限公司</td><td><span class="en">PEOPLE'S INSURANCE COMPANY OF CHINA (HONG KONG), LIMITED - THE</span></td><td>中国内地</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=03192517" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>105</td><td>—</td><td><span class="en">PHOENIX LIFE LIMITED</span></td><td>英国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=36410069" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>106</td><td>—</td><td><span class="en">PIONEER INSURANCE AND SURETY CORPORATION</span></td><td>美国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=03209857" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>107</td><td>—</td><td><span class="en">PRINCIPAL INSURANCE COMPANY (HONG KONG) LIMITED</span></td><td>美国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=20024925" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>108</td><td>保诚财险有限公司</td><td><span class="en">PRUDENTIAL GENERAL INSURANCE HONG KONG LIMITED</span></td><td>英国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=39870416" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>109</td><td>保诚保险有限公司</td><td><span class="en">PRUDENTIAL HONG KONG LIMITED</span></td><td>英国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=39314925" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>110</td><td>—</td><td><span class="en">PRUDENTIAL INSURANCE COMPANY OF AMERICA - THE</span></td><td>美国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=03747637" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>111</td><td>—</td><td><span class="en">QBE HONGKONG &amp; SHANGHAI INSURANCE LIMITED</span></td><td>澳大利亚</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=01989895" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>112</td><td>昆士兰按揭保险(亚洲)有限公司</td><td><span class="en">QBE MORTGAGE INSURANCE (ASIA) LIMITED</span></td><td>澳大利亚</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=35761439" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>113</td><td>—</td><td><span class="en">RGA REINSURANCE COMPANY</span></td><td>美国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=18856710" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>114</td><td>—</td><td><span class="en">RL360 INSURANCE COMPANY LIMITED</span></td><td>百慕达</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=21903948" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>115</td><td>—</td><td><span class="en">RL360 LIFE INSURANCE COMPANY LIMITED</span></td><td>百慕达</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=13989316" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>116</td><td>上海汽车集团保险有限公司</td><td><span class="en">SAIC MOTOR INSURANCE LIMITED</span></td><td>中国内地</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=78191025" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>117</td><td>—</td><td><span class="en">SCOR REINSURANCE ASIA-PACIFIC PTE LTD</span></td><td>新加坡</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=78823062" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>118</td><td>—</td><td><span class="en">SCOR REINSURANCE COMPANY (ASIA) LIMITED</span></td><td>法国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=09812555" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>119</td><td>—</td><td><span class="en">SCOTTISH WIDOWS LIMITED</span></td><td>英国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=20771382" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>120</td><td>—</td><td><span class="en">SF CAPTIVE LIMITED</span></td><td><span class="mk o">待核</span></td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=78818027" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>121</td><td>上海电气保险有限公司</td><td><span class="en">SHANGHAI ELECTRIC INSURANCE LIMITED</span></td><td>中国内地</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=69992931" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>122</td><td>—</td><td><span class="en">SHIPOWNERS' MUTUAL PROTECTION AND INDEMNITY ASSOCIATION (LUXEMBOURG) - THE</span></td><td>卢森堡</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=33313850" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>123</td><td>银和再保险有限公司</td><td><span class="en">SILK ROAD RE LIMITED</span></td><td>中国内地</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=77228823" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>124</td><td>信诚人寿保险有限公司</td><td><span class="en">SINCERE LIFE ASSURANCE COMPANY LIMITED - THE</span></td><td><span class="mk o">待核</span></td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=00058689" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>125</td><td>中石化保险有限公司</td><td><span class="en">SINOPEC INSURANCE LIMITED</span></td><td>中国内地</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=62179552" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>126</td><td>—</td><td><span class="en">SOMPO INSURANCE (HONG KONG) COMPANY LIMITED</span></td><td>日本</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=05078101" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>127</td><td>—</td><td><span class="en">ST. JAMES'S PLACE INTERNATIONAL (HONG KONG) LIMITED</span></td><td>英国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=64458142" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>128</td><td>—</td><td><span class="en">STANDARD CLUB ASIA LTD. - THE</span></td><td>英国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=69691141" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>129</td><td>—</td><td><span class="en">STARR INTERNATIONAL INSURANCE (ASIA) LIMITED</span></td><td>美国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=51183916" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>130</td><td>—</td><td><span class="en">STEAMSHIP MUTUAL UNDERWRITING ASSOCIATION LIMITED</span></td><td>英国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=66809591" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>131</td><td>新鸿基地产保险有限公司</td><td><span class="en">SUN HUNG KAI PROPERTIES INSURANCE LIMITED</span></td><td>香港</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=05984263" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>132</td><td>香港永明金融有限公司</td><td><span class="en">SUN LIFE HONG KONG LIMITED</span></td><td>加拿大</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=10737079" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>133</td><td>—</td><td><span class="en">SVERIGES ÅNGFARTYGS ASSURANS FÖRENING</span></td><td>瑞典</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=64650211" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>134</td><td>—</td><td><span class="en">SWISS RE ASIA PTE. LTD.</span></td><td>新加坡</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=70045503" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>135</td><td>—</td><td><span class="en">SWISS RE INTERNATIONAL SE</span></td><td>瑞士</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=65406895" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>136</td><td>—</td><td><span class="en">TAHOE LIFE INSURANCE COMPANY LIMITED</span></td><td><span class="mk o">待核</span></td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=13643566" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>137</td><td>太平再保险有限公司</td><td><span class="en">TAIPING REINSURANCE COMPANY LIMITED</span></td><td>中国内地</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=07032707" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>138</td><td>—</td><td><span class="en">TARGET INSURANCE COMPANY, LIMITED</span></td><td><span class="mk o">待核</span></td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=05250290" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>139</td><td>—</td><td><span class="en">TOA REINSURANCE COMPANY, LIMITED - THE</span></td><td>日本</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=07332012" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>140</td><td>东京海上火灾保险(香港)有限公司</td><td><span class="en">TOKIO MARINE AND FIRE INSURANCE COMPANY (HONG KONG) LIMITED - THE</span></td><td>日本</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=03850347" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>141</td><td>—</td><td><span class="en">TRANSAMERICA LIFE (BERMUDA) LTD.</span></td><td>百慕达</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=36306777" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>142</td><td>—</td><td><span class="en">TRANSATLANTIC REINSURANCE COMPANY</span></td><td><span class="mk o">待核</span></td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=08832576" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>143</td><td>—</td><td><span class="en">TRINITY GENERAL INSURANCE COMPANY LIMITED</span></td><td><span class="mk o">待核</span></td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=05289455" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>144</td><td>—</td><td><span class="en">TT CLUB MUTUAL INSURANCE LIMITED</span></td><td>英国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=18974041" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>145</td><td>德高保险有限公司</td><td><span class="en">TUGU INSURANCE COMPANY LIMITED</span></td><td>香港</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=02043094" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>146</td><td>—</td><td><span class="en">UNITED BUILDERS INSURANCE COMPANY, LIMITED</span></td><td>中国内地</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=00734659" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>147</td><td>—</td><td><span class="en">UNITED KINGDOM MUTUAL STEAM SHIP ASSURANCE ASSOCIATION LIMITED - THE</span></td><td>英国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=60245193" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>148</td><td>—</td><td><span class="en">UTMOST INTERNATIONAL ISLE OF MAN LIMITED</span></td><td>马恩岛</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=14185977" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>149</td><td>—</td><td><span class="en">UTMOST WORLDWIDE LIMITED</span></td><td>英国</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=08743329" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>150</td><td>—</td><td><span class="en">WAYFOONG (ASIA) LIMITED</span></td><td><span class="mk o">待核</span></td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=77793379" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>151</td><td>—</td><td><span class="en">WELL LINK GENERAL INSURANCE COMPANY LIMITED</span></td><td><span class="mk o">待核</span></td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=51311933" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>152</td><td>—</td><td><span class="en">WELL LINK LIFE INSURANCE COMPANY LIMITED</span></td><td><span class="mk o">待核</span></td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=67027760" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>153</td><td>—</td><td><span class="en">WEST OF ENGLAND SHIP OWNERS MUTUAL INSURANCE ASSOCIATION (LUXEMBOURG) - THE</span></td><td>卢森堡</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=F0002596" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>154</td><td>—</td><td><span class="en">XL INSURANCE COMPANY SE</span></td><td>爱尔兰</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=21422728" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>155</td><td>—</td><td><span class="en">YF LIFE INSURANCE INTERNATIONAL LIMITED</span></td><td><span class="mk o">待核</span></td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=04472576" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>156</td><td>—</td><td><span class="en">ZA LIFE LIMITED</span></td><td><span class="mk o">待核</span></td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=70410675" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>157</td><td>—</td><td><span class="en">ZURICH ASSURANCE LTD</span></td><td>瑞士</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=13784095" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>158</td><td>—</td><td><span class="en">ZURICH GENERAL INSURANCE (HONG KONG) LIMITED</span></td><td>瑞士</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=07339917" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>159</td><td>—</td><td><span class="en">ZURICH INTERNATIONAL LIFE LIMITED</span></td><td>瑞士</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=10583149" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>160</td><td>苏黎世人寿保险(香港)有限公司</td><td><span class="en">ZURICH LIFE INSURANCE (HONG KONG) LIMITED</span></td><td>瑞士</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=69324362" target="_blank" rel="noopener">官方详情</a></td></tr>
+<tr><td>161</td><td>—</td><td><span class="en">ZÜRICH VERSICHERUNGS-GESELLSCHAFT AG (ZURICH INSURANCE COMPANY LTD)</span></td><td>瑞士</td><td><a class="ext" href="https://www.ia.org.hk/en/supervision/reg_insurers_lloyd/register_of_authorized_insurers/insurerdetail.html?no=06262864" target="_blank" rel="noopener">官方详情</a></td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <h2>持牌保险中介人数量<span class="en">Licensed Insurance Intermediaries</span></h2>
+    <p>截至 <b>2026 年 8 月 31 日</b>，保监局《Statistics – Insurance Intermediary Licence》最新一期。
+      <span class="en">As at 31 August 2026, latest IA intermediary licence statistics.</span></p>
+
+    <div class="kpis">
+      <div class="kpi"><b>1,459</b><span>持牌保险代理机构（间）</span></div>
+      <div class="kpi"><b>83,578</b><span>持牌个人保险代理（名）</span></div>
+      <div class="kpi"><b>814</b><span>持牌保险经纪公司（间）</span></div>
+    </div>
+
+    <div class="tw"><table>
+      <thead><tr><th>牌照类别</th><th>英文对照<span class="en">English</span></th><th>有委任 principal</th><th>无委任 principal</th><th>合计</th></tr></thead>
+      <tbody>
+<tr><td>持牌个人保险代理</td><td><span class="en">Licensed Individual Insurance Agents</span></td><td><span class="num">77,269</span></td><td><span class="num">6,309</span></td><td><span class="num"><b>83,578</b></span></td></tr>
+<tr><td>持牌业务代表（代理）</td><td><span class="en">Licensed Technical Representatives (Agent)</span></td><td><span class="num">22,416</span></td><td><span class="num">1,053</span></td><td><span class="num"><b>23,469</b></span></td></tr>
+<tr><td>持牌业务代表（经纪）</td><td><span class="en">Licensed Technical Representatives (Broker)</span></td><td><span class="num">14,584</span></td><td><span class="num">819</span></td><td><span class="num"><b>15,403</b></span></td></tr>
+<tr class="tot"><td>个人牌照合计</td><td><span class="en">Total Number of Licensees Being Individuals</span></td><td><span class="num">114,269</span></td><td><span class="num">8,181</span></td><td><span class="num"><b>122,450</b></span></td></tr>
+<tr><td>持牌保险代理机构</td><td><span class="en">Licensed Insurance Agencies</span></td><td><span class="num">1,451</span></td><td><span class="num">8</span></td><td><span class="num"><b>1,459</b></span></td></tr>
+<tr><td>持牌保险经纪公司</td><td><span class="en">Licensed Insurance Broker Companies</span></td><td><span class="num">不适用</span></td><td><span class="num">不适用</span></td><td><span class="num"><b>814</b></span></td></tr>
+<tr class="tot"><td>持牌保险中介人总计</td><td><span class="en">Total Number of Licensed Insurance Intermediaries</span></td><td><span class="num">—</span></td><td><span class="num">—</span></td><td><span class="num"><b>124,723</b></span></td></tr>
+      </tbody>
+    </table></div>
+    <p class="fine">另有 45 家获授权机构以「持牌保险代理机构」身份登记，其名下登记约 18,433 名持牌业务代表（代理）。
+      <span class="en">A further 45 authorized institutions are registered as licensed insurance agencies, with about 18,433 technical representatives (agent) under them.</span></p>
+
+    <h2>中介人数字的三种口径对比<span class="en">Three Reference Dates Compared</span></h2>
+    <p>保监局官网「常见问题」页的 Q6 至今仍停留在 2024-12-31，属<b>未更新</b>的旧数据；对外引用请以最后一行为准。
+      <span class="en">The IA FAQ page still shows the December 2024 figures — do not cite those.</span></p>
+    <div class="tw"><table>
+      <thead><tr><th>统计基准日</th><th>持牌代理机构</th><th>持牌个人代理</th><th>持牌经纪公司</th><th>业务代表（代理）</th><th>业务代表（经纪）</th></tr></thead>
+      <tbody>
+<tr><td><b>2024-12-31 · 保监局FAQ旧口径（未更新）</b></td><td><span class="num">1,585</span></td><td><span class="num">80,445</span></td><td><span class="num">805</span></td><td><span class="num">23,541</span></td><td><span class="num">11,174</span></td></tr>
+<tr><td><b>2026-03-31 · 市场概览</b></td><td><span class="num">1,480</span></td><td><span class="num">83,973</span></td><td><span class="num">810</span></td><td><span class="num">23,437</span></td><td><span class="num">14,159</span></td></tr>
+<tr class="tot"><td><b>2026-08-31 · 最新，本页采用</b></td><td><span class="num">1,459</span></td><td><span class="num">83,578</span></td><td><span class="num">814</span></td><td><span class="num">23,469</span></td><td><span class="num">15,403</span></td></tr>
+      </tbody>
+    </table></div>
+
+    <h2>数据口径与局限<span class="en">Caveats</span></h2>
+    <p>· 公司总数、业务类别、注册地分布、98 家合并口径、中介人最新数据，均取自保监局官网公开页面。<br>
+      · 「注册地」一列及分组由公司名称与集团归属推定，<b>非逐页抄录官方 <span class="term">Place of Incorporation</span> 字段</b>；标「待核」者务必点开官方详情链接确认。<br>
+      · 「已迁册至香港」官方<b>未单独披露</b>，与「在香港注册成立」合并为 98 家，本页合并呈现且不填推测值。<br>
+      · 分国家分布表官方版截至 2025-12-05（160 家），与 2026-03-31 的 161 家口径存在 1 家时间差。<br>
+      · 注册地址、牌照类别等逐家字段本次未能取得，请用各表「官方详情」链接逐家查看。
+      <span class="en">Registered addresses and per-insurer licence classes could not be retrieved; use the official links.</span>
+    </p>
+
+    <p style="margin-top:2rem"><a href="../../insurance/index.html">← 返回保险板块 <span class="en">Back to Insurance</span></a></p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">© <span id="year"></span> 大威的网兜 · David's Net · 由 GitHub Pages 免费托管</div>
+</footer>
+<script src="../../assets/js/main.js"></script>
+<script>
+document.querySelectorAll('.tabs button').forEach(function(b){
+  b.onclick=function(){
+    document.querySelectorAll('.tabs button').forEach(function(x){x.classList.remove('on')});
+    document.querySelectorAll('.pane').forEach(function(x){x.classList.remove('on')});
+    b.classList.add('on');
+    document.getElementById(b.dataset.p).classList.add('on');
+  };
+});
+document.querySelectorAll('.srch').forEach(function(i){
+  i.oninput=function(){
+    var q=i.value.trim().toLowerCase(), tb=document.getElementById(i.dataset.t);
+    tb.querySelectorAll('tr').forEach(function(r){
+      r.style.display = (!q || r.innerText.toLowerCase().indexOf(q)>=0) ? '' : 'none';
+    });
+  };
+});
+</script>
+</body>
+</html>
