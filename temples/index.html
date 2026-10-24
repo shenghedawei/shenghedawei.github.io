@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+<title>香港佛寺打卡地圖 · 高德版</title>
+<style>
+  :root{
+    --bg:#f5f1e8; --panel:#fffdf8; --ink:#2b2620; --muted:#8a8073;
+    --accent:#9c3b2e; --accent2:#c8893a; --gold:#caa15a; --line:#e7ddca;
+    --ok:#2e7d52; --okbg:#e6f3ea;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%;font-family:-apple-system,"PingFang TC","Microsoft YaHei",sans-serif;color:var(--ink);background:var(--bg)}
+  #app{display:flex;flex-direction:column;height:100vh}
+  header{padding:12px 16px;background:linear-gradient(135deg,#9c3b2e,#c8893a);color:#fff;box-shadow:0 2px 8px rgba(0,0,0,.15);position:relative;z-index:5}
+  header h1{margin:0;font-size:19px;letter-spacing:1px}
+  header p{margin:4px 0 0;font-size:12px;opacity:.9}
+  .progress{margin-top:8px;display:flex;align-items:center;gap:10px}
+  .bar{flex:1;height:8px;background:rgba(255,255,255,.3);border-radius:6px;overflow:hidden}
+  .bar>i{display:block;height:100%;width:0;background:#ffe6b0;transition:width .3s}
+  .pct{font-size:13px;font-weight:700;min-width:64px;text-align:right}
+  .toolbar{display:flex;gap:8px;padding:10px 16px;background:var(--panel);border-bottom:1px solid var(--line);flex-wrap:wrap}
+  .toolbar input{flex:1;min-width:140px;padding:8px 10px;border:1px solid var(--line);border-radius:8px;font-size:14px;outline:none}
+  .toolbar button{padding:8px 12px;border:1px solid var(--line);background:#fff;border-radius:8px;font-size:13px;cursor:pointer;color:var(--muted)}
+  .toolbar button:hover{border-color:var(--accent2)}
+  .main{flex:1;display:flex;min-height:0;position:relative}
+  #map{flex:1;min-width:0;background:#dfe6e0;position:relative}
+  #mapHint{position:absolute;inset:0;display:none;align-items:center;justify-content:center;padding:24px;text-align:center;color:var(--muted);font-size:13px;line-height:1.7;background:#fbf7ee}
+  .side{width:340px;max-width:46%;overflow-y:auto;background:var(--panel);border-left:1px solid var(--line);padding:8px}
+  .card{border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin-bottom:9px;background:#fff;cursor:pointer;transition:.15s}
+  .card:hover{border-color:var(--accent2);transform:translateY(-1px)}
+  .card.checked{background:var(--okbg);border-color:#bfe0c9}
+  .card .top{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+  .card h3{margin:0;font-size:15px}
+  .tag{font-size:11px;color:#fff;background:var(--accent2);padding:1px 7px;border-radius:10px;white-space:nowrap}
+  .card .addr{font-size:12px;color:var(--muted);margin:4px 0 2px}
+  .card .note{font-size:12px;color:#6b6256;line-height:1.4}
+  .card .foot{display:flex;justify-content:space-between;align-items:center;margin-top:7px}
+  .st{font-size:12px;color:var(--muted)}
+  .st.ok{color:var(--ok);font-weight:700}
+  .btn{border:none;border-radius:8px;padding:6px 12px;font-size:13px;cursor:pointer;font-weight:600}
+  .btn.go{background:var(--accent);color:#fff}
+  .btn.go:hover{background:#7e2c22}
+  .btn.undo{background:transparent;color:var(--muted);text-decoration:underline;padding:6px 4px}
+  footer{padding:7px 16px;font-size:11px;color:var(--muted);background:var(--panel);border-top:1px solid var(--line);text-align:center}
+  .intro{background:var(--panel);border-bottom:1px solid var(--line);padding:10px 16px;line-height:1.7;color:#4a4339}
+  .intro summary{cursor:pointer;font-weight:700;color:var(--accent);font-size:14px;outline:none;user-select:none}
+  .intro summary::-webkit-details-marker{color:var(--accent2)}
+  .intro-body{padding-top:8px;font-size:13px}
+  .intro h4{margin:11px 0 4px;font-size:13px;color:var(--accent2);font-weight:700}
+  .intro h4:first-child{margin-top:0}
+  .intro p{margin:0 0 4px;color:#5b5249}
+  .amap-info-content{font-size:13px;line-height:1.55}
+  .amap-info-content b{font-size:15px}
+  .pop-btn{margin-top:7px;border:none;background:var(--accent);color:#fff;border-radius:8px;padding:6px 13px;font-size:13px;cursor:pointer;font-weight:600}
+  .pop-btn.undo{background:transparent;color:var(--muted);text-decoration:underline;padding:6px 4px}
+  .mk{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font:700 13px/1 -apple-system,"PingFang TC",sans-serif;color:#fff;border:2px solid #fff;box-shadow:0 1px 5px rgba(0,0,0,.45)}
+  @media(max-width:720px){
+    .main{flex-direction:column}
+    .side{width:100%;max-width:100%;border-left:none;border-top:1px solid var(--line);max-height:46%}
+    #map{min-height:300px}
+  }
+</style>
+</head>
+<body>
+<div id="app">
+  <header>
+    <h1>香港佛寺打卡地圖 · 高德版</h1>
+    <p>可供公眾參訪的二十所佛寺 · 點擊「打卡」自動記錄當日日期</p>
+    <div class="progress">
+      <div class="bar"><i id="barFill"></i></div>
+      <div class="pct" id="pctTxt">0 / 20</div>
+    </div>
+  </header>
+  <details class="intro" open>
+    <summary>關於這份地圖 · 緣起與說明（點擊可收起）</summary>
+    <div class="intro-body">
+      <h4>一、香港佛教的情況</h4>
+      <p>香港是佛教傳播相當興盛的地區。據香港政府一站通宗教概況，全港現有超過 400 座佛寺及道場；自清末民初以來，嶺南叢林、淨土與禪門道場陸續興建，青山、靈渡、凌雲等古剎相傳已逾千年，近數十年又有寶蓮禪寺、志蓮淨苑、慈山寺等具代表性的大型道場，成為市民禮佛與遊人參訪的重地。</p>
+      <h4>二、為什麼選這 20 所</h4>
+      <p>其一，時間所限，難以一一走遍全港數百處寺院；其二，香港寺院道場眾多，其中不少為精舍、家廟或未對外開放的靜修之所，普通信眾與遊人並不好進入。本圖所列 20 所，是公眾可以參訪、且最具代表性與歷史份量的佛寺，既能朝山禮佛，也便於安排路線。</p>
+      <h4>三、朝山打卡的緣起</h4>
+      <p>編者學佛二十餘載，法名明巍，向來敬重香港這片佛教沃土。製作此圖，一方面是為一次次朝山行腳留下可查的記錄——每打卡一處，自動記下當日日期，來日回看便知足跡所至；另一方面，也是為同好與後人整理出一份香港佛寺的入門導覽。禮佛不在於走得多快，而在於步步有心；以此為念，願與諸君共勉。</p>
+    </div>
+  </details>
+  <div class="toolbar">
+    <input id="search" placeholder="搜尋寺院名稱 / 地區 / 地址…"/>
+    <button id="resetBtn">重置全部</button>
+  </div>
+  <div class="main">
+    <div id="map">
+      <div id="mapHint"></div>
+    </div>
+    <div class="side" id="list"></div>
+  </div>
+  <footer>資料來源：香港佛教聯合會、覺悟佛教網、香港政府一站通；坐標經 OpenStreetMap / Photon 地理編碼核定，並轉換為高德 GCJ-02 坐標 · 僅供個人朝山打卡參考</footer>
+</div>
+
+<script>
+/* ============================================================
+   ① 把你的高德 Key 寫在下面兩行（部署前必填）
+      - AMAP_KEY：高德開放平台「Web端 JS API」類型的 Key（必填）
+      - AMAP_SEC：2.0 版本的安全密鑰 securityJsCode（2.0 必填；若用 1.4 舊版 Key 可留空 ""）
+   高德控制台需把本頁部署的域名加入該 Key 的「授權域名」白名單。
+   ============================================================ */
+const AMAP_KEY = "d69e7408d060f7a3a22c54d4a5e5c8e8";
+const AMAP_SEC = "0fb0a90d0eb5bb0d10c41e4edb094741";
+
+const temples = [{"name": "寶蓮禪寺", "addr": "大嶼山昂坪", "region": "離島區", "note": "1906年建，天壇大佛所在地，香港最著名禮佛勝地", "lat": 22.255258, "lon": 113.907557}, {"name": "志蓮淨苑", "addr": "九龍鑽石山志蓮路5號", "region": "黃大仙區", "note": "仿唐木構建築群，免費開放", "lat": 22.340673, "lon": 114.205365}, {"name": "慈山寺", "addr": "大埔普門路88號", "region": "大埔區", "note": "76米戶外觀音像，需網上預約", "lat": 22.474343, "lon": 114.206105}, {"name": "香港萬佛寺", "addr": "沙田排頭村", "region": "沙田區", "note": "上萬尊佛像，登山途中遍布金身", "lat": 22.388, "lon": 114.1849}, {"name": "青山禪院", "addr": "屯門青山", "region": "屯門區", "note": "香港最古寺廟之一，相傳逾1500年", "lat": 22.391766, "lon": 113.959352}, {"name": "妙法寺", "addr": "屯門藍地青山公路18號", "region": "屯門區", "note": "萬佛寶殿與璧畫聞名", "lat": 22.420011, "lon": 113.983974}, {"name": "西方寺", "addr": "荃灣三疊潭", "region": "荃灣區", "note": "大型叢林道場", "lat": 22.382994, "lon": 114.124191}, {"name": "竹林禪院", "addr": "荃灣芙蓉山", "region": "荃灣區", "note": "芙蓉山著名寺院", "lat": 22.378109, "lon": 114.118692}, {"name": "東普陀講寺", "addr": "荃灣老圍村", "region": "荃灣區", "note": "以供天法會聞名", "lat": 22.379289, "lon": 114.1273542}, {"name": "凌雲寺", "addr": "元朗上村觀音山", "region": "元朗區", "note": "本地古老女眾道場", "lat": 22.429591, "lon": 114.109693}, {"name": "靈渡寺", "addr": "元朗厦村靈渡山", "region": "元朗區", "note": "相傳始於東晉，古剎", "lat": 22.440702, "lon": 113.979517}, {"name": "大嶼山觀音寺", "addr": "大嶼山大澳羌山", "region": "離島區", "note": "大嶼山著名古剎", "lat": 22.2413068, "lon": 113.8837936}, {"name": "寶林禪寺", "addr": "大嶼山東涌地塘仔", "region": "離島區", "note": "位於鳳凰山半麓的清修道場", "lat": 22.258289, "lon": 113.924294}, {"name": "羅漢寺", "addr": "大嶼山東涌石門甲村", "region": "離島區", "note": "以五百羅漢像聞名", "lat": 22.266387, "lon": 113.929393}, {"name": "赤柱觀音寺", "addr": "香港赤柱馬坑村", "region": "南區", "note": "港島南區觀音道場", "lat": 22.21849, "lon": 114.20685}, {"name": "長山古寺", "addr": "沙頭角坪輋禾徑山路", "region": "北區", "note": "清代古寺，法定古蹟", "lat": 22.529198, "lon": 114.175622}, {"name": "湛山寺", "addr": "西貢清水灣道大澳門", "region": "西貢區", "note": "仿泰山極樂寺建築", "lat": 22.298188, "lon": 114.293745}, {"name": "觀宗寺", "addr": "粉嶺置福圍", "region": "北區", "note": "天台宗道場", "lat": 22.492092, "lon": 114.136792}, {"name": "圓明寺", "addr": "屯門青山村楊青路51號", "region": "屯門區", "note": "青山古寺群之一", "lat": 22.390223, "lon": 113.965614}, {"name": "慈航淨院", "addr": "沙田大圍新田村1號A", "region": "沙田區", "note": "歷史悠久的女眾道場", "lat": 22.3717, "lon": 114.183}];
+temples.forEach((t,i)=>{ t.no = i+1; });
+
+/* ===== WGS-84 → GCJ-02（火星坐標）轉換，供高德使用 ===== */
+function outOfChina(lat, lon){ return (lon < 72.004 || lon > 137.8347) || (lat < 0.8293 || lat > 55.8271); }
+function transformLat(x, y){
+  let ret = -100.0 + 2.0*x + 3.0*y + 0.2*y*y + 0.1*x*y + 0.2*Math.sqrt(Math.abs(x));
+  ret += (20.0*Math.sin(6.0*x*Math.PI) + 20.0*Math.sin(2.0*x*Math.PI)) * 2.0/3.0;
+  ret += (20.0*Math.sin(y*Math.PI) + 40.0*Math.sin(y/3.0*Math.PI)) * 2.0/3.0;
+  ret += (160.0*Math.sin(y/12.0*Math.PI) + 320*Math.sin(y*Math.PI/30.0)) * 2.0/3.0;
+  return ret;
+}
+function transformLon(x, y){
+  let ret = 300.0 + x + 2.0*y + 0.1*x*x + 0.1*x*y + 0.1*Math.sqrt(Math.abs(x));
+  ret += (20.0*Math.sin(6.0*x*Math.PI) + 20.0*Math.sin(2.0*x*Math.PI)) * 2.0/3.0;
+  ret += (20.0*Math.sin(x*Math.PI) + 40.0*Math.sin(x/3.0*Math.PI)) * 2.0/3.0;
+  ret += (150.0*Math.sin(x/12.0*Math.PI) + 300.0*Math.sin(x/30.0*Math.PI)) * 2.0/3.0;
+  return ret;
+}
+function wgs2gcj(lat, lon){
+  if (outOfChina(lat, lon)) return [lat, lon];
+  let dLat = transformLat(lon - 105.0, lat - 35.0);
+  let dLon = transformLon(lon - 105.0, lat - 35.0);
+  const radLat = lat / 180.0 * Math.PI;
+  let magic = Math.sin(radLat);
+  magic = 1 - 0.00669342162296594323 * magic * magic;
+  const sqrtMagic = Math.sqrt(magic);
+  dLat = (dLat * 180.0) / ((6378245.0 * (1 - 0.00669342162296594323)) / (magic * sqrtMagic) * Math.PI);
+  dLon = (dLon * 180.0) / (6378245.0 / sqrtMagic * Math.cos(radLat) * Math.PI);
+  return [lat + dLat, lon + dLon];
+}
+const gcjOf = {};
+temples.forEach(t=>{ gcjOf[t.name] = wgs2gcj(t.lat, t.lon); }); // [lat, lon]
+
+/* ===== 打卡數據 ===== */
+const STORE_KEY = 'hk_temple_checkins_v1';
+let checkins = {};
+try { checkins = JSON.parse(localStorage.getItem(STORE_KEY) || '{}'); } catch(e){}
+function localDate(){
+  const d = new Date();
+  const p = n => (n<10?'0':'')+n;
+  return d.getFullYear()+'-'+p(d.getMonth()+1)+'-'+p(d.getDate());
+}
+function save(){ localStorage.setItem(STORE_KEY, JSON.stringify(checkins)); }
+
+/* ===== 高德地圖加載（Key 寫死，訪客無需輸入） ===== */
+let map = null, markers = {}, infoWin = null, amapReady = false;
+const mapHint = document.getElementById('mapHint');
+function showHint(msg){
+  mapHint.style.display = 'flex';
+  mapHint.innerHTML = msg || '地圖未加載：請在網頁源碼頂部填入高德 Key（AMAP_KEY / AMAP_SEC）後再部署。';
+}
+function loadMap(){
+  const key = (AMAP_KEY||'').trim();
+  const sec = (AMAP_SEC||'').trim();
+  if(!key || key.indexOf('PASTE_YOUR')===0){ showHint(); return; }
+  if(amapReady) return;
+  const useV2 = !!sec;
+  window._AMapSecurityConfig = { securityJsCode: sec };
+  window.AMapReady = initMap;
+  const s = document.createElement('script');
+  s.src = 'https://webapi.amap.com/maps?v=' + (useV2 ? '2.0' : '1.4.15') + '&key=' + encodeURIComponent(key) + (useV2 ? '&callback=AMapReady' : '');
+  s.onload = function(){ if(!useV2) initMap(); };
+  s.onerror = function(){ showHint('高德地圖腳本加載失敗。<br>① 若您是在 WorkBuddy 預覽面板中查看，請改用本機瀏覽器（Chrome / Edge）直接開啟本檔案——預覽面板的跨域安全策略會攔截外部腳本。<br>② 若已用本機瀏覽器仍失敗：請檢查 Key 是否正確、高德控制台「授權域名」是否已加入本頁域名（本機測試用 localhost / file:// 一般不限，上線前再加白名單）。'); };
+  document.head.appendChild(s);
+  amapReady = true;
+}
+
+function markerHtml(t){
+  const done = !!checkins[t.name];
+  const color = done ? '#2e7d52' : '#c8893a';
+  return '<div class="mk" style="background:'+color+'">'+t.no+'</div>';
+}
+
+function initMap(){
+  try {
+    map = new AMap.Map('map', { zoom: 11, center: new AMap.LngLat(114.17, 22.32), mapStyle: 'amap://styles/normal' });
+  } catch(e){
+    showHint('地圖初始化失敗：'+(e && e.message ? e.message : e));
+    return;
+  }
+  mapHint.style.display = 'none';
+  infoWin = new AMap.InfoWindow({ offset: new AMap.Pixel(0, -30) });
+  temples.forEach(t=>{
+    const g = gcjOf[t.name];
+    const mk = new AMap.Marker({ position: new AMap.LngLat(g[1], g[0]), anchor: 'center', content: markerHtml(t), extData: t.name });
+    mk.on('click', ()=> openInfo(t, mk));
+    mk.setMap(map);
+    markers[t.name] = mk;
+  });
+  try { map.setFitView(Object.values(markers), false, [40,40,40,40]); } catch(e){}
+  refresh();
+}
+
+function openInfo(t, mk){
+  const c = checkins[t.name];
+  const btn = c
+    ? '<button class="pop-btn undo" data-act="undo" data-name="'+escAttr(t.name)+'">已打卡 '+c+' · 撤銷</button>'
+    : '<button class="pop-btn" data-act="checkin" data-name="'+escAttr(t.name)+'">打卡</button>';
+  const html = '<div><b>'+t.name+'</b><br><span style="color:#888">'+t.region+'</span><br>'+
+               '<span style="color:#8a8073">'+t.addr+'</span>'+
+               (t.note?'<br><span style="font-size:12px;color:#666">'+t.note+'</span>':'')+'<br>'+btn+'</div>';
+  infoWin.setContent(html);
+  infoWin.open(map, mk.getPosition());
+}
+
+/* ===== 側邊清單 ===== */
+const listEl = document.getElementById('list');
+function escAttr(s){ return String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+function renderList(filter){
+  filter = (filter||'').trim().toLowerCase();
+  listEl.innerHTML = '';
+  let done = 0;
+  temples.forEach(t=>{
+    const hay = (t.name+t.region+t.addr+t.note).toLowerCase();
+    if(filter && !hay.includes(filter)) return;
+    const c = checkins[t.name];
+    if(c) done++;
+    const card = document.createElement('div');
+    card.className = 'card' + (c?' checked':'');
+    card.innerHTML =
+      '<div class="top"><h3>'+t.name+'</h3><span class="tag">'+t.region+'</span></div>'+
+      '<div class="addr">📍 '+t.addr+'</div>'+
+      (t.note?'<div class="note">'+t.note+'</div>':'')+
+      '<div class="foot"><span class="st'+(c?' ok':'')+'">'+(c?('✓ 已打卡 '+c):'○ 未打卡')+'</span>'+
+      (c?'<button class="btn undo" data-act="undo" data-name="'+escAttr(t.name)+'">撤銷</button>':
+         '<button class="btn go" data-act="checkin" data-name="'+escAttr(t.name)+'">打卡</button>')+'</div>';
+    card.onclick = (e)=>{
+      if(e.target.tagName==='BUTTON') return;
+      if(!map){ showHint(); return; }
+      const g = gcjOf[t.name];
+      map.setZoomAndCenter(15, new AMap.LngLat(g[1], g[0]));
+      if(markers[t.name]) openInfo(t, markers[t.name]);
+    };
+    listEl.appendChild(card);
+  });
+  return done;
+}
+
+function refresh(){
+  if(map){ temples.forEach(t=>{ if(markers[t.name]) markers[t.name].setContent(markerHtml(t)); }); }
+  const done = renderList(document.getElementById('search').value);
+  const total = temples.length;
+  document.getElementById('pctTxt').textContent = done+' / '+total;
+  document.getElementById('barFill').style.width = (done/total*100)+'%';
+}
+
+window.checkin = function(name){
+  if(!checkins[name]) checkins[name] = localDate();
+  save(); if(infoWin) infoWin.close(); refresh();
+};
+window.undo = function(name){
+  delete checkins[name];
+  save(); if(infoWin) infoWin.close(); refresh();
+};
+
+document.addEventListener('click', function(e){
+  const b = e.target.closest && e.target.closest('button[data-act]');
+  if(!b) return;
+  const name = b.getAttribute('data-name');
+  if(b.getAttribute('data-act')==='checkin') checkin(name); else undo(name);
+});
+
+document.getElementById('search').addEventListener('input', e=> renderList(e.target.value));
+document.getElementById('resetBtn').addEventListener('click', ()=>{
+  if(confirm('確定要清除全部打卡記錄？')){ checkins = {}; save(); refresh(); }
+});
+
+renderList('');
+refresh();
+loadMap();
+</script>
+</body>
+</html>
