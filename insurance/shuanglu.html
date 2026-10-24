@@ -28,12 +28,11 @@
   .chip .cnote{font-size:11px;opacity:.85;margin-left:3px}
   .meta{margin:12px 2px 0;font-size:13px;color:var(--muted)}
   .meta b{color:var(--brand)}
-  .actions{margin-top:12px;display:flex;align-items:center;gap:10px}
-  .btn{padding:9px 16px;border:1px solid var(--brand);background:var(--brand);color:#fff;border-radius:10px;
-    font-size:14px;cursor:pointer;font-weight:600;transition:.15s}
-  .btn:hover{opacity:.92}
+  .actions{margin-top:14px;display:flex;justify-content:center;align-items:center}
+  .btn{padding:11px 24px;border:1px solid var(--accent);background:var(--accent);color:#fff;border-radius:10px;
+    font-size:15px;cursor:pointer;font-weight:700;transition:.15s;white-space:nowrap}
+  .btn:hover{filter:brightness(1.06)}
   .btn:disabled{opacity:.6;cursor:default}
-  .actions .hint{font-size:12px;color:var(--muted)}
   details.prov{border:1px solid var(--line);border-radius:12px;margin-bottom:10px;background:var(--card);overflow:hidden}
   details.prov>summary{cursor:pointer;padding:13px 15px;font-weight:700;font-size:16px;display:flex;align-items:center;gap:8px;list-style:none}
   details.prov>summary::-webkit-details-marker{display:none}
@@ -69,7 +68,6 @@
     <div class="chips" id="chips"></div>
     <div class="actions">
       <button class="btn" id="genBtn">生成图片保存到本地</button>
-      <span class="hint">把当前查询结果导出为 PNG，浏览器自动下载</span>
     </div>
     <div class="meta" id="meta"></div>
   </div>
