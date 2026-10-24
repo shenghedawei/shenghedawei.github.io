@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>各地区"双录"政策汇总 · 可按省份/城市检索</title>
+<style>
+  :root{
+    --bg:#f3f6fb; --card:#ffffff; --ink:#1f2937; --muted:#5b6472;
+    --brand:#1B4F9C; --brand-soft:#E8EEF8; --line:#e3e8f0; --accent:#F58220;
+    --warn:#C2560A; --ref:#FFF6EC; --ref-border:#F6C98A;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+  header{background:linear-gradient(135deg,#1B4F9C 0%,#2E6BC4 55%,#F58220 128%);color:#fff;padding:22px 18px 18px}
+  header h1{margin:0;font-size:22px;letter-spacing:.5px}
+  header .sub{margin-top:6px;font-size:13px;opacity:.9}
+  .wrap{max-width:860px;margin:0 auto;padding:16px 14px 60px}
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:16px;
+    box-shadow:0 1px 3px rgba(0,0,0,.04)}
+  .controls-tip{font-size:13px;color:var(--muted);margin-bottom:10px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{padding:9px 14px;border:1px solid var(--line);background:#fff;border-radius:22px;font-size:14px;cursor:pointer;
+    color:var(--ink);transition:.15s;line-height:1.2;white-space:nowrap}
+  .chip:hover{background:#f1f5f9;border-color:#cbd5e1}
+  .chip.active{background:var(--brand);color:#fff;border-color:var(--brand);box-shadow:0 2px 6px rgba(31,111,235,.3)}
+  .chip .cnote{font-size:11px;opacity:.85;margin-left:3px}
+  .meta{margin:12px 2px 0;font-size:13px;color:var(--muted)}
+  .meta b{color:var(--brand)}
+  details.prov{border:1px solid var(--line);border-radius:12px;margin-bottom:10px;background:var(--card);overflow:hidden}
+  details.prov>summary{cursor:pointer;padding:13px 15px;font-weight:700;font-size:16px;display:flex;align-items:center;gap:8px;list-style:none}
+  details.prov>summary::-webkit-details-marker{display:none}
+  details.prov>summary .cnt{font-size:12px;color:var(--muted);font-weight:500}
+  details.prov>summary .note{font-size:12px;color:var(--warn);font-weight:500;margin-left:auto}
+  details.prov[open]>summary{border-bottom:1px solid var(--line);background:var(--brand-soft)}
+  .prov-body{padding:12px 14px}
+  .card{border:1px solid var(--line);border-radius:12px;padding:13px 14px;margin-bottom:12px;background:#fff}
+  .card:last-child{margin-bottom:0}
+  .card .region{font-weight:700;font-size:16px;color:var(--ink);margin-bottom:8px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .card .region .tag{font-size:11px;background:var(--brand-soft);color:var(--brand);padding:2px 8px;border-radius:20px;font-weight:600}
+  .row{display:flex;gap:10px;padding:7px 0;border-top:1px dashed var(--line);font-size:14.5px}
+  .row:first-of-type{border-top:none}
+  .row .k{flex:0 0 92px;color:var(--muted);font-weight:600}
+  .row .v{flex:1;white-space:pre-wrap;word-break:break-word}
+  .ref{background:var(--ref);border:1px solid var(--ref-border);border-radius:12px;padding:12px 14px;margin-bottom:14px}
+  .ref .rtitle{font-weight:700;color:var(--warn);font-size:14px;margin-bottom:6px}
+  .nomsg{background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;padding:14px 16px;margin-bottom:14px}
+  .nomsg .nt{font-weight:700;font-size:16px;color:#b45309}
+  .nomsg .ns{font-size:14px;color:#92400e;margin-top:4px}
+  .empty{text-align:center;color:var(--muted);padding:40px 0}
+  footer{text-align:center;color:var(--muted);font-size:12px;padding:18px}
+</style>
+</head>
+<body>
+<header>
+  <h1>各地区"双录"政策汇总</h1>
+  <div class="sub">数据来源：各地区"双录"政策汇总（2025.5.13）· 明亚内部资料</div>
+</header>
+<div class="wrap">
+  <div class="panel">
+    <div class="controls-tip">点击下方省份，查看该地区「双录」政策（全国基准默认显示在顶部）：</div>
+    <div class="chips" id="chips"></div>
+    <div class="meta" id="meta"></div>
+  </div>
+  <div id="content"></div>
+  <footer>本页为内部检索工具，数据以原文为准；政策如有更新请以监管最新文件为准。</footer>
+</div>
+<script>
+const DATA = {"title": "各地区\"双录\"政策汇总", "source": "数据来源：各地区\"双录\"政策汇总（2025.5.13）· 明亚内部资料", "provinces": [{"name": "全国", "note": ""}, {"name": "江苏", "note": ""}, {"name": "上海", "note": ""}, {"name": "宁波", "note": ""}, {"name": "河南", "note": ""}, {"name": "大连", "note": ""}, {"name": "山东", "note": ""}, {"name": "广东", "note": ""}, {"name": "厦门", "note": ""}, {"name": "重庆", "note": ""}, {"name": "江西", "note": ""}, {"name": "河北", "note": ""}, {"name": "内蒙古", "note": ""}, {"name": "四川", "note": "说明：依照保司要求执行，不是强制"}, {"name": "云南", "note": ""}, {"name": "青岛", "note": ""}, {"name": "吉林", "note": "有调整"}, {"name": "安徽", "note": ""}, {"name": "宁夏", "note": ""}, {"name": "贵州", "note": ""}, {"name": "黑龙江", "note": ""}, {"name": "海南", "note": ""}, {"name": "福建", "note": "除厦门"}, {"name": "辽宁", "note": "除大连"}, {"name": "陕西", "note": "处征求意见阶段"}, {"name": "新疆", "note": ""}], "groups": {"全国": [{"row": 3, "province": "全国", "region": "", "trial": "", "formal": "2017.11.1开始", "scope": "1、投保人≥60周岁的一年期以上寿险产品；\n2、投连险产品。", "province_name": "全国", "province_note": ""}], "江苏": [{"row": 4, "province": "江苏", "region": "", "trial": "", "formal": "2019.10.1开始", "scope": "1、一年期以上寿险产品；\n2、一年期保证续保产品。", "province_name": "江苏", "province_note": ""}], "上海": [{"row": 5, "province": "上海", "region": "", "trial": "2021.1.1-3.31", "formal": "2021.4.1开始", "scope": "一年期以上寿险产品（含保险期间不超过一年但保证续保的人身保险产品）。", "province_name": "上海", "province_note": ""}], "宁波": [{"row": 6, "province": "宁波", "region": "", "trial": "2019.10.1-12.31", "formal": "2020.1.1起实施，受疫情影响，延后至2021.4.1起恢复执行。", "scope": "保险期间超过一年的人身保险产品。", "province_name": "宁波", "province_note": ""}], "河南": [{"row": 7, "province": "河南", "region": "全省", "trial": "", "formal": "2021.6.1\n（部分可延后至2021.8.1）\n因洪涝与疫情影响，延迟至2021.10.1实施。", "scope": "1、鼓励有条件的公司按照《中国保监会关于印发<保险销售行为可回溯管理暂行办法>的通知》（保监发〔2017〕54号）要求，对所有渠道销售一年期以上人身险产品进行录音录像（以下简称“双录”），并按照规定进行存储，保证保险销售过程在一定时间内可回溯。\n2、（自保件及亲属件）保险销售人员及其直系亲属（直系血亲和直系姻亲，如配偶、父母、子女、祖父母、外祖父母、孙子女、外孙子女）在销售人员所属公司投保一年期以上人身险产品的，投保时应利用公司“双录”系统进行录音录像。销售人员未按上述要求进行“双录”的，公司应在业务考核、品质管理、绩效发放等方面进行管理，对销售人员及其直系亲属“双录”工作执行情况予以约束\n3、保险销售人员销售一年期以上人身险产品，在365日内被3名或3名以上不同客户投诉的（包括保险监管转办、总公司受理、公司柜面受理的各类投诉），自第3名客户投诉之日下月起，该销售人员销售一年期以上人身险产品的，需利用公司“双录”系统进行录音录像。", "province_name": "河南", "province_note": ""}, {"row": 8, "province": "河南", "region": "洛阳", "trial": "2021.1.11-3.31\n2021年1月11日试点，一季度后将视情况在全市辖内推开。", "formal": "2021年4月1日全面执行", "scope": "1、一年期以上寿险产品；\n2、一年期保证续保产品；", "province_name": "河南", "province_note": ""}, {"row": 9, "province": "河南", "region": "焦作", "trial": "", "formal": "已开始执行", "scope": "一年期以上寿险产品。", "province_name": "河南", "province_note": ""}], "大连": [{"row": 10, "province": "大连", "region": "", "trial": "", "formal": "2016年1月1日开始", "scope": "一年期以上寿险产品", "province_name": "大连", "province_note": ""}], "山东": [{"row": 11, "province": "山东", "region": "山东全省\n（有调整）", "trial": "原政策1\n发文之日至2021年10月8日，为实施过渡期", "formal": "2021年10月9日开始正式实施，此政策执行至2022.11.30日", "scope": "自保件：超过一年的人身保险产品（含保险期间不超过一年但保证续保的人身保险产品）的“自保件”。\n\n“自保件”指投保人、被保险人或受益人三者之一为本公司保险销售从业人员或其直系亲属（父母、配偶、子女）的保单。保险销售从业人员包括人身保险公司和各保险中介机构从事人身保险产品销售的人员。", "province_name": "山东", "province_note": ""}, {"row": 12, "province": "山东", "region": "山东全省\n（有调整）", "trial": "原政策2：\n发文之日起至2022年11月30日", "formal": "2022年12月1日正式实施", "scope": "除电话销售业务和互联网保险业务外，辖区人身保险公司和保险专业中介机构向自然人销售的保险期间超过一年的人身保险产品（含保险期间不超过一年但保证续保的人身保险产品）", "province_name": "山东", "province_note": ""}, {"row": 13, "province": "山东", "region": "山东全省\n（有调整）", "trial": "最新政策：\n发文之日（2024年1月30日）至2024年5月31日", "formal": "2024年6月1日起正式实施", "scope": "除电话销售业务和互联网保险业务外，山东(不含青岛市、下同)人身保险公司和保险专业中介机构向自然人销售的保险期间超过一年的人身保险产品（含保险期间不超过一年但保证续保的人身保险产品）", "province_name": "山东", "province_note": ""}, {"row": 14, "province": "山东", "region": "烟台\n（按照山东省新政执行）", "trial": "", "formal": "原政策（2021.5.1至2021.6.30）", "scope": "原政策：烟台辖区所有保险中介机构向本机构代理人销售的，保险期间超过一年期的人身保险。\n投保单上显示代理人与投保人、被保险人、受益人有任一重合，即为自保件的“双录范围”（中介机构销售的自保件）。", "province_name": "山东", "province_note": ""}, {"row": 15, "province": "山东", "region": "烟台\n（按照山东省新政执行）", "trial": "", "formal": "现行政策：2021.7.1起", "scope": "现行政策：烟台地区全面执行双录（一年期以上人身保险产品）", "province_name": "山东", "province_note": ""}, {"row": 16, "province": "山东", "region": "潍坊\n（按照山东省新政执行）", "trial": "", "formal": "原政策：\n已开始执行，截止至2022年6月30日", "scope": "按照山东全省双录监管政策执行。", "province_name": "山东", "province_note": ""}, {"row": 17, "province": "山东", "region": "潍坊\n（按照山东省新政执行）", "trial": "", "formal": "新政策：\n2022年7月1日起全面执行。", "scope": "人身险公司和保险专业中介机构向自然人销售保险期间超过一年的人身保险产品时，要实施保险销售行为可回溯管理。", "province_name": "山东", "province_note": ""}], "广东": [{"row": 18, "province": "广东", "region": "珠海", "trial": "", "formal": "自2019年5月20日起施行", "scope": "1.销售机动车辆保险业务，不包括粤港（澳）两地车辆保险、澳门单牌车辆保险、港珠澳大桥通行车辆保险等跨境车险业务。对于已有可回溯销售行为影像资料的机动车辆保险续保业务，且续保险种、保险责任、责任免除和特别约定等未发生变化的，投保人签署已知晓保险责任、责任免除和特别约定的书面说明后，可不再实施现场同步录音录像。\n2.通过保险兼业代理机构销售保险期间超过一年的人身保险产品，包括利用保险兼业代理机构营业场所内自助终端等设备进行销售。\n3.通过保险兼业代理机构以外的其他销售渠道销售投资连结保险产品、万能险产品或其他分红理财型产品，或向60周岁（含）以上年龄的投保人销售保险期间超过一年的人身保险产品。", "province_name": "广东", "province_note": ""}, {"row": 19, "province": "广东", "region": "东莞", "trial": "", "formal": "原政策：\n自2022年2月1日", "scope": "自保件和互保件双录：保险期间超过一年的人身保险产品（含保险期间不超过一年但保证续保的人身保险产品）\n所称自保件，是指销售人员作为投保人、被保险人或受益人的保险合同，及投保人、被保险人或受益人是销售人员的配偶、父母、子女等直系亲属的保险合同。\n所称互保件，是指由销售人员销售，投保人、被保险人或受益人为东莞辖区同一保险机构另一名销售人员的保险合同，及投保人、被保险人或受益人为东莞辖区同一保险机构另一名销售人员的配偶、父母、子女等直系亲属的保险合同。", "province_name": "广东", "province_note": ""}, {"row": 20, "province": "广东", "region": "东莞", "trial": "试行办法：\n自2023年1月1日起施行", "formal": "2024年发布的新文件：\n自印发之日起实行", "scope": "除电话销售业务和互联网保险业务外，东莞辖内的人身保险机构通过保险代理人、保险经纪人向自然人销售保险期间超过一年的个人人身保险产品，应在取得投保人同意后，对销售过程关键环节以同步录音录像的方式予以记录。", "province_name": "广东", "province_note": ""}, {"row": 21, "province": "广东", "region": "惠州", "trial": "", "formal": "自2023年9月1日起实施", "scope": "除电话销售业务和互联网保险业务外，惠州辖内的人身保险机构通过本机构员工、保险代理人、保险经纪人向自然人销售保险期间超过一年的个人人身保险产品（含保险期间不超过一年但保证续保的人身保险产品），应在取得投保人同意后，对销售过程关键环节以同步录音录像的方式予以记录。", "province_name": "广东", "province_note": ""}], "厦门": [{"row": 22, "province": "厦门", "region": "", "trial": "", "formal": "2021年6月1日开始", "scope": "在厦人身保险公司和保险中介机构（以下简称各机构）向自然人销售保险期间超过一年的人身保险产品，", "province_name": "厦门", "province_note": ""}], "重庆": [{"row": 23, "province": "重庆", "region": "", "trial": "", "formal": "2021年12月1日开始", "scope": "自保件和互保件双录：销售人员购买保险期间超过一年的人身保险产品（含保险期间不超过一年但保证续保的人身保险产品）。\n所称自保件，是指销售人员作为投保人、被保险人或受益人的保险合同，及投保人、被保险人或受益人是销售人员的配偶、父母、子女等直系亲属的保险合同。\n所称互保件，是指由销售人员销售，投保人、被保险人或受益人为同一省级保险机构另一名销售人员的保险合同，及投保人、被保险人或受益人为同一省级保险机构另一名销售人员的配偶、父母、子女等直系亲属的保险合同。", "province_name": "重庆", "province_note": ""}], "江西": [{"row": 24, "province": "江西", "region": "", "trial": "过渡期：发文之日起至2021年9月30日。", "formal": "2021.10.1正式开始实施", "scope": "向自然人销售保险期间超过一年的人身保险产品（含保险期间不超过一年但保证续保的人身保险产品）", "province_name": "江西", "province_note": ""}], "河北": [{"row": 25, "province": "河北", "region": "全省", "trial": "过渡期：发文之日起至2022年5月31日。", "formal": "2022年6月1日正式实施", "scope": "向自然人销售保险期间超过一年的人身保险产品（含保险期间不超过一年但保证续保的人身保险产品）", "province_name": "河北", "province_note": ""}, {"row": 26, "province": "河北", "region": "保定", "trial": "", "formal": "2022年5月1日正式实施", "scope": "向自然人销售保险期间超过一年的人身保险产品（含保险期间不超过一年但保证续保的人身保险产品）", "province_name": "河北", "province_note": ""}], "内蒙古": [{"row": 27, "province": "内蒙古", "region": "全辖", "trial": "", "formal": "2022年8月1日起实施", "scope": "除电话销售业务和互联网保险业务外，辖内各人身保险公司、保险中介机构（以下简称保险机构）通过销售人员向自然人销售保险期间超过一年的人身保险产品（含保险期间不超过一年但保证续保的人身保险产品）。", "province_name": "内蒙古", "province_note": ""}, {"row": 28, "province": "内蒙古", "region": "呼伦贝尔", "trial": "试运行：2022年4月1日至2022年6月30日", "formal": "原政策：\n2022年7月1日全面实施。", "scope": "向投保人销售保险期间超过一年的人身保险产品。", "province_name": "内蒙古", "province_note": ""}, {"row": 29, "province": "内蒙古", "region": "呼伦贝尔", "trial": "", "formal": "新政策：\n2022年8月1日起按照内蒙古政策执行", "scope": "除电话销售业务和互联网保险业务外，辖内各人身保险公司、保险中介机构（以下简称保险机构）通过销售人员向自然人销售保险期间超过一年的人身保险产品（含保险期间不超过一年但保证续保的人身保险产品）。", "province_name": "内蒙古", "province_note": ""}], "四川": [{"row": 30, "province": "四川\n（说明：依照保司要求执行，不是强制）", "region": "", "trial": "", "formal": "通知自印发之日起实施。\n开始执行做双录自2022年2月11日。", "scope": "自保件、互保件双录：对销售人员本人及近亲属的自保件、互保件实施双录。\n\na.所称自保件：是指销售人员或其近亲属作为投保人、被保险人或受益人的保险合同。其中，销售人员本人自保件是指销售人员作为投保人、被保险人或受益人的保险合同。销售人员近亲属自保件是指投保人、被保险人或受益人是销售人员近亲属的保险合同。\nb.所称互保件，是指由销售人员销售，投保人、被保险人或受益人为同一省级保险机构另一名销售人员或其近亲属的保险合同。 其中，销售人员本人互保件是指由销售人员销售，投保人、被保险人或受益人为同一省级保险机构另一名销售的保险合同。销售人员近亲属互保件是指由销售人员销售，投保人、被保险人或受益人为同一省级保险机构另一名销售人员近亲属的保险合同。\nc.所称近亲属：是指销售人员的配偶、父母、子女。", "province_name": "四川", "province_note": "说明：依照保司要求执行，不是强制"}], "云南": [{"row": 31, "province": "云南", "region": "", "trial": "筹备阶段：2022 年6月1日至7月31日\n试运行阶段：2022年8月1日至10月31日", "formal": "全面实施阶段：2022年11月1日起。", "scope": "人身保险公司、保险专业中介机构销售投保人为自然人，且保险期间超过一年的人身保险产品（不包含保险期间未超过一年但保证续保的人身保险产品）。除电话销售业务、银行销售业务、互联网保险业务和团险业务之外。", "province_name": "云南", "province_note": ""}], "青岛": [{"row": 32, "province": "青岛", "region": "", "trial": "", "formal": "原政策：\n通知自2022年8月1日实施，\n其中可回溯管理规定自2022年10月1日起实施。", "scope": "自保件和互保件：对于保险期间超过一年的人身保险产品（含保险期间不超过一年但保证续保的人身保险产品，不包含团体保险和政策性保险产品，电话销售业务和互联网保险业务除外）自保件和互保件。\n\n自保件：指销售人员或其配偶、父母、子女等直系亲属作为投保人、被保险人或受益人的保险合同。\n互保件：指销售人员销售，投保人、被保险人或受益人为辖区同一保险机构另一名销售人员或其配偶、父母、子女等直系亲属的保险合同。", "province_name": "青岛", "province_note": ""}, {"row": 33, "province": "青岛", "region": "", "trial": "", "formal": "新政策：\n自2023年7月1日起实施", "scope": "除电话销售业务和互联网保险业务外，在青岛辖内销售人身保险产品的保险公司和保险专业中介机构向自然人销售保险期间超过一年的人身保险产品（含保险期间不超过一年但保证续保的人身保险产品）。团体保险、专属商业养老保险和个人税收优惠型健康保险、个人税收递延型养老保险等政策性保险产品除外。", "province_name": "青岛", "province_note": ""}], "吉林": [{"row": 34, "province": "吉林\n（有调整）", "region": "", "trial": "", "formal": "原政策：\n2022年10月1日起", "scope": "向自然人销售保险期间超过一年的人身保险产品。（适用主体有要求）\n\n适用主体：除在吉林省保险销售人员服务能力等级评定工作中获得C级（不含）以上的销售人员外（参见《2022年吉林省保险销售人员服务能力等级评定工作报告》）均需按本方案要求对相关保险销售行为实施可回溯管理。", "province_name": "吉林", "province_note": "有调整"}, {"row": 35, "province": "吉林\n（有调整）", "region": "", "trial": "新政策：\n过渡期：发文之日起至2024年6月30日", "formal": "自2024年7月1日正式实施", "scope": "除电话销售业务和互联网保险业务之外，向自然人销售保险期间超过一年的人身保险产品，应在取得投保人同意后，对销售过程关键环节以现场同步录音录像（以下简称“双录”）的可回溯手段予以记录。个人税收优惠型健康保险、个人税收递延型养老保险等政策性保险产品和团体保险产品除外。", "province_name": "吉林", "province_note": "有调整"}], "安徽": [{"row": 36, "province": "安徽", "region": "", "trial": "", "formal": "自2023年5月1日起正式实施", "scope": "向自然人销售保险期间超过一年的人身保险产品（含保险期间不超过一年但保证续保的人身保险产品）。团体保险、职工医保个人账户资金购买商业健康保险、个人养老金账户资金购买商业保险、个人税收优惠型健康保险、个人税收递延型养老保险除外。", "province_name": "安徽", "province_note": ""}], "宁夏": [{"row": 37, "province": "宁夏", "region": "", "trial": "", "formal": "自2023年9月15日起正式施行", "scope": "向自然人销售保险期间超过一年的人身保险产品（含保险期间不超过一年但保证续保的人身保险产品）", "province_name": "宁夏", "province_note": ""}], "贵州": [{"row": 38, "province": "贵州", "region": "", "trial": "", "formal": "自2023年10月1日起执行", "scope": "保险机构销售人员向自然人销售保险期间超过一年的人身保险产品，以及保险期间不超过一年但包含续保责任条款的人身保险产品时,须实施人身保险销售行为可回溯管理。团体保险除外。", "province_name": "贵州", "province_note": ""}], "黑龙江": [{"row": 39, "province": "黑龙江", "region": "", "trial": "", "formal": "2023年10月1日正式实施", "scope": "除电话销售业务、互联网保险业务和团体保险业务外，会员单位及合作的保险中介机构通过销售人员向投保人为自然人销售，且保险期间超过一年的人身保险产品。", "province_name": "黑龙江", "province_note": ""}], "海南": [{"row": 40, "province": "海南", "region": "", "trial": "", "formal": "自2024年4月1日起实施", "scope": "除电话销售业务和互联网保险业务外，在海南辖内销售人身保险产品的保险公司和保险中介机构（含保险专业中介机构、银行类保险兼业代理机构）向自然人销售保险期间超过一年的人身保险产品（含保险期间不超过一年但保证续保的人身保险产品）。\n团体保险、专属商业养老保险和个人税收优惠型健康保险、个人税收递延型养老保险等政策性保险产品除外。", "province_name": "海南", "province_note": ""}], "福建": [{"row": 41, "province": "福建\n（除厦门）", "region": "", "trial": "", "formal": "自2024年7月1日起实施", "scope": "除电话销售业务和互联网保险业务外，在福建（不含厦门，下同)辖内销售人身保险产品的保险公司和保险专业中介机构向自然人销售保险期间超过一年的人身保险产品（含保险期间不超过一年但保证续保的人身保险产品）。\n团体保险以及职工医保个人账户资金购买商业健康保险、专属商业养老保险和个人税收优惠型健康保险等政策性保险产品除外。", "province_name": "福建", "province_note": "除厦门"}], "辽宁": [{"row": 42, "province": "辽宁\n（除大连）", "region": "", "trial": "", "formal": "自2024年7月1日起实施", "scope": "在国家金融监督管理总局辽宁监管局辖区内销售人身保险产品的各人身险公司，向自然人销售保险期间超过一年的人身保险产品(含保险期间不超过一年但保证续保的人身保险产品)。团体保险、专属商业养老保险和个人税收优惠型健康保险等政策性保险产品除外。", "province_name": "辽宁", "province_note": "除大连"}], "陕西": [{"row": 43, "province": "陕西\n（处征求意见阶段）", "region": "", "trial": "", "formal": "自2025年7月1日起实施", "scope": "除电话销售业务和互联网保险业务外，保险机构向自然人销售保险期间超过一年的人身保险产品（含保险期间超过一年的进行组合销售的各类人身保险产品）。团体保险以及专属商业养老保险和个人税收优惠型健康保险等保险产品除外。", "province_name": "陕西", "province_note": "处征求意见阶段"}], "新疆": [{"row": 44, "province": "新疆", "region": "", "trial": "", "formal": "自2025年4月7日实施\n（其中提供保司3个月窗口期开发可回溯系统）", "scope": "自保件和互保件双录：\n保险机构应严格按照“销售行为可回溯”制度执行，对保险期间超过一年的人身保险产品（含保险期间不超过一年但保证续保的人身保险产品，不含团体保险和政策性保险产品，电话销售业务和互联网保险业务除外）自保件和互保件销售过程关键环节以现场同步录音录像（以下简称“双录”）的方式予以记录。\n\n（自保件：指销售人员本人或其配偶、父母、子女等直系亲属作为投保人、被保险人或受益人的保险合同；互保件，是指由销售人员销售，投保人、被保险人或受益人为同一保险机构另一名销售人员或其配偶、父母、子女等直系亲属的保险合同）", "province_name": "新疆", "province_note": ""}]}};
+const KEY = 'dblv_selected_province';
+const chips = document.getElementById('chips');
+const content = document.getElementById('content');
+const meta = document.getElementById('meta');
+
+let selected = '__ALL__';   // 当前选中的省份（长期记住）
+
+function regionLabel(rec){
+  const r = rec.region;
+  if(!r || r.indexOf('全省')>=0 || r.indexOf('全辖')>=0) return null;
+  return r;
+}
+function groupByRegion(records){
+  const map = new Map();
+  for(const rec of records){
+    const k = regionLabel(rec) || '__PROV__';
+    if(!map.has(k)) map.set(k, []);
+    map.get(k).push(rec);
+  }
+  return map;
+}
+function esc(s){return (s||'').replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));}
+
+function cardHTML(rec, idx, total){
+  const rl = regionLabel(rec);
+  const regionName = rl || (rec.province_name + '（全省/全市）');
+  let h = '<div class="card"><div class="region"><span>'+esc(regionName)+'</span>';
+  if(!rl) h += '<span class="tag">全省</span>';
+  if(total>1) h += '<span class="tag">阶段 '+idx+'/'+total+'</span>';
+  h += '</div>';
+  if(rec.trial) h += '<div class="row"><div class="k">试行期间</div><div class="v">'+esc(rec.trial)+'</div></div>';
+  if(rec.formal) h += '<div class="row"><div class="k">正式执行</div><div class="v">'+esc(rec.formal)+'</div></div>';
+  if(rec.scope) h += '<div class="row"><div class="k">双录范围</div><div class="v">'+esc(rec.scope)+'</div></div>';
+  h += '</div>';
+  return h;
+}
+
+function nationalRefHTML(){
+  const nat = DATA.groups['全国']||[];
+  if(!nat.length) return '';
+  const inner = cardHTML(nat[0],1,1).replace('<div class="card">','<div class="card" style="margin:0;border:none;padding:0;box-shadow:none">');
+  return '<div class="ref"><div class="rtitle">全国基准政策（2017 · 适用于所有地区）</div>'+inner+'</div>';
+}
+
+function provinceSection(name, note, records){
+  const map = groupByRegion(records);
+  let h = '<details class="prov" open><summary>'+esc(name);
+  if(note) h += '<span class="note">'+esc(note)+'</span>';
+  h += '<span class="cnt">· '+records.length+' 条政策</span></summary><div class="prov-body">';
+  const keys = [...map.keys()];
+  for(const k of keys){
+    const recs = map.get(k);
+    recs.forEach((rec,i)=>{ h += cardHTML(rec, i+1, recs.length); });
+  }
+  h += '</div></details>';
+  return h;
+}
+
+function countRegional(){let n=0;for(const p of DATA.provinces){if(p.name!=='全国')n+=(DATA.groups[p.name]||[]).length;}return n;}
+
+function renderAll(){
+  let h = nationalRefHTML();   // 全国基准默认显示在顶部
+  for(const p of DATA.provinces){
+    if(p.name==='全国') continue;
+    h += provinceSection(p.name, p.note, DATA.groups[p.name]||[]);
+  }
+  content.innerHTML = h;
+  meta.innerHTML = '当前显示：<b>全部地区（含全国基准）</b> · 共 '+countRegional()+' 个地区政策 + 全国基准';
+}
+
+function renderOne(name){
+  const p = DATA.provinces.find(x=>x.name===name);
+  const records = DATA.groups[name]||[];
+  let h = nationalRefHTML();   // 选中省份时，顶部附全国基准作参照
+  h += provinceSection(name, p?p.note:'', records);
+  content.innerHTML = h;
+  meta.innerHTML = '当前显示：<b>'+esc(name)+(p&&p.note?('（'+esc(p.note)+'）'):'')+'</b> · 共 '+records.length+' 条政策（已记住此选择，刷新仍只显示该省）';
+}
+
+// 省份按钮：只列出真实有信息的地区，避免乱输入
+function buildChips(){
+  let html = '<button class="chip" data-v="__ALL__">全部 / 全国</button>';
+  for(const p of DATA.provinces){
+    if(p.name==='全国') continue;
+    const label = esc(p.name) + (p.note?('<span class="cnote">'+esc(p.note)+'</span>'):'');
+    html += '<button class="chip" data-v="'+esc(p.name)+'">'+label+'</button>';
+  }
+  chips.innerHTML = html;
+  chips.querySelectorAll('.chip').forEach(b=>{
+    b.addEventListener('click', ()=> apply(b.dataset.v));
+  });
+}
+
+function apply(value){
+  selected = value;
+  // 高亮当前选中
+  chips.querySelectorAll('.chip').forEach(c=>{
+    c.classList.toggle('active', c.dataset.v===value);
+  });
+  if(!value || value==='__ALL__'){ renderAll(); }
+  else { renderOne(value); }
+  try{ localStorage.setItem(KEY, value); }catch(e){}
+}
+
+// 初始化：读取记住的省份
+buildChips();
+try{ selected = localStorage.getItem(KEY) || '__ALL__'; }catch(e){}
+if(!(selected && selected!=='__ALL__' && DATA.groups[selected])) selected='__ALL__';
+apply(selected);
+</script>
+</body>
+</html>
