@@ -72,6 +72,11 @@
   .badge-no{background:#fff1ec;color:#c2560a;border:1px solid #f6c98a}
   .badge-none{background:#f1f5f9;color:#94a3b8;border:1px solid #e2e8f0}
   .empty2{color:var(--muted);text-align:center;padding:24px 0;grid-column:1/-1}
+  /* 顶部查询切换 */
+  .tabs{display:flex;gap:8px;margin-bottom:14px}
+  .tab{flex:1;padding:13px 10px;border:1px solid var(--line);background:#fff;border-radius:12px;font-size:15px;font-weight:700;cursor:pointer;color:var(--muted);text-align:center;transition:.15s;line-height:1.2}
+  .tab:hover{background:#f1f5f9}
+  .tab.active{background:var(--brand);color:#fff;border-color:var(--brand);box-shadow:0 2px 8px rgba(31,111,235,.3)}
 </style>
 </head>
 <body>
@@ -80,8 +85,13 @@
   <div class="sub">数据来源：各地区及保司"双录"政策汇总（2026.5）、保险公司双录系统汇总（明亚北分内部文件）· 明亚内部资料</div>
 </header>
 <div class="wrap">
+  <div class="tabs">
+    <button class="tab active" id="tabProv" data-v="prov">按省份查询</button>
+    <button class="tab" id="tabComp" data-v="comp">按保司查询</button>
+  </div>
+  <div id="viewProvince">
   <div class="panel">
-    <div class="controls-tip">点击下方省份，查看该地区「双录」政策（全国基准默认显示在顶部）；选省后底部「合作保险公司双录要求」会自动按省份筛选。页面下方另设「各家保险公司双录系统」独立查询。</div>
+    <div class="controls-tip">点击下方省份，查看该地区「双录」政策（全国基准默认显示在顶部）；选省后底部「合作保险公司双录要求」会自动按省份筛选。</div>
     <div class="chips" id="chips"></div>
     <div class="actions">
       <button class="btn" id="genBtn">生成图片（地区政策）</button>
@@ -89,7 +99,8 @@
     <div class="meta" id="meta"></div>
   </div>
   <div id="content"></div>
-  <div class="panel" id="companyPanel">
+  </div><!-- /viewProvince -->
+  <div class="panel" id="companyPanel" style="display:none">
     <div class="controls-tip">各家保险公司「双录系统」查询：输入公司名称，或按远程双录方式筛选，查看每家用什么 APP / 系统做双录。</div>
     <div class="company-note">注：本表为明亚北分内部文件，仅汇总（北京）现阶段签约保司；现行监管双录规则：投保人≥60 周岁需进行双录。</div>
     <div class="csearch"><input id="cSearch" type="text" placeholder="输入保险公司名称查询，如：泰康 / 平安 / 利安…" autocomplete="off"></div>
@@ -126,6 +137,17 @@ const KEY = 'dblv_selected_province';
 const chips = document.getElementById('chips');
 const content = document.getElementById('content');
 const meta = document.getElementById('meta');
+
+// 顶部「按省份查询 / 按保司查询」切换
+function showTab(v){
+  const isProv = (v==='prov');
+  document.getElementById('viewProvince').style.display = isProv ? '' : 'none';
+  document.getElementById('companyPanel').style.display = isProv ? 'none' : '';
+  document.getElementById('tabProv').classList.toggle('active', isProv);
+  document.getElementById('tabComp').classList.toggle('active', !isProv);
+}
+document.getElementById('tabProv').addEventListener('click', ()=>showTab('prov'));
+document.getElementById('tabComp').addEventListener('click', ()=>showTab('comp'));
 
 let selected = '__ALL__';   // 当前选中的省份（长期记住）
 
