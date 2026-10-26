@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<title>宿务潜水行程总览 · 2026/12/07 – 12/22</title>
+<style>
+  body { font-family: "Segoe UI", "Microsoft YaHei", sans-serif; max-width: 880px; margin: 24px auto; padding: 0 20px; color: #d8edf4; line-height: 1.65;
+         background: linear-gradient(180deg, #4fa3bd 0%, #23768f 18%, #10536b 42%, #083850 68%, #04222f 100%) fixed; }
+  body::before { content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+    background-image:
+      radial-gradient(circle at 30% 30%, rgba(255,255,255,.28) 0 7px, transparent 8px),
+      radial-gradient(circle at 70% 60%, rgba(255,255,255,.18) 0 4px, transparent 5px),
+      radial-gradient(circle at 45% 85%, rgba(255,255,255,.22) 0 10px, transparent 11px);
+    background-size: 340px 420px, 260px 320px, 520px 640px; }
+  .ocean-deco { position: fixed; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; opacity: .16; }
+  h1 { color: #eaf8fc; font-size: 26px; margin-bottom: 4px; text-shadow: 0 2px 6px rgba(0,20,30,.6); }
+  .sub { color: #a5d5e2; font-size: 14px; margin-bottom: 18px; }
+  .chips { margin-bottom: 8px; }
+  .chip { display: inline-block; background: rgba(6,42,56,.55); border: 1px solid #7fd4e6; color: #e2f5fa; border-radius: 12px; padding: 2px 12px; font-size: 13px; margin: 2px 4px 2px 0; }
+  .chip.warn { border-color: #e0a668; color: #ffdfb5; background: rgba(58,36,14,.6); }
+  h2 { color: #c8ecf6; border-bottom: 2px solid #5fb8cf; padding-bottom: 6px; margin-top: 34px; text-shadow: 0 1px 4px rgba(0,20,30,.5); }
+  h2::before { content: "🌊 "; font-size: 20px; }
+  table { border-collapse: separate; border-spacing: 0; width: 100%; font-size: 14px; margin: 10px 0; background: rgba(248,254,255,.9); border-radius: 10px; overflow: hidden; box-shadow: 0 3px 14px rgba(0,15,25,.35); color: #12333d; }
+  th, td { border: 1px solid #c9e2e8; padding: 7px 10px; text-align: left; vertical-align: top; }
+  th { background: #9fd3df; color: #07333f; white-space: nowrap; }
+  .ok { color: #0f6b3c; font-weight: 600; }
+  td.ok { white-space: nowrap; }
+  .wait { color: #9a540e; font-weight: 600; }
+  .mine { color: #7d4420; font-weight: 600; }
+  .card { background: rgba(250,254,255,.92); border-left: 4px solid #5fb8cf; border-radius: 0 10px 10px 0; padding: 12px 16px; margin: 10px 0; font-size: 14px; box-shadow: 0 3px 12px rgba(0,15,25,.3); color: #12333d; }
+  .card.b { border-left-color: #d99a5b; background: rgba(253,248,242,.94); }
+  .card.c { border-left-color: #b39ddb; background: rgba(247,244,251,.94); }
+  .small { color: #a5d5e2; font-size: 13px; }
+  .num { text-align: right; white-space: nowrap; }
+  ul { margin: 6px 0; padding-left: 22px; }
+  .foot { margin-top: 30px; border-top: 1px dashed #4c93a8; padding-top: 10px; }
+  .foot::before { content: "🤿"; font-size: 22px; display: block; margin-bottom: 4px; }
+</style>
+</head>
+<body>
+
+<!-- 海洋装饰层：鲸鲨 + 杰克风暴 + 沙丁鱼风暴（固定背景剪影） -->
+<svg class="ocean-deco" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <path id="fs" d="M0,0 Q10,-6 22,0 Q10,6 0,0 Z M22,0 L32,-7 L32,7 Z"/>
+    <g id="whaleshark">
+      <path d="M20,95 C50,55 140,42 230,50 C290,56 340,72 375,92 L440,55 L425,95 L455,110 L378,106 C340,124 260,132 180,126 C100,120 40,112 20,95 Z"/>
+      <path d="M190,48 L212,20 L238,46 Z"/>
+      <path d="M120,116 L92,156 L152,124 Z"/>
+      <circle cx="56" cy="78" r="4.5"/>
+      <g fill-opacity=".4">
+        <circle cx="120" cy="80" r="7"/><circle cx="165" cy="65" r="5"/><circle cx="210" cy="85" r="8"/>
+        <circle cx="255" cy="70" r="5"/><circle cx="290" cy="90" r="6"/><circle cx="145" cy="102" r="5"/>
+        <circle cx="200" cy="108" r="6"/><circle cx="245" cy="102" r="4"/><circle cx="90" cy="92" r="4"/>
+      </g>
+    </g>
+  </defs>
+  <g fill="#eaf8fc">
+    <!-- 杰克风暴（旋涡群游，左中） -->
+    <g fill-opacity=".9">
+      <use href="#fs" transform="translate(210,380) rotate(-10)"/>
+      <use href="#fs" transform="translate(262,358) rotate(6) scale(1.1)"/>
+      <use href="#fs" transform="translate(316,368) rotate(22)"/>
+      <use href="#fs" transform="translate(352,402) rotate(42) scale(.95)"/>
+      <use href="#fs" transform="translate(340,447) rotate(72) scale(1.15)"/>
+      <use href="#fs" transform="translate(298,477) rotate(102)"/>
+      <use href="#fs" transform="translate(243,482) rotate(132) scale(1.05)"/>
+      <use href="#fs" transform="translate(193,458) rotate(158) scale(.9)"/>
+      <use href="#fs" transform="translate(168,418) rotate(-172) scale(1.1)"/>
+      <use href="#fs" transform="translate(186,383) rotate(-148) scale(.85)"/>
+      <use href="#fs" transform="translate(248,414) rotate(12) scale(.8)"/>
+      <use href="#fs" transform="translate(296,426) rotate(38) scale(.75)"/>
+      <use href="#fs" transform="translate(276,450) rotate(82) scale(.8)"/>
+      <use href="#fs" transform="translate(228,446) rotate(122) scale(.75)"/>
+      <use href="#fs" transform="translate(214,414) rotate(-42) scale(.7)"/>
+      <use href="#fs" transform="translate(256,432) rotate(62) scale(.65)"/>
+    </g>
+    <!-- 沙丁鱼风暴（密集带，右上） -->
+    <g fill-opacity=".7">
+      <use href="#fs" transform="translate(950,118) rotate(8) scale(.45)"/>
+      <use href="#fs" transform="translate(992,132) rotate(4) scale(.5)"/>
+      <use href="#fs" transform="translate(1030,116) rotate(12) scale(.4)"/>
+      <use href="#fs" transform="translate(1068,140) rotate(6) scale(.5)"/>
+      <use href="#fs" transform="translate(1108,124) rotate(14) scale(.45)"/>
+      <use href="#fs" transform="translate(1146,148) rotate(2) scale(.52)"/>
+      <use href="#fs" transform="translate(1182,132) rotate(10) scale(.42)"/>
+      <use href="#fs" transform="translate(1218,156) rotate(5) scale(.5)"/>
+      <use href="#fs" transform="translate(1256,140) rotate(16) scale(.45)"/>
+      <use href="#fs" transform="translate(1292,164) rotate(4) scale(.52)"/>
+      <use href="#fs" transform="translate(975,158) rotate(-6) scale(.4)"/>
+      <use href="#fs" transform="translate(1022,172) rotate(8) scale(.45)"/>
+      <use href="#fs" transform="translate(1072,168) rotate(-2) scale(.5)"/>
+      <use href="#fs" transform="translate(1120,184) rotate(10) scale(.42)"/>
+      <use href="#fs" transform="translate(1170,180) rotate(0) scale(.5)"/>
+      <use href="#fs" transform="translate(1222,192) rotate(-8) scale(.44)"/>
+      <use href="#fs" transform="translate(1272,196) rotate(6) scale(.48)"/>
+      <use href="#fs" transform="translate(1320,188) rotate(-4) scale(.42)"/>
+    </g>
+    <!-- 鲸鲨（右下缓缓巡游） -->
+    <use href="#whaleshark" transform="translate(940,590) scale(1.15)" fill-opacity=".95"/>
+    <!-- 远处小鱼群点缀 -->
+    <g fill-opacity=".5">
+      <use href="#fs" transform="translate(560,120) rotate(10) scale(.5)"/>
+      <use href="#fs" transform="translate(605,132) rotate(-8) scale(.45)"/>
+      <use href="#fs" transform="translate(648,116) rotate(14) scale(.4)"/>
+    </g>
+  </g>
+</svg>
+
+<h1>宿务潜水行程总览</h1>
+<div class="sub">2026/12/07（日）– 12/22（二）· 16 天 · 北京 ⇄ 宿务，经香港中转 · v13.8</div>
+<div class="chips">
+  <span class="chip">✈️ 机票 往返 ¥2,669（已出票）</span>
+  <span class="chip">🦈 Kairos 妈妈岛已确认 · 只差付定金</span>
+  <span class="chip">🎓 Amigos 已回信 · PayPal 账户到手</span>
+  <span class="chip">🏨 住宿 9 晚已订（妈妈岛 3 + 墨宝 4 + 奥斯洛布 1 + 锡基霍尔 1）</span>
+  <span class="chip warn">🚐 三段包车已询 Slam's</span>
+  <span class="chip">🏝️ 薄荷 3 晚（12/17–20）· 12/18 巴里卡萨 / 12/19 帕米拉坎</span>
+  <span class="chip">🚢 交通定稿：12/16 直达船进锡岛 · 12/17 晚船进薄荷 · 12/20 午后船回宿务 · 12/21 中午飞香港</span>
+  <span class="chip">🛂 免签 14/14 · 余 0 天</span>
+</div>
+
+<h2>① 机票（往返 ¥2,669 · 国泰电子客票 FVX98B）</h2>
+<table>
+  <tr><th>段</th><th>航班</th><th>时间</th><th>备注</th></tr>
+  <tr>
+    <td>去程 12/7（日）→12/8（一）</td>
+    <td>CX393 国泰<br>CX921 国泰</td>
+    <td>18:35 首都 PEK T3 → 22:20 香港 T1（CX393，3h45m）<br>08:20 香港 T1 → <strong>11:10 宿务 CEB T2</strong>（CX921，2h50m）</td>
+    <td>中转 10h（12/7 晚香港机场免费休息区过夜，行李直达、无需过境签）；<br>T1 儿童电视廊 209 对面·227/230 扶梯旁，软沙发可躺、可带睡袋毛毯、人少安静不冷</td>
+  </tr>
+  <tr>
+    <td>回程 12/21（一）→12/22（二）</td>
+    <td>CX922 国泰<br>CX340 国泰</td>
+    <td>12:25 宿务 T2 → 15:20 香港 T1（CX922，2h55m）<br>21:35 香港 T1 → 22Dec 00:55 首都 T3（CX340，3h20m）</td>
+    <td>中转 6h15m（白天，不过夜）；<strong>取消香港机场过夜</strong>，可在 T1 休息区休整；两段联程票（FVX98B）行李直达</td>
+  </tr>
+</table>
+<p class="small">香港过境凭护照 + 联程票即可（无需港澳通行证）。10/25 冬季班表后 CX921/CX340 时刻可能 ±15 分钟微调，出发前以航变通知为准。</p>
+
+<h2>② 日程（16 天）</h2>
+<table>
+  <tr><th>日期</th><th>安排</th><th>住宿</th><th>状态</th></tr>
+  <tr><td>12/7 日</td><td><strong>出发日 · 北京→香港</strong>：白天整理行李、赴首都机场 T3 → <strong>18:35 CX393</strong>（国泰，3h45m）→ 22:20 香港 T1 → <strong>香港机场免费休息区过夜</strong>（T1 儿童电视廊 209 对面·227/230 扶梯旁，软沙发可躺、可带睡袋毛毯、人少安静不冷；凭护照+联程票入境香港、无需港澳通行证）</td><td>香港机场</td><td class="ok">机票已定</td></tr>
+  <tr><td>12/8 二</td><td><strong>落地日（前夜香港过夜）</strong>：12/7 18:35 首都 PEK T3 → 22:20 香港 T1（CX393，3h45m）→ <strong>香港机场免费休息区过夜</strong>（T1 儿童电视廊 209 对面·227/230 扶梯旁，软沙发可躺、可带睡袋毛毯、人少安静不冷）→ 12/8 <strong>08:20 CX921</strong>（2h50m）→ <strong>11:10 落地宿务 T2</strong> → 入境+取行李，约 12:00 出关 → <strong>12:30 包车北上 Maya 码头</strong>（3.5–4h，途中服务区午饭）→ 16:30 前到码头 → <strong>17:00 末班公共螃蟹船</strong> → 约 17:30 上妈妈岛 → Slam's 办入住（Kairos 潜店就在度假村内）→ 晚饭早睡（次日 5:00 起床）</td><td>Slam's Garden ✅</td><td class="wait">包车询价中（Slam's）<br>硬约束：12:30 前必须出机场</td></tr>
+  <tr><td>12/9 三</td><td><strong>长尾鲨 Day 1 · 3 潜</strong>：5:00 起床 → 5:15 潜店集合（就在住的 Slam's 园内，步行即到）→ <strong>5:30–6:00 出船</strong> → Kimud 鲨点 2 潜（约 25–30 米清洁站，两潜间船上水面休息约 1 小时）→ 第 3 潜本地礁 → <strong>12:00–13:00 回港</strong> → 午饭+午休 → 下午自由（白沙滩散步/补觉）→ 傍晚到店里确认次日 Gato 出船时间</td><td>Slam's Garden ✅</td><td class="ok">Kairos 已确认</td></tr>
+  <tr><td>12/10 四</td><td><strong>Gato 岛日 · 3 潜 + 夜潜 = 4 潜</strong>：6:30–7:00 出船（约 40 分钟航程）→ Gato 岛 3 潜（穿岛隧道、海蛇、白尖礁鲨常见）→ <strong>13:00–14:00 回港</strong> → 午饭+午休（当天 4 潜，注意补水早休息）→ <strong>傍晚本地礁夜潜</strong>（套餐第 10 潜，不另收费）</td><td>Slam's Garden ✅</td><td class="ok">Kairos 已确认</td></tr>
+  <tr><td>12/11 五</td><td><strong>长尾鲨 Day 3 · 3 潜 → 转场墨宝</strong>：5:00 起床 → 5:30–6:00 出船 → 鲨点 2 潜 + 本地 1 潜 → <strong>12:00–13:00 回港</strong> → 午饭+冲凉退房 → 下午公共螃蟹船回 Maya 码头（具体班次上岛时和 Slam's 确认）→ <strong>包车南下墨宝约 4.5h</strong>（穿宿务市区，预计 19:30–20:00 到）→ 晚饭休息</td><td>Eve's Kiosk ✅</td><td class="wait">接车询价中（Slam's）</td></tr>
+  <tr><td>12/12 六</td><td><strong>EFR 紧急第一反应 · 陆训 1 天（约 9:00–16:00）</strong>：心肺复苏（CPR）、AED（自动体外除颤器）使用、初级/次级护理、伤员评估与包扎（Amigos 教室，步行即到）。前提：中文 eLearning 已在国内学完（付款后 Amigos 立即发账号，10–11 月在家完成）</td><td>Eve's Kiosk ✅</td><td class="wait">等你付款 ₱10,500</td></tr>
+  <tr><td>12/13 日</td><td><strong>Rescue Day 2 · 平静水域/浅水技巧</strong>（约 8:30–16:30）：自救、疲惫/恐慌潜水员处理、水下救援上升、水面拖带 100 米、无意识潜水员水面救援（装备卸除+人工呼吸+拖带）</td><td>Eve's Kiosk ✅</td><td class="wait">等你付款 ₱10,500</td></tr>
+  <tr><td>12/14 一</td><td><strong>Rescue Day 3 · 综合场景演练 + 考核</strong>（约 8:30–16:30）：失踪潜水员搜寻 → 水面救援 → 拖带上岸 → CPR → 事故报告全流程模拟，通过即提交认证申请（临时证卡电子版）→ 傍晚和 Amigos 定 12/15 fun dive 细节：<strong>岸潜沙丁鱼风暴 ₱1,500 / 船潜 Pescador 岛 ₱1,700</strong>（装备已含，电脑表自备）</td><td>Eve's Kiosk ✅</td><td class="wait">等你付款 ₱10,500</td></tr>
+  <tr><td>12/15 二</td><td>上午 fun dive 1–2 潜（沙丁鱼风暴岸 ₱1,500 / 船 ₱1,700，<strong>装备已含</strong>）→ 13:00 包车南下奥斯洛布（约 2.5h，₱2,500–3,000）→ 15:30 入住 Joaquim's → <strong>16:00–17:30 蒂马洛瀑布（Tumalog）</strong>（离鲸鲨村 Tan-awan 仅 10 分钟车程，傍晚人少）</td><td>Joaquim's Lodge</td><td class="wait">包车在墨宝本地订</td></tr>
+  <tr><td>12/16 三</td><td><strong>5:00–5:30 起床</strong>（Joaquim's 步行即到鲸鲨点，Fhin 带队排首批）→ 6:00 首批鲸鲨水肺（₱1,500 + 装备，4–6 米看全身）→ 7:00 结束上岸 → 早餐退房 → 上午从容休整 → 约 11:45 出发（车程 15–25 分钟）→ <strong>12:15 前到梅尼特码头（Mainit Port，提前 45 分钟）</strong> → <strong>13:00 Super Shuttle 直达船（每天仅此一班，空调舱 ₱650≈¥70，12go 约 ¥89，提前买+打印确认单）</strong> → 约 <strong>15:00 到拉雷纳（Larena）</strong> → 车程约 30 分钟 → 15:45 入住 Jade Ocean Park → 泳池/海滩休整 → <strong>17:31 看日落</strong>（日落约 17:31；酒店海边或驱车西岸帕利通海滩，视位置就近）</td><td>Jade Ocean Park</td><td class="wait">住宿已订 ✅<br>直达船票待订（12go）</td></tr>
+  <tr><td>12/17 四</td><td><strong>锡基霍尔自驾环岛（12/17 周四，行李随车，前一晚结清房费早走）</strong>：8:00 出发 → 坎布加海藤条瀑布（Cambugahay 树藤秋千，8:20–10:00，早去人少）→ <strong>萨拉格东海滩悬崖跳海</strong>（Salagdoong 跳台，10:45–13:00，跳海+午饭）→ 老榕树鱼疗（14:00–14:45，古树+小鱼足浴）→ 帕利通海滩（Paliton，15:15 起休整）→ <strong>17:31 看日落</strong> → 17:50 出发 → <strong>18:15 到拉雷纳码头</strong>（Larena，提前 45 分钟）→ <strong>19:00 Lite Ferries 慢船</strong>（每周二/四/日开行；普通舱 ¥79 / 空调舱 ¥125，12go 提前订）→ <strong>22:00 到塔比拉兰</strong> → 阿罗娜酒店接船（提前约，约 ₱500–600）→ 约 23:00 入住</td><td>阿罗娜（待订 3 晚）</td><td class="wait">船票+租车待订<br>自驾证件出发前核对</td></tr>
+  <tr><td>12/18 五</td><td><strong>上午巴里卡萨 2 潜</strong>（限额 150 人/天；<strong>注明优先海龟潜点：Rico's Wall 里科断崖 / Black Forest 黑森林</strong>——海龟常驻，替代放弃的杜马盖地阿波岛）→ 约 12:00 回 Alona → 下午<strong>可选邦劳本地岸潜 1 潜</strong>（₱1,250≈¥134，视体力）</td><td>阿罗娜（3 晚）</td><td class="wait">潜店待定：PFD / BDC / Piratas 三家询价中<br>若按 PFD 班期对调 → 本日改帕米拉坎 3 潜</td></tr>
+  <tr><td>12/19 六</td><td><strong>帕米拉坎 3 潜 · 全天</strong>（潜店待定）：约 7:00–7:30 出海（单程约 1 小时，<strong>途中常见海豚群</strong>）→ 外岛 3 潜、约 13:00 末潜出水 → 约 14:00–15:00 回阿罗娜 → 下午自由休整、晾装备 → 傍晚 Alona 沙滩看日落，早点睡</td><td>阿罗娜（3 晚）</td><td class="wait">潜店待定（同上）<br>若按 PFD 班期对调 → 本日改巴里卡萨 2 潜，ARS 9/19 提交</td></tr>
+  <tr><td>12/20 日</td><td><strong>回宿务 · 宿务住宿（新增）</strong>：上午 Alona 沙滩散步/收拾行李 → 11:30 退房 → 12:30 前到塔比拉兰码头（OceanJet 提前 1 小时换票）→ <strong>14:00 OceanJet → 16:00 宿务 Pier 1</strong> → 到宿务市区，入住酒店（<strong>待定，12/20 晚新增一晚</strong>，距机场近为宜）→ 晚饭休息</td><td>宿务（待定）</td><td class="wait">船票待订（12go，订不上 14:00 改 13:00 班）<br>宿务 12/20 晚住宿待订</td></tr>
+  <tr><td>12/21 一</td><td><strong>回程飞行日</strong>：上午宿务休整/退房 → <strong>12:25 CX922</strong>（宿务 T2 → 香港 T1，2h55m）→ 15:20 香港 T1 → <strong>香港机场中转 6h15m（白天，不过夜）</strong> → <strong>21:35 CX340</strong>（香港 T1 → 首都 PEK T3，3h20m）→ <strong>22Dec 00:55 到北京</strong></td><td>飞机上</td><td class="ok">机票已定</td></tr>
+  <tr><td>12/22 二</td><td><strong>抵京</strong>：00:55 到首都 T3，结束行程，回家休整</td><td>—</td><td class="ok">✅ 行程结束</td></tr>
+</table>
+
+<h2>③ 已确认的预订与条款</h2>
+
+<div class="card">
+<strong>🦈 Kairos（妈妈岛 10 潜套餐）— 全部确认 ✅ 只差付定金</strong>
+<ul>
+  <li>₱16,500 / 3 天（12/9–11），排法 3+4+3；夜潜含在套餐内不另收费（原价 ₱3,050）</li>
+  <li>天气/海警禁航 → <strong>可退款或改期</strong>（选其一）；ReActivate 后首潜直接上清晨线：对方书面确认无碍</li>
+  <li>船期：长尾鲨线 5:30–6:00 出、12:00–13:00 回；Gato 6:30–7:00 出、13:00–14:00 回</li>
+  <li>定金 30%：<strong>₱4,950 ≈ ¥531</strong>，Wise 付 → BDO「Malapascua Kairos Diver Inc」006048012730（SWIFT BNORPHMMXXX），凭证发 WhatsApp +63 928 478 1262</li>
+  <li>要求 12/8 当天到岛 → 我们 12/8 约 17:30 上岛，正好赶上 ✓</li>
+</ul>
+</div>
+
+<div class="card b">
+<strong>🎓 Amigos（EFR + Rescue 套餐）— 已回信 ✅ 下一步：填注册表 + 付定金</strong>
+<ul>
+  <li>₱25,500（12/12–14），含中文 eLearning、全套装备、教练、认证费、船费/海洋公园费</li>
+  <li>中文教练 12–14 日仍 "maybe" → <strong>若来不了就英文教练</strong>（已按此口径回复）</li>
+  <li>PayPal 账户：<strong>amigos.billing@gmail.com</strong>，定金 <strong>₱10,500（含 5%）≈ ¥1,125</strong>，付完邮件发凭证</li>
+  <li>报名信息已报：姓 YANG / 名 WEI，待你填 diveinamigos.com/registration/ 并付款</li>
+  <li>三项衍生答复：12/15 fun dive <strong>装备租赁已含</strong>（除电脑）✓；12/16 奥斯洛布交通<strong>不安排</strong>✗；12/11 Maya 接车<strong>无此服务</strong>✗ → 两段已转问 Slam's</li>
+</ul>
+</div>
+
+<h2>④ 住宿一览</h2>
+<table>
+  <tr><th>站点</th><th>日期</th><th>晚数</th><th>酒店</th><th>价格</th><th>状态</th></tr>
+  <tr><td>妈妈岛</td><td>12/8–11</td><td class="num">3</td><td>Slam's Garden Dive Resort（空调含早）</td><td class="num">¥228/晚 ≈ ¥684</td><td class="ok">✅ 已订 1773850073</td></tr>
+  <tr><td>墨宝</td><td>12/11–15</td><td class="num">4</td><td>New Eve's Kiosk Dive Resort（标准房；位置 9.2 分，十年老客据点）</td><td class="num">¥669.07（4 晚含税）</td><td class="ok">✅ 已订 1774002622</td></tr>
+  <tr><td>奥斯洛布</td><td>12/15</td><td class="num">1</td><td>Joaquim's Lodge（S Double Room；Agoda 8.9 分/千人评，步行鲸鲨点，老板 Fhin 帮排队+接送）</td><td class="num">₱1,677.04 ≈ ¥180</td><td class="ok">✅ 已订 1774005761</td></tr>
+  <tr><td>锡基霍尔</td><td>12/16–17</td><td class="num">1</td><td>Siquijor Jade Ocean Resort（Jade Ocean Cliff 崖边；阳台海景大床房，含饮用水/停车/WiFi；12/17 早上退房，行李随车环岛）</td><td class="num">₱2,580.45 ≈ ¥277</td><td class="ok">✅ 已订 1774011207</td></tr>
+  <tr><td>阿罗娜</td><td>12/17–20</td><td class="num">3</td><td>Positano Alona Beach（850+ 评，泳池，步行 300m 到海滩）或 Alona Pawikan（潜店扎堆处）；<strong>请酒店 12/17 晚 22:00 到塔比拉兰码头接船</strong></td><td class="num">~¥550–570（3 晚）</td><td class="wait">待订（选可免取消价作停航兜底）</td></tr>
+  <tr><td>宿务</td><td>12/20 夜</td><td class="num">1</td><td>待订（回程日新增；距机场近为宜，便于 12/21 12:25 起飞）</td><td class="num">~¥200–350</td><td class="wait">待订</td></tr>
+  <tr><td>香港</td><td>12/7 夜（去程过夜）</td><td class="num">1</td><td>机场免费休息区（T1 儿童电视廊 209 对面·227/230 扶梯旁 软沙发可躺·可带睡袋毛毯·人少安静不冷）</td><td class="num">¥0</td><td class="ok">✅ 已定</td></tr>
+</table>
+<p class="small">四份 Agoda 确认信 PDF 已存 `bookings/` 文件夹（Slam's 3 晚 / Eve's Kiosk 4 晚 / Joaquim's 1 晚 / 锡基霍尔 1 晚），订单号见上表。扣款日：Joaquim's 11/29 · 锡基霍尔 11/30 · Eve's 12/5</p>
+
+<h2>⑤ 费用</h2>
+<table>
+  <tr><th>项目</th><th class="num">金额</th><th>状态</th></tr>
+  <tr><td>机票往返</td><td class="num">¥2,669</td><td class="ok">✅ 已出票</td></tr>
+  <tr><td>Kairos 10 潜套餐 ₱16,500（先付定金 ₱4,950 ≈ ¥531）</td><td class="num">≈ ¥1,768</td><td class="wait">等你付定金</td></tr>
+  <tr><td>Amigos EFR+Rescue ₱25,500（PayPal 先付 ₱10,500 ≈ ¥1,125）</td><td class="num">≈ ¥2,787</td><td class="wait">等你填表付款</td></tr>
+  <tr><td>Slam's Garden 3 晚</td><td class="num">¥684</td><td class="ok">✅ 已订</td></tr>
+  <tr><td>Eve's Kiosk 4 晚（1774002622）</td><td class="num">¥669.07</td><td class="ok">✅ 已订</td></tr>
+  <tr><td>Joaquim's Lodge 1 晚（1774005761）</td><td class="num">≈ ¥180</td><td class="ok">✅ 已订</td></tr>
+  <tr><td>锡基霍尔 Jade Ocean 1 晚（1774011207）</td><td class="num">≈ ¥277</td><td class="ok">✅ 已订</td></tr>
+  <tr><td>PADI ReActivate（11 月北京 · 郭教练池潜）</td><td class="num">¥580</td><td class="wait">已谈妥价 · 11 月</td></tr>
+  <tr><td>潜水电脑表（自购二手，12 月后转卖回血）</td><td class="num">≈ ¥0–100（净）</td><td class="ok">✅ 已购</td></tr>
+  <tr><td><strong>合计（以上）</strong></td><td class="num"><strong>≈ ¥9,615–9,715</strong></td><td></td></tr>
+</table>
+<p class="small">待定项估算：阿罗娜（3 晚）住宿 ~¥550–570（奥斯洛布、墨宝、锡基霍尔已订，计入上表） · 鲸鲨 ₱1,500≈¥161 + 三段包车 · <strong>薄荷两日潜水（PFD 实价：巴里卡萨 2 潜 ₱4,710 + 帕米拉坎 3 潜 ₱7,190，含装备与环境费）≈ ¥1,276；BDC 同类两日（3 潜套餐 ×2 天、含装备租赁 ₱6,500/天）≈ ₱13,000≈¥1,393，两者相差约 ¥120</strong> · Slam's 包车参考价（机场→Maya 轿车 ₱4,700 / Maya→墨宝 ₱7,500 / Maya→妈妈岛专船 ₱3,000，12/15 墨宝→奥斯洛布段待报价） · 锡基霍尔段交通（12/16 直达船 ₱650 + 12/17 晚船 ¥79–125 + 自驾租车 ~₱2,000–2,500/天+油费）≈ ¥450–600 · 陆路/渡轮 ¥800–1,800 · 餐饮 13 天 ¥2,000–3,500。<strong>全程估总 ≈ ¥15,200–18,200</strong>（汇率 1 CNY = 9.33 PHP）。<strong>除电脑表自备外，其余潜水装备（BCD/调节器/湿衣等）均由潜店提供</strong>。</p>
+
+<h2>⑥ 你的待办（按优先级）</h2>
+<table>
+  <tr><th>#</th><th>事项</th><th>时限</th></tr>
+  <tr><td>1</td><td><strong>等 PFD（Liza）reconfirm</strong>：9/18 已交 PADI 证照照 → 9/19 ARS 开抢日 Liza 回信「证照已收、开始订 12/19 巴里卡萨、尽快 reconfirm」；<strong>等两件事：①12/19 名额确认 ②总价+定金</strong>。BDC 仍等市政府批件（不给保证）；Piratas 只跑本地、已不追。<strong>9/22 前无 reconfirm 则 WhatsApp 催 +63 918 210 3999</strong></td><td class="wait">等 Liza reconfirm</td></tr>
+  <tr><td>2</td><td>注册 Wise → 付 Kairos 定金 ₱4,950 → 凭证发 WhatsApp +63 928 478 1262</td><td class="mine">尽快（锁档期）</td></tr>
+  <tr><td>3</td><td>填 diveinamigos.com/registration/（YANG / WEI）→ PayPal 付 ₱10,500 至 amigos.billing@gmail.com → 告诉我，我来发付款凭证邮件</td><td class="mine">本周</td></tr>
+  <tr><td>4</td><td>Agoda 住宿全部落定 ✅：Slam's 3 晚（1773850073）/ Eve's Kiosk 4 晚（1774002622）/ Joaquim's 1 晚（1774005761）/ 锡基霍尔 1 晚（1774011207）——四份确认信 PDF 已核对并存档 `bookings/`</td><td class="ok">已完成 9/13</td></tr>
+  <tr><td>5</td><td>三段包车：<strong>Slam's 价目表已到</strong>（机场→Maya 轿车 ₱4,700 · Maya→墨宝 ₱7,500 · Maya→妈妈岛专船 1-7 人 ₱3,000；<strong>机场→Maya 段需预付定金</strong>）——确认后我回信并索要「12/15 墨宝→奥斯洛布」段报价（价目表里没有）；12/8 务必 12:00–12:30 前出发</td><td class="wait">本周内定</td></tr>
+  <tr><td>6</td><td>订 <strong>12/16 奥斯洛布梅尼特码头→拉雷纳 13:00 Super Shuttle 直达船</strong>（每天仅一班；12go 空调舱约 ¥89/人，确认单务必打印）+ <strong>12/17 晚 Lite Ferries 拉雷纳→塔比拉兰 19:00 班</strong>（¥79–125，周二/四/日）+ <strong>12/20 塔比拉兰→宿务 OceanJet 14:00 班</strong>（订不上改 13:00，12go 出票后只能到码头柜台改签）+ <strong>阿罗娜 12/17–20 住宿 3 晚</strong>（选可免取消价，请酒店接 22:00 船）+ <strong>12/17 环岛租车自驾</strong>（CK's 或码头边车行；备选带司机）</td><td class="wait">11 月中前</td></tr>
+  <tr><td>7</td><td>Amigos 付款后<strong>立即领中文 eLearning 账号，10–11 月在家学完 EFR + Rescue 理论</strong>（到店直接实操，不占用课程日）；11 月北京做 PADI ReActivate ¥580（潜伴郭教练 15910542357 / 池潜，价格已谈妥）</td><td class="wait">11 月中下旬</td></tr>
+  <tr><td>8</td><td><strong>Sea Explorers 09-19 已回信 · 评估中</strong>：妈妈岛 10 潜报价 ₱27,300（未含保护区费）、墨宝<strong>开不了 Rescue/EFR</strong>、奥斯洛布<strong>须 8 人成团</strong>。结论：不如现有 Kairos+Amigos 分头订，本线暂压着不回</td><td class="wait">评估中</td></tr>
+</table>
+<p class="small">我这边继续盯：PFD（<strong>9/18 已交证照照、9/19 开抢日 Liza 已响应「开始订巴里卡萨」→ 等 reconfirm ①名额 ②总价+定金；9/22 前无音讯则 WhatsApp 催 +63 918 210 3999</strong>）、BDC（<strong>09-16 已回信，等市政府批件；批下来前不给保证</strong>）、Sea Explorers（<strong>09-19 已回信，评估中、暂压着不回</strong>）、Slam's（12/15 墨宝→奥斯洛布段报价 + 定金支付方式）、Amigos（注册确认 + 中文教练窗口 <strong>12/12–14</strong>）。全部落定后把本表回写资料库定稿。</p>
+
+<div class="card b">
+  <strong>薄荷潜店（三家并行）：PFD 已交证照照、等 Liza reconfirm（9/19 开抢日已响应）；BDC 仍等市政府批件、不给保证；Piratas 只跑本地、已不追</strong>
+  <ul>
+    <li><strong>★ 最新进展（09-18/19）</strong>：9/18 已交 PADI AOW 证照照 → 9/19 ARS 开抢日 Liza 回信「证照已收、开始订 12/19 巴里卡萨、尽快 reconfirm」。<strong>现等 ①12/19 名额确认 ②总价+定金</strong>；9/22 前无音讯则 WhatsApp +63 918 210 3999 催。12/18 帕米拉坎 3 潜 + 12/19 巴里卡萨 2 潜（方案②对调）不变</li>
+    <li><strong>价格</strong>：Fun dive ₱1,850/潜/人 · 装备 ₱380/潜/人 · 环境费 ₱100（普通）/₱250（巴里卡萨）/₱500（帕米拉坎）每天 · 高氧 ₱360/瓶；船上只供水果点心饮水咖啡茶（<strong>午餐需自备</strong>）。确认后发潜水证照片，付款走 PayPal</li>
+    <li><strong>按我日期估价</strong>：12/18 帕米拉坎 3 潜 ≈ ₱7,190（¥771）+ 12/19 巴里卡萨 2 潜 ≈ ₱4,710（¥505），两日合计 <strong>≈ ₱11,900 ≈ ¥1,276</strong>（已含装备与环境费）</li>
+    <li><strong>冲突</strong>：PFD 固定班期是 <strong>12/17 巴里卡萨 / 12/18 帕米拉坎 / 12/19 Doljo</strong>（Doljo 是邦劳西北的另一处潜点）——与我「18 巴里卡萨 / 19 帕米拉坎」正好错位一天；而 12/17 我 22:00 才到阿罗娜，赶不上</li>
+    <li><strong>已发回信（09-16）：按方案②对调</strong>——<strong>12/18 帕米拉坎 3 潜 + 12/19 巴里卡萨 2 潜</strong>（放弃 12/19 的 Doljo），潜水总量不变；信中请他们确认 ① 18 日帕米拉坎能否排 3 潜 ② 19 日船能否改开巴里卡萨 ③ ARS 提交及所需资料 ④ 两日总价；若 19 日巴里卡萨发不了船，请他们给最近替代方案</li>
+    <li><strong>时间硬窗</strong>：巴里卡萨改到 12/19 后，ARS 名额 <strong>9/19 开放</strong>（全岛每天约 150 人、每人每天最多 2 潜）——须请 PFD 当天一早提交预约（名单、等级、国籍、证书照片）</li>
+    <li><strong>备选①：Bohol Divers Club（BDC）— 09-16 已回信（Sarah Lyn Telimban）</strong>：岛行程是 <strong>3 潜套餐</strong>（外岛 2 潜 + 邦劳礁 1 潜），<strong>自带装备 ₱5,750 / 含装备租赁 ₱6,500</strong>（含环境税 ₱350、船上午餐点心、4 人一导）；单潜邦劳礁 ₱1,550+₱100 税；高氧 ₱450/瓶；07:50 集合、08:00 出发、15:00–16:00 返回。<strong>⚠️ 关键限制：岛行程须提前 3 个月向市政府申请，目前仍在申请中，能否成行不给保证</strong>（他们已就 12/18、12/19 两天都申请了巴里卡萨）；<strong>定金/全款不退</strong>（仅潜店因天气安全取消才全额退）；现场只收现金，预付走银行转账或 GCash/Wise/Alipay。船为双层 banca 带厕所，帕米拉坎长航程更舒适</li>
+    <li><strong>备选②：Piratas Alona Dive Center — 09-16 已回信（Alberto）</strong>：答复只有一句「12/18 我们去 Doljo Point；12/19 Arco 和 Dana Wall」——<strong>这两天他们跑的是邦劳本地潜点，未接巴里卡萨/帕米拉坎，也没给价格和 ARS 说法</strong>，需再问一轮确认能否按我们的日期发外岛船。西班牙兄弟经营，PCSSD 认证，Cressi 新装备、小团；WhatsApp +63 947 249 5576</li>
+    <li><span class="small">Sierra Madre 可走 PADI Travel 即时锁位应急（巴里卡萨 2 潜 $66.87≈¥479，7 天前免费取消）</span></li>
+  </ul>
+</div>
+
+<div class="card c">
+  <strong>🌏 Sea Explorers（terry@sea-explorers.com）— 09-19 已回信（承接除薄荷外的全程潜水，评估中）</strong>
+  <ul>
+    <li><strong>妈妈岛 10 潜可排</strong>：9/11 日各 Kimud×2+本地礁、10 日 Gato×3+夜潜；报价 ₱22,500 + 高氧 ₱200/瓶(10瓶₱1,500) + 装备 ₱1,100/天×3=₱3,300 = <strong>小计 ₱27,300≈¥2,900（保护区费另列待 12 月核对）</strong>。⚠️ 两天清晨班都排 Kimud、<strong>无 Monad（长尾鲨在 Monad，需掰回）</strong></li>
+    <li><strong>墨宝开不了 Rescue/EFR</strong>：只做 fun dive（₱2,100–2,850/潜），课程只能去其别的校区 → 等于路线要动；Amigos ₱10,500 已谈妥更优</li>
+    <li><strong>奥斯洛布很虚</strong>：须 <strong>8 人成团</strong>，12/16 当天能否发、能否排清晨首批、是否水肺形式全不保证；直接找当地鲸鲨船 ₱1,500 无门槛更稳</li>
+    <li><strong>条款</strong>：定金 20%、出发前 60 天付尾款；可一单打包、合并折扣待谈</li>
+    <li><strong>评估结论</strong>：本线大概率不如现有 Kairos+Amigos 分头订（课程开不了、奥斯洛布有门槛、妈妈岛报价未含保护区费）；唯一价值是逼价筹码 → <strong>暂压着不回</strong></li>
+  </ul>
+</div>
+
+<h2>⑦ 风险与备注</h2>
+<ul>
+  <li><strong>免签 14/14</strong>：12/8 入 → 12/21 出，余量 0 天 ✓（正好卡 14 天免签上限，12/21 离境合法）</li>
+  <li><strong>没有缓冲日</strong>：12/8 当天必须完成"落地→包车→末班船"链条（紧但可行）。若航班延误或当天停航，12/9 清晨长尾鲨顺延一天，12/11 下午去墨宝的计划同步后移——提前想好这个 Plan B 即可</li>
+  <li><strong>12 月阿米汉季风</strong>：能见度常见 10–15 米，长尾鲨全年每天在 Kimud（2022 年起更浅更近）；Kairos 天气原因可退可改</li>
+  <li><strong>禁飞</strong>：末潜 12/19 帕米拉坎（约 13:00 出水）→ 12/21 12:25 起飞，约 47 小时 ✓</li>
+  <li><strong>锡基霍尔段交通（12/16–17，已定稿）</strong>：<strong>12/16 乘 13:00 奥斯洛布梅尼特码头（Mainit）→ 拉雷纳（Larena）直达船</strong>——Super Shuttle Ferry（超级班车滚装渡轮；RORO 即 Roll-on/Roll-off 车客开上开下的大渡船），2026 年 4 月新开航线，每天仅此一班、约 2 小时；万一停航，当天兜底：改利洛安（Liloan，宿务岛最南端港口）滚装渡轮（₱150 + ₱20 码头费，6:00–17:00 班次密集）→ 对岸西布兰（Sibulan）→ 杜马盖地赶 OceanJet（菲律宾最大高速客船公司）13:00 或 19:10 班照样上岛。<strong>12/17 晚乘 19:00 Lite Ferries（Lite Shipping，菲律宾老牌滚装船公司）拉雷纳→塔比拉兰，约 3 小时，普通舱 ¥79/空调舱 ¥125，每周二/四/日开行</strong>（12go 提前订）；<strong>停航兜底：延住锡基霍尔 12/17 一晚（订免取消价），改 12/18 早 8:20 OceanJet 直航塔比拉兰（每天 8:20/14:30 两班互为备份）</strong>；离岛 ₱50 旅游生态费（2026 年 2 月新政，现金备用）。12 月干季渡轮正常运营（台风停航高发是 7–11 月）</li>
+  <li><strong>锡基霍尔自驾（12/17）</strong>：你持国际驾照（IDP，International Driving Permit）——出发前核对一点：<strong>公约国签发的真 IDP（配合港澳/泰国/欧美等当地驾照）在菲合法</strong>；若是国内平台办的「国际驾照翻译认证件」（非公约 IDP），租车行一般也给车，但法律上有争议、<strong>事故保险可能拒赔</strong>，建议出发前和保险公司确认承保口径。租车要点：押金 ₱2,000–5,000 现金或预授、验车拍照留证、油满取还、确认备胎；环岛主路近年施工多、有坑洼，跳崖玩水后开车放慢。菲律宾与中国同样<strong>靠右行驶</strong>，驾驶习惯无缝衔接。若车行不认证件，就地改带司机（差价不大）</li>
+  <li><strong>薄荷潜水窗口（12/18–19 两天）</strong>：原「12/19 唯一窗口」的瓶颈已化解——<strong>12/18 巴里卡萨 2 潜（+可选下午岸潜）+ 12/19 帕米拉坎 3 潜</strong>，且 Alona 原询价信恰写「住 12/17–19、想潜 12/18（周五）」，两天占位的伏笔正好用上；12/19 回港后<strong>无赶船压力</strong>，晚上休整。<strong>12/20 塔比拉兰→宿务 OceanJet 每天 14 班（06:00–18:30），午后有 13:00/14:00/15:20/16:20/17:00/17:40 六班，已多源核实</strong>——订 14:00→16:00 班（备选 13:00→15:00），到宿务入住酒店（<strong>12/20 晚新增一晚，距机场近为宜</strong>），次日 12/21 12:25 从宿务 T2 飞香港。若 12/19 帕米拉坎停航 → 改巴里卡萨/本地潜。名额确认前住宿全选可免取消价</li>
+  <li><strong>12/21 回程「宿务→香港→北京」衔接</strong>：12/21 12:25 CX922（宿务 T2 → 香港 T1，15:20 到），中转 6h15m 后 21:35 CX340（香港 T1 → 北京，12/22 00:55 到）。两段为同一国泰联程票（FVX98B），<strong>行李直达、香港中转无需入境、有联程保护</strong>；12/21 白天在 T1 休息区休整即可，无需过夜。船（12/20 14:00 宿务到）与航班（12/21 12:25 飞）不同日，<strong>已无「船→国际航班」误机风险</strong>；唯一硬约束是 12/21 起飞前别误了 12:25 的 CX922</li>
+  <li>中文教练 "maybe" 未锁：Amigos 口径已定——来不了就英文教练，不阻塞付款</li>
+</ul>
+
+<div class="foot small">v13.8 · 深海主题版式 · 更新于 2026-10-26 · 依据：国泰电子客票 FVX98B（10-26 出票确认：去程 CX393 12/7 PEK→HKG + CX921 12/8 HKG→CEB；回程 CX922 12/21 CEB→HKG + CX340 12/21 HKG→PEK 12/22 到；去程香港过夜、回程取消过夜、宿务 12/20 新增一晚）、Kairos/Amigos 邮件往来、四份 Agoda 确认信、PFD 报价回信（09-16 方案②对调；09-18 交 AOW 证照照；09-19 Liza 开抢日回信「开始订巴里卡萨、尽快 reconfirm」）、Sea Explorers 全程询价（09-19 已回信、评估中）、Slam's 包车价目表、Oslob–Siquijor 直达船（2026-04 新开）、Larena–Tagbilaran Lite Ferries、Tagbilaran–Cebu OceanJet（每天 14 班）· 下次更新：PFD reconfirm（①12/19 名额 ②总价+定金）+ 阿罗娜+宿务 12/20 订房后 + 三张船票（12go）</div>
+
+</body>
+</html>
