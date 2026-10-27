@@ -47,4 +47,19 @@
   var style = document.createElement("style");
   style.textContent = ".card.is-hidden{display:none!important;}";
   document.head.appendChild(style);
+
+  /* ---------- 3. 卡片跳转（整卡可点 + 新标签被拦截时退回同标签） ---------- */
+  var cardLinks = document.querySelectorAll(".card[data-country]");
+  cardLinks.forEach(function (card) {
+    card.addEventListener("click", function (e) {
+      var href = card.getAttribute("href");
+      if (!href) return;
+      // 保留系统修饰键 / 中键的默认行为（新标签、下载等）
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1) return;
+      e.preventDefault();
+      var win = window.open(href, "_blank", "noopener");
+      // 若环境（如预览沙箱）禁止弹窗，则同标签兜底打开
+      if (!win) { window.location.href = href; }
+    });
+  });
 })();

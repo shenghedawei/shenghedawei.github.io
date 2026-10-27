@@ -183,6 +183,7 @@ body::after {
   border: 1.5px solid var(--color-line);
   box-shadow: var(--sh-2);
   min-height: 360px; display: flex; flex-direction: column;
+  text-decoration: none; color: inherit; cursor: pointer;
   transition: transform var(--dur-b) var(--ease), box-shadow var(--dur-b) var(--ease);
 }
 .card:hover { transform: translateY(-8px) !important; box-shadow: var(--sh-3); }
@@ -237,8 +238,10 @@ body::after {
   border-bottom: 2px solid transparent; transition: border-color var(--dur-f) var(--ease), gap var(--dur-f) var(--ease);
 }
 .card__cta::after { content: "→"; transition: transform var(--dur-f) var(--ease); }
-.card__cta:hover { border-color: var(--c1); gap: 14px; }
-.card__cta:hover::after { transform: translateX(4px); }
+.card__cta:hover,
+.card:hover .card__cta { border-color: var(--c1); gap: 14px; }
+.card__cta:hover::after,
+.card:hover .card__cta::after { transform: translateX(4px); }
 
 /* 国别主题注入 */
 .card[data-country="us"] { --c1: var(--us);  --c2: var(--us-2); }
