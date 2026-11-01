@@ -125,4 +125,30 @@ body{width:100%;position:relative;font-family:"PingFang SC","Hiragino Sans GB","
 
   <div class="foot" data-page-node-id="9cEQL23j4RT8ivFE6WDNdj">依据：香港《保险业条例》第41章（第2条释义、第64G/90条）· 保监局《持牌保险代理／经纪人操守守则》· 第41L章（经纪强制PI）· 香港律师会公开文章<br data-page-node-id="v0EN0iaPmht2INPE4FBeX4">背景：香港商厦实景（自由版权图） · 制图：港险科普</div>
 </div>
+<style>
+/* 动态翻牌子效果（新增，不改既有文字与布局） */
+@keyframes flipBoard{0%{transform:perspective(1400px) rotateX(-92deg);opacity:0}55%{opacity:1}100%{transform:perspective(1400px) rotateX(0);opacity:1}}
+.fb-flip{transform-origin:top center;opacity:0;will-change:transform,opacity}
+.fb-flip.in{animation:flipBoard .72s cubic-bezier(.2,.7,.3,1) both}
+@media (prefers-reduced-motion:reduce){.fb-flip{opacity:1!important;transform:none!important;animation:none!important}}
+</style>
+<script>
+(function(){
+  var els=[].slice.call(document.querySelectorAll('.clarify, .pair, .band'));
+  if(!els.length) return;
+  if(!('IntersectionObserver' in window)){ els.forEach(function(e){e.classList.add('in');}); return; }
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){
+        var t=en.target;
+        var sibs=[].slice.call(t.parentNode.children);
+        var idx=sibs.indexOf(t);
+        t.style.animationDelay=(Math.min(idx,8)*0.08)+'s';
+        t.classList.add('in'); io.unobserve(t);
+      }
+    });
+  },{threshold:0.12, rootMargin:'0px 0px -8% 0px'});
+  els.forEach(function(e){ e.classList.add('fb-flip'); io.observe(e); });
+})();
+</script>
 </body></html>
