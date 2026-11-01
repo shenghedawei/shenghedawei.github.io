@@ -137,13 +137,16 @@ body{width:100%;position:relative;font-family:"PingFang SC","Hiragino Sans GB","
   var els=[].slice.call(document.querySelectorAll('.clarify, .pair, .band'));
   if(!els.length) return;
   if(!('IntersectionObserver' in window)){ els.forEach(function(e){e.classList.add('in');}); return; }
+  var counters=new Map();
+  var STAGGER=0.22;
   var io=new IntersectionObserver(function(entries){
     entries.forEach(function(en){
       if(en.isIntersecting){
         var t=en.target;
-        var sibs=[].slice.call(t.parentNode.children);
-        var idx=sibs.indexOf(t);
-        t.style.animationDelay=(Math.min(idx,8)*0.08)+'s';
+        var p=t.parentNode;
+        var n=(counters.get(p)||0);
+        counters.set(p, n+1);
+        t.style.animationDelay=(n*STAGGER)+'s';
         t.classList.add('in'); io.unobserve(t);
       }
     });
