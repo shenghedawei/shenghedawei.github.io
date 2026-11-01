@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-page-node-id="XG6erDYJkI0foZFgN16uaa"><head data-page-node-id="JZEogZH9A5Uoy9B5H49loB">
+<meta charset="UTF-8" data-page-node-id="8cp8sTJRB3Kd8RwRM1tbEE">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" data-page-node-id="8ZiAZyXyYqPW9uIuK0FhXX">
+<title data-page-node-id="NgHKXpItzq7QaynpfWqoNK">香港保险经纪行业研究 · 814家里能打的就这几家</title>
+<meta name="description" content="基于香港保监局（IA）登记册官方数据，拆解香港主要寿险经纪 / IFA 平台的真实体量，以及它们签约保险公司的数量。" data-page-node-id="nUfBuRTpCo1vqZR3DJBujF">
+<link rel="preconnect" href="https://fonts.googleapis.com" data-page-node-id="BgXweG0YHBcuYwCuW6rzB1">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" data-page-node-id="uglXVmzqGd4Q9hdUj8xSpF">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700;900&amp;family=Noto+Sans+SC:wght@300;400;500;700&amp;family=Playfair+Display:wght@700;900&amp;display=swap" rel="stylesheet" data-page-node-id="V6TcfmMnRqVCRoepnIZMV8">
+<style data-page-node-id="V9GlELRbvJlLRyWJCjLBNf">
+  /* ============ 设计令牌（浅色 · 紧凑大字版） ============ */
+  :root{
+    --color-bg:#f6f3ec;            /* 暖白底 */
+    --color-surface:#ffffff;
+    --color-surface-2:#efe9df;
+    --color-text:#1b2233;          /* 暖近黑正文 */
+    --color-muted:#5c6b8a;         /* 次级文字 */
+    --color-faint:#9aa3b8;         /* 极淡辅助 */
+    --color-accent:#ff3b6b;        /* 洋红，唯一强调（大字号/装饰） */
+    --color-accent-ink:#c4305a;    /* 加深玫红，浅底小字红强调（满足 4.5:1） */
+    --color-border:rgba(27,34,51,.12);
+    --color-border-strong:rgba(27,34,51,.24);
+    --radius-sm:3px; --radius-md:8px;
+    --space-1:4px; --space-2:8px; --space-3:14px; --space-4:20px;
+    --space-5:26px; --space-6:38px; --space-7:52px;
+    --shadow-1:0 2px 10px rgba(27,34,51,.08);
+    --shadow-2:0 10px 36px rgba(27,34,51,.12);
+    --ease-out:cubic-bezier(.16,1,.3,1);
+    --dur-fast:170ms; --dur-base:340ms; --dur-slow:680ms;
+    --font-serif:"Noto Serif SC",serif;
+    --font-sans:"Noto Sans SC",sans-serif;
+    --font-num:"Playfair Display",serif;
+  }
+
+  *{box-sizing:border-box;overflow-wrap:break-word;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;background:var(--color-bg);color:var(--color-text);
+    font-family:var(--font-sans);font-weight:400;line-height:1.78;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+    overflow-x:hidden;font-size:18px;
+  }
+
+  /* ============ 氛围层：淡光晕 + 颗粒 + 水印 ============ */
+  .atmosphere{position:fixed;inset:0;z-index:0;pointer-events:none;}
+  .atmosphere::before{
+    content:"";position:absolute;inset:0;
+    background:
+      radial-gradient(46rem 32rem at 8% -8%, rgba(255,59,107,.10), transparent 60%),
+      radial-gradient(40rem 34rem at 102% 6%, rgba(70,110,200,.12), transparent 55%),
+      radial-gradient(50rem 50rem at 50% 118%, rgba(240,235,225,.7), transparent 60%);
+    filter:blur(.5px);
+  }
+  .grain{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.035;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+  /* 对外材料：盛禾大威 极淡文字水印层（浅底深字，不影响阅读） */
+  .wm{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.06;
+    background-image:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='360'%20height='240'%3E%3Ctext%20x='8'%20y='138'%20font-family='Noto%20Sans%20SC,sans-serif'%20font-size='26'%20fill='%231b2233'%20transform='rotate(-24%20180%20120)'%3E%E7%9B%9B%E7%A4%B0%E5%A4%A7%E5%A8%81%3C/text%3E%3C/svg%3E");
+    background-repeat:repeat;background-size:360px 240px;}
+  .wm::after{content:"";position:absolute;inset:0;opacity:.6;
+    background-image:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='360'%20height='240'%3E%3Ctext%20x='205'%20y='46'%20font-family='Noto%20Sans%20SC,sans-serif'%20font-size='22'%20fill='%231b2233'%20transform='rotate(18%20180%20120)'%3E%E7%9B%9B%E7%A4%B0%E5%A4%A7%E5%A8%81%3C/text%3E%3C/svg%3E");
+    background-repeat:repeat;background-size:360px 240px;}
+
+  /* ============ 布局壳 ============ */
+  .wrap{position:relative;z-index:2;max-width:760px;margin:0 auto;padding:0 var(--space-4);}
+
+  /* ============ 刊头 Masthead ============ */
+  .masthead{border-bottom:2px solid var(--color-accent);padding:var(--space-5) 0 var(--space-4);margin-bottom:var(--space-6);}
+  .masthead .top{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;
+    font-family:var(--font-num);letter-spacing:.16em;text-transform:uppercase;font-size:14px;color:var(--color-muted);}
+  .masthead .top .brand{color:var(--color-text);font-weight:700;letter-spacing:.2em;}
+  .masthead .kicker{margin-top:var(--space-4);font-family:var(--font-num);font-size:14px;letter-spacing:.42em;
+    text-transform:uppercase;color:var(--color-accent-ink);}
+  h1.title{font-family:var(--font-serif);font-weight:900;line-height:1.08;
+    font-size:clamp(36px,8vw,64px);letter-spacing:-.02em;margin:var(--space-3) 0 0;}
+  h1.title .hk{color:var(--color-accent);}
+  .dek{margin-top:var(--space-4);color:var(--color-muted);font-size:clamp(16px,2.4vw,18px);line-height:1.7;}
+
+  /* ============ 引言块 / 首字下沉 ============ */
+  .lead{position:relative;margin:var(--space-6) 0;padding-left:var(--space-3);
+    border-left:3px solid var(--color-accent);}
+  .lead p{font-family:var(--font-serif);font-weight:500;font-size:clamp(21px,3.4vw,27px);line-height:1.55;margin:0;color:var(--color-text);}
+  .lead p::first-letter{font-family:var(--font-num);font-size:3em;line-height:.8;float:left;
+    margin:4px 12px 0 0;color:var(--color-accent);font-weight:900;}
+
+  /* ============ 巨型数字钩子 ============ */
+  .hero-fig{display:flex;align-items:flex-end;gap:var(--space-4);flex-wrap:wrap;margin:var(--space-6) 0;}
+  .hero-fig .big{font-family:var(--font-num);font-weight:900;font-size:clamp(96px,26vw,200px);
+    line-height:.82;color:var(--color-text);letter-spacing:-.04em;text-shadow:0 12px 30px rgba(27,34,51,.12);}
+  .hero-fig .big .u{color:var(--color-accent);}
+  .hero-fig .cap{color:var(--color-muted);font-size:16px;padding-bottom:12px;line-height:1.65;}
+
+  /* ============ 章节 ============ */
+  section{margin:var(--space-7) 0;scroll-margin-top:24px;}
+  .sec-head{display:flex;align-items:baseline;gap:var(--space-3);
+    padding:var(--space-3) var(--space-4);margin-bottom:var(--space-5);
+    background:rgba(255,59,107,.07);border-radius:var(--radius-sm);}
+  .sec-head .no{font-family:var(--font-num);font-weight:900;font-size:clamp(22px,3.4vw,32px);color:var(--color-accent);}
+  .sec-head h2{font-family:var(--font-serif);font-weight:700;font-size:clamp(24px,4.6vw,33px);margin:0;letter-spacing:-.01em;line-height:1.2;}
+  p.body{color:var(--color-text);font-size:18px;margin:0 0 var(--space-4);line-height:1.85;}
+  p.body.muted{color:var(--color-muted);}
+  strong{color:var(--color-text);font-weight:700;}
+  .hl{color:var(--color-accent-ink);font-weight:700;}
+
+  /* ============ 大盘双栏对比 ============ */
+  .compare{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--color-border);border-radius:var(--radius-md);overflow:hidden;background:var(--color-surface);}
+  .compare .col{padding:var(--space-5) var(--space-4);}
+  .compare .col + .col{border-left:1px solid var(--color-border);}
+  .compare .label{font-family:var(--font-num);text-transform:uppercase;letter-spacing:.18em;font-size:13px;color:var(--color-muted);}
+  .compare .label.acc{color:var(--color-accent-ink);}
+  .compare .stat{font-family:var(--font-num);font-weight:900;font-size:clamp(40px,9vw,60px);line-height:1;margin:10px 0 4px;font-variant-numeric:tabular-nums;color:var(--color-text);}
+  .compare .sub{color:var(--color-muted);font-size:15px;line-height:1.65;}
+
+  /* ============ Top10 排行榜 ============ */
+  .rank{list-style:none;margin:0;padding:0;border-top:1px solid var(--color-border);}
+  .rank li{display:grid;grid-template-columns:84px 1fr auto;gap:var(--space-3);align-items:center;
+    padding:var(--space-3) 0;border-bottom:1px solid var(--color-border);transition:background var(--dur-fast) var(--ease-out);}
+  .rank li:hover{background:linear-gradient(90deg,rgba(255,59,107,.06),transparent);}
+  .rank .idx{font-family:var(--font-num);font-weight:900;font-size:clamp(36px,8vw,56px);line-height:.85;
+    color:var(--color-faint);letter-spacing:-.03em;}
+  .rank li:nth-child(1) .idx,.rank li:nth-child(2) .idx,.rank li:nth-child(3) .idx{color:var(--color-accent);}
+  .rank .nm{font-family:var(--font-serif);font-weight:700;font-size:clamp(20px,3.4vw,25px);line-height:1.3;}
+  .rank .nm .fb{font-family:var(--font-num);font-weight:700;font-size:14px;color:var(--color-muted);margin-left:8px;letter-spacing:.04em;}
+  .rank .note{display:block;color:var(--color-muted);font-size:15px;font-weight:400;margin-top:5px;line-height:1.6;}
+  .rank .note .warn{color:var(--color-accent-ink);font-weight:700;}
+  .rank .cnt{font-family:var(--font-num);font-weight:900;font-size:clamp(20px,3.4vw,27px);text-align:right;
+    color:var(--color-text);font-variant-numeric:tabular-nums;white-space:nowrap;}
+  .rank .cnt small{display:block;font-family:var(--font-sans);font-weight:400;font-size:12px;color:var(--color-muted);letter-spacing:.04em;margin-top:2px;}
+
+  /* ============ 签约样本表 ============ */
+  .tbl{width:100%;border-collapse:collapse;margin-top:var(--space-4);font-variant-numeric:tabular-nums;background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-md);overflow:hidden;}
+  .tbl th,.tbl td{text-align:left;padding:14px 12px;border-bottom:1px solid var(--color-border);font-size:16px;line-height:1.6;}
+  .tbl th{font-family:var(--font-num);text-transform:uppercase;letter-spacing:.14em;font-size:13px;color:var(--color-muted);font-weight:700;background:var(--color-surface-2);}
+  .tbl td .n{font-family:var(--font-num);font-weight:900;font-size:21px;color:var(--color-accent-ink);}
+  .tbl tr:hover td{background:rgba(255,59,107,.05);}
+  .tbl tr:last-child td{border-bottom:none;}
+  .band{display:flex;flex-wrap:wrap;gap:10px;margin-top:var(--space-5);}
+  .band .chip{border:1px solid var(--color-border-strong);border-radius:999px;padding:11px 18px;font-size:15px;color:var(--color-text);background:var(--color-surface);}
+  .band .chip b{color:var(--color-accent-ink);font-family:var(--font-num);}
+
+  /* 两点提醒 */
+  .notes{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4);margin-top:var(--space-5);}
+  .note-card{border:1px solid var(--color-border);border-radius:var(--radius-md);padding:var(--space-4);background:var(--color-surface);box-shadow:var(--shadow-1);}
+  .note-card .h{font-family:var(--font-serif);font-weight:700;color:var(--color-accent-ink);font-size:19px;margin-bottom:8px;}
+  .note-card p{margin:0;color:var(--color-muted);font-size:15.5px;line-height:1.7;}
+
+  /* ============ 结尾 ============ */
+  .outro{border-top:2px solid var(--color-accent);padding-top:var(--space-5);margin-top:var(--space-7);}
+  .outro p.body{font-size:18.5px;line-height:1.75;}
+  .tags{margin-top:var(--space-5);display:flex;flex-wrap:wrap;gap:10px;}
+  .tags span{font-size:14.5px;color:var(--color-muted);border:1px solid var(--color-border);border-radius:999px;padding:7px 15px;}
+
+  .disc{margin-top:var(--space-6);padding:var(--space-4);border:1px dashed var(--color-border-strong);
+    border-radius:var(--radius-md);color:var(--color-muted);font-size:14.5px;line-height:1.75;background:rgba(27,34,51,.03);}
+  .disc b{color:var(--color-text);}
+
+  /* ============ 跑马灯 ============ */
+  .marquee{margin-top:var(--space-6);border-top:1px solid var(--color-border);border-bottom:1px solid var(--color-border);
+    overflow:hidden;white-space:nowrap;padding:12px 0;background:rgba(27,34,51,.04);}
+  .marquee .track{display:inline-block;animation:scroll 28s linear infinite;}
+  .marquee .track span{font-family:var(--font-num);font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+    font-size:15px;color:var(--color-muted);margin:0 28px;}
+  .marquee .track span .dot{color:var(--color-accent);}
+  @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* ============ 页脚 ============ */
+  footer{margin-top:var(--space-6);padding:var(--space-5) 0 var(--space-6);border-top:1px solid var(--color-border);
+    color:var(--color-faint);font-size:14px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+  footer .col-name{font-family:var(--font-serif);color:var(--color-muted);letter-spacing:.1em;}
+
+  /* ============ 入场动效 ============ */
+  .reveal{opacity:0;transform:translateY(26px);}
+  .reveal.in{opacity:1;transform:none;transition:opacity var(--dur-base) var(--ease-out),transform var(--dur-base) var(--ease-out);}
+  .reveal.d1{transition-delay:80ms;} .reveal.d2{transition-delay:160ms;}
+  .reveal.d3{transition-delay:240ms;} .reveal.d4{transition-delay:320ms;}
+
+  /* ============ 响应式（移动优先优化） ============ */
+  @media(max-width:768px){
+    body{font-size:17px;}
+    .wrap{padding:0 12px;}
+    .compare{grid-template-columns:1fr;}
+    .compare .col + .col{border-left:none;border-top:1px solid var(--color-border);}
+    .rank li{grid-template-columns:52px 1fr;gap:var(--space-3);}
+    .rank .cnt{grid-column:2;justify-self:start;text-align:left;margin-top:6px;}
+    .notes{grid-template-columns:1fr;}
+    .masthead .kicker{letter-spacing:.3em;}
+    .hero-fig{flex-direction:column;align-items:flex-start;gap:var(--space-3);}
+    .hero-fig .cap{max-width:100%;padding-bottom:0;}
+  }
+  /* ============ 桌面端：放宽版心，文字限宽保阅读 ============ */
+  @media(min-width:1024px){
+    .wrap{max-width:960px;}
+    p.body,.dek,.lead p,.hero-fig .cap{max-width:720px;}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .reveal{opacity:1;transform:none;transition:none;}
+    .marquee .track{animation:none;}
+    html{scroll-behavior:auto;}
+  }
+  a:focus-visible,button:focus-visible{outline:2px solid var(--color-accent);outline-offset:3px;border-radius:2px;}
+</style>
+<style id="__dm_no_drag_style__" data-page-node-id="HfGlNLCPgwhcvuoEWvhRS8">* { -webkit-user-drag: none !important; }</style><style id="__dm_bindable_badge_style__" data-page-node-id="4P63J3EfkhdHag07v1ZxsN">[data-sp-bindable="database"]{outline:1px dashed #0088ff;outline-offset:2px;border-radius:4px;}[data-sp-bindable="database"] *{pointer-events:none !important;transition:none !important;animation:none !important;}[data-sp-bindable="database"]{transition:none !important;animation:none !important;}</style></head>
+<body data-page-node-id="FcuQ9cu3Mo3RT2FTH9zgKC" style="position: relative;">
+<div class="atmosphere" data-page-node-id="wePhIFxLZJ1O1uDc2asKLg"></div>
+<div class="grain" data-page-node-id="emoHL29DhOxhSIq0nUiahf"></div>
+<div class="wm" aria-hidden="true" data-page-node-id="Hyc1YdnHUEvUQ3KcZls33f"></div>
+
+<div class="wrap" data-page-node-id="eTEuR6bAk0KXeN07sS4Gls">
+  <!-- 刊头 -->
+  <header class="masthead reveal in" data-page-node-id="mBXRiVvvXFuKqnMHho8jfK">
+    <div class="top" data-page-node-id="XLwFNqE67VsFQwy3ATzpV5">
+      <span class="brand" data-page-node-id="BwioTFbDrQXmnpHlqWtGbb">港险科普 · 行业研究</span>
+      <span data-page-node-id="SPs5LF01Hpzf4u5kMl1ne6">VOL.11 — 2026.11</span>
+    </div>
+    <div class="kicker" data-page-node-id="e3xf8XR2EdBLt6ZLdPaADs">INDUSTRY REPORT · 保监局登记册数据</div>
+    <h1 class="title" data-page-node-id="B8esoNFiZNFKTRqTMkM0Fz" style="white-space: pre-wrap;"><span class="hk" data-page-node-id="F50Iw4oK1l8St1HGExPsrc">香港</span>保险经纪<br data-page-node-id="FUnmrqNejr8SGXvQSlJLT8"></h1>
+    <p class="dek" data-page-node-id="eaq9FvBGeAJXjhJSf213hX">基于香港保监局（IA）登记册官方数据，把主要寿险经纪 / IFA 平台的真实体量，和它们签约保险公司的数量，一次讲清楚。</p>
+  </header>
+
+  <!-- 引言 -->
+  <div class="lead reveal d1 in" data-page-node-id="urgZyevZDwb1jIshb2nL7H">
+    <p data-page-node-id="oPHEcvCeRchGkpyLg5HHXF" style="white-space: pre-wrap;">你找香港保险顾问，常听到两个词：代理人、经纪（IFA）。很多人觉得，经纪能代理很多家公司，所以"货架"特别全，货比三家更客观。但真相有点反直觉——真正成规模的，屈指可数。​</p>
+  </div>
+
+  <!-- 巨型钩子 -->
+  
+
+  <!-- 一、行业大盘 -->
+  <div class="hero-fig reveal d2 in" data-page-node-id="Webe5ojhIqdAXsb76xNvK3">
+    
+    
+  </div><section class="reveal in" data-page-node-id="Nu7n4WT5JJMLD4ep76u4Uz">
+    <div class="sec-head" data-page-node-id="vQ5lsHU4n5CvgWqcAC4WcE">
+      <span class="no" data-page-node-id="19SclMjfW4D42jYXEGx2Qh">01</span>
+      <h2 data-page-node-id="j8J7lXO9rTzFySoAOR5EqM">行业大盘：经纪很多，但大部分是"微型"</h2>
+    </div>
+    <p class="body muted" data-page-node-id="5TIBp929CAJ6DNkslviCGp">保监局截至 2026 年 9 月 30 日的官方数据——经纪渠道的"公司数"不少，但代表人规模与代理渠道完全不在一个量级。</p>
+    <div class="compare" data-page-node-id="9AtWFrrwZWUYOhwNvCACsj">
+      <div class="col" data-page-node-id="FCcengOJXAoDn0ZDzWUoG3">
+        <div class="label acc" data-page-node-id="qC9rQYVttEMvMss5Mw4d0z">保险经纪（Broker / IFA）</div>
+        <div class="stat" data-page-node-id="ZhQ9cPyldKpPvSMmBMbGhZ">814</div>
+        <div class="sub" data-page-node-id="sMyUauYpqD2Nc57qw6q5UX">持牌经纪公司 · 持牌业务代表 <strong data-page-node-id="vGRP1DCKbWo4RJrBKZIqyV">15,603</strong> 名</div>
+      </div>
+      <div class="col" data-page-node-id="RhLNLneWoHlXttg8dOqfDw">
+        <div class="label" data-page-node-id="7Ck7pFi6ECLF0DbM52oDGI">保险代理（Agent）</div>
+        <div class="stat" data-page-node-id="zxHtIhEA0yrIm1Uf1cfqQA">83,480</div>
+        <div class="sub" data-page-node-id="YCMR8Ss0qeaebH8DtfG7TL">持牌个人保险代理 · 代理机构 1,456 家</div>
+      </div>
+    </div>
+    <p class="body" style="margin-top: var(--space-5); white-space: pre-wrap;" data-page-node-id="LBWojWQapa1aOh2NnUAVZS">结论很直接：<strong data-page-node-id="ZgPTFcQvm8oPgdsOB5ytEx" style="">大部分经纪公司是微型，成规模只是少数。</strong>这是典型的行业长尾状态。
+代理，仍是香港寿险的主力。</p>
+  </section>
+
+  <!-- 二、Top10 -->
+  <section class="reveal in" data-page-node-id="URueLCj8nhQ09or6NnxPqq">
+    <div class="sec-head" data-page-node-id="1eHy4cdYGeihZ8FStgDnoX">
+      <span class="no" data-page-node-id="AnnagpHR9KSBMPAKH88tZW">02</span>
+      <h2 data-page-node-id="Aj5Tys1BomDPUfcJUjcmtj">前 10 名：按持牌业务代表数排</h2>
+    </div>
+    <p class="body muted" data-page-node-id="4KpugRWzKj1HlbO4G8Ava1">数字均为保监局登记册"持牌业务代表（TR）"口径，即硬数字；区间来自登记册衍生目录，时点不同会有小幅波动。</p>
+    <ol class="rank" data-page-node-id="ntjR2IbI03zSXVuCnx3Kxn">
+      <li data-page-node-id="eALrTIsF584X4ANcMD1FFJ">
+        <div class="idx" data-page-node-id="wict0o03dBjRQoEObSwGws">01</div>
+        <div class="nm" data-page-node-id="530kPLmit99S7980lq7wwE">安柏环球财富管理 AMG <span class="fb" data-page-node-id="9cnytOD4RqyMLmmAxYVyzf">FB1577</span>
+          <span class="note" data-page-node-id="jwb0OSyU2VMgCe27E0xJ7P">按持牌业务代表人数居全港经纪实体首位；香港本地为主</span></div>
+        <div class="cnt" data-page-node-id="sMgA3TSLDrkGz82PH8TcF3">876–919<small data-page-node-id="7uuThEuFW3Y1GkrY4cnkqP">名代表</small></div>
+      </li>
+      <li data-page-node-id="Ba4xGE2etRBIhevnW2gRGB">
+        <div class="idx" data-page-node-id="hffsV3JhqvxF2krsyvXGca">02</div>
+        <div class="nm" data-page-node-id="a2oK7jUFFrEHCsXBvOdXol">湾区保险经纪 BIB <span class="fb" data-page-node-id="GTHBDNUMN0rpvetfF9QlTk">FB1272</span>
+          <span class="note" data-page-node-id="geJC2bli4rIdyISSVigBGi">大湾区定位；官网披露合作 29 家保险公司（人寿 20 + 一般 9）</span></div>
+        <div class="cnt" data-page-node-id="ELvz8g4vCRKDLpbSI60fgH">655–694<small data-page-node-id="Etd7MylhEuje4jtiLUuJpT">名代表</small></div>
+      </li>
+      <li data-page-node-id="YbgaRWgWfcHx859o0cYLaX">
+        <div class="idx" data-page-node-id="yLKmrsinVKhG0BQAen7fWu">03</div>
+        <div class="nm" data-page-node-id="DD5cmHoBl9hLCvWCQXKuI3">新湾国际 Bay Union <span class="fb" data-page-node-id="4e7AZtuMRVzvectipYj33c">FB1661</span>
+          <span class="note" data-page-node-id="pBGXfieGdc4JGuQKhwkTcf">专做内地赴港客；<strong class="warn" data-page-node-id="eyVTgCwuRDFpSyA5AVtWl7">登记册载两笔纪律处分（涉客户尽调 / AML 缺失）</strong></span></div>
+        <div class="cnt" data-page-node-id="ahAH22AFPsaL2I5nPU7sHd">636–652<small data-page-node-id="NCRmndyqdFtbfYHM2WPzft">名代表</small></div>
+      </li>
+      <li data-page-node-id="JyLD0SYyokh1glNIpFQGqJ">
+        <div class="idx" data-page-node-id="48be8KXpm6j62idaINKQpD">04</div>
+        <div class="nm" data-page-node-id="a9SEcih9zKgWnP7mELChhq">资遇保险经纪 ZUU <span class="fb" data-page-node-id="Nie8BfZ3K0jjmRmzHj2N7C">FB1375</span>
+          <span class="note" data-page-node-id="pgBGPpe8arG2rapP4IWoyc">高净值 / 家办，含内地客</span></div>
+        <div class="cnt" data-page-node-id="UynCGdQsjh9jWIyPT6HpVn">468–644<small data-page-node-id="oCbCP69WNmAY1WnDDd81nk">名代表</small></div>
+      </li>
+      <li data-page-node-id="Riv78dXRiCbCIuzpMLk28x">
+        <div class="idx" data-page-node-id="UMe7Elilgt3Ik8FVijJGIp">05</div>
+        <div class="nm" data-page-node-id="7ZbZueWtEogj5GgLpayxeG">达信 Marsh <span class="fb" data-page-node-id="XRYeHgKH5uxI4W0nBCfZEb">FB1015</span>
+          <span class="note" data-page-node-id="DfJJRJxnYoQlZtDO9NkVi8">企业为主，寿险非核心</span></div>
+        <div class="cnt" data-page-node-id="RqojKDBR1FI0rdbXF8Oe2q">279–290<small data-page-node-id="4xCcpbAbCTamulrnGaGUGB">名代表</small></div>
+      </li>
+      <li data-page-node-id="wJpNwsqY0AgS0TmWPZAAPj">
+        <div class="idx" data-page-node-id="OYYjXEskxDaLAyvdL4HkFs">06</div>
+        <div class="nm" data-page-node-id="elCHnO7wNLjojrbquQEYks">康宏理财服务 Convoy <span class="fb" data-page-node-id="YuB1pqlBYYv8EgJZyLlNnn">FB1360</span>
+          <span class="note" data-page-node-id="wDFTZPq02mbTC4tRbxiC1j">上市公司；香港 + 内地</span></div>
+        <div class="cnt" data-page-node-id="PxXHGTSAfcY0Ed4rIEydUj">235–237<small data-page-node-id="ccaqEyVU7eZIqN23ZFvh0y">名代表</small></div>
+      </li>
+      <li data-page-node-id="Zbt0Cpw6uBXJEKdhZ0BDjM">
+        <div class="idx" data-page-node-id="IxbyemYeDY5dDm96OxMDDP">07</div>
+        <div class="nm" data-page-node-id="rhD4kcNlGKvkrQLBmkwHTm">盈加财富顾问 IPP <span class="fb" data-page-node-id="gZiDddDaQc9V6ktQWVkmSd">FB1485</span>
+          <span class="note" data-page-node-id="oq6s9ph1KnbK3NVFcDtSnt">过去 12 个月净减</span></div>
+        <div class="cnt" data-page-node-id="tNBcDHAApR0aS8ihDYzvCf">183–204<small data-page-node-id="a4GrQeUQ14k5aDTyBd7HUX">名代表</small></div>
+      </li>
+      <li data-page-node-id="K3MhykINofqC4pdOL5j6R1">
+        <div class="idx" data-page-node-id="HgLwEKAdviyoFFlfJPGol1">08</div>
+        <div class="nm" data-page-node-id="rGSZ5sNDn4yszxGizbvJWR">AGBA / 环一财富 <span class="fb" data-page-node-id="B5srHSvKXod8im10fCEHum">FB1452</span>
+          <span class="note" data-page-node-id="Tu5e1ftKUt5ia61THWkmkm">经纪实体约 69 名；集团年报曾称约 1,528 名（含多实体 / SFC 牌照，注意口径）</span></div>
+        <div class="cnt" data-page-node-id="VnxhLiMXGlL9Nz98BWHJI0">≈69<small data-page-node-id="vnTChtEgBipTgd7WEpAA2R">名代表</small></div>
+      </li>
+      <li data-page-node-id="UAJBd3vozw8vWCrDbWQ6PX">
+        <div class="idx" data-page-node-id="jM7He0kNSPYGrEF5j4EXBj">09</div>
+        <div class="nm" data-page-node-id="kLw13VkLlYfjT2AuGNd1rm">国金财富管理 IFA <span class="fb" data-page-node-id="VMHvURddeECqGEOBIPJCok">FB1240</span>
+          <span class="note" data-page-node-id="N0RXDK3HVZWwkjMRamrzcn">微型</span></div>
+        <div class="cnt" data-page-node-id="H0z2wEMEQ7kDJQm3WjE4iz">4–9<small data-page-node-id="xVX6l7aIEzELy3SmDsrtE5">名代表</small></div>
+      </li>
+      <li data-page-node-id="aWDnxGf3pWQgCVlIrZIPqW">
+        <div class="idx" data-page-node-id="2n79IbKLuXyMaWlIEfDBIB">10</div>
+        <div class="nm" data-page-node-id="nJX8I39VTM3PqzRUoMYMCE">中国人寿顾问 <span class="fb" data-page-node-id="RG3pA6GB6b2iufRL2iZPYJ">FB1813</span>
+          <span class="note" data-page-node-id="Doqa2iSlaadHZb6ti2wbiy">微型</span></div>
+        <div class="cnt" data-page-node-id="MgChTDnRLJWzafE9pDjsAC">≈5<small data-page-node-id="Lmt2OnFacWMwzVItxx3cjY">名代表</small></div>
+      </li>
+    </ol>
+    <p class="body" style="margin-top:var(--space-5)" data-page-node-id="WftmUG7DmGTU4HvDIKcTj8">几个要点：头部安柏一家就接近全行业代表人数的 <span class="hl" data-page-node-id="zeHfopZsmrNUPC2p5ow0Y6">6%</span>；新湾虽大但<span class="hl" data-page-node-id="0q7BZFA9UqRHLu5t0yA8vJ">有合规处分记录，选平台一定要看合规</span>；AGBA 的"1,528 名"是集团口径，别被数字带偏；榜单后半段，就是行业的真实长尾——几个人撑一家公司的微型经纪。</p>
+  </section>
+
+  <!-- 三、签约保险公司数量 -->
+  <section class="reveal in" data-page-node-id="3zXY9qvucadA4nx5iudBoX">
+    <div class="sec-head" data-page-node-id="yaYTAoIXBrtPeCJqCjJCGL">
+      <span class="no" data-page-node-id="GEvBJSfCv4emWkHfXILx5u">03</span>
+      <h2 data-page-node-id="VvfDaIm2MIOXg1Tiv5V8Xc">经纪公司签了多少家保险公司？</h2>
+    </div>
+    <p class="body" data-page-node-id="fnNfIzxVBoS9go0oVHk9SA">法规上，<strong data-page-node-id="S2uy8UF6tcJYid3HwlqsuH">保险代理人最多只能代表 4 家保险公司（其中人寿最多 2 家）</strong>；而 <span class="hl" data-page-node-id="DecLApHXOxvoEuorURuDys">保险经纪公司没有数量上限</span>，可以签任意多家。实际水平怎么看？以下为公开披露样本：</p>
+    <table class="tbl" data-page-node-id="rmXBNz8tjhX5IT250qwQkm">
+      <thead data-page-node-id="WL8EZnF7kPPAC8CoEBidij"><tr data-page-node-id="RyaQet8AQMD3CnOZyu3jYH"><th data-page-node-id="FZkUSHSRoXgFPABMYhYJqa">公司</th><th data-page-node-id="B542HfgYLhblX7FlTxh0u0">口径</th><th data-page-node-id="sVf2GbKz45lgz546bh0R4R">合作保险公司数量</th></tr></thead>
+      <tbody data-page-node-id="nIgnqjtKTkN63xrNsVm8rb">
+        <tr data-page-node-id="Mb4hHvMB6c44r3SgA5RVoU"><td data-page-node-id="Cyw7tlDzW4PDfGLXMmpqsZ">湾区保险经纪 BIB</td><td data-page-node-id="m87l8EFtJCnUgcFRTByqux" style="">官网​</td><td data-page-node-id="uWS2Pb6aIiQoNnYmks1mhe"><span class="n" data-page-node-id="fOv5qE5yNCq9LN2L92STvB">29</span> 家（人寿 20 + 一般 9）</td></tr>
+        <tr data-page-node-id="i89jGWL8tmUK4cJY67ToCw"><td data-page-node-id="CrjsrszFXrAm6JL4kYktUJ">安柏 AMG</td><td data-page-node-id="2L1IkhPA51EgdgqDjTWmL3" style="">2024 公司简介​</td><td data-page-node-id="DQSU46XHScijpFNav50G3r"><span class="n" data-page-node-id="bRwWC9GnHYTZEfilOmqB49">≈50</span> 家（寿险约 30 + 一般险约 20）</td></tr>
+        <tr data-page-node-id="laeZH7MGGa76yPfySKRx1Q"><td data-page-node-id="MY0k75AceXTeuJja01XYri">宜达保险</td><td data-page-node-id="AgwRlITCFYCsg8yrhRcoGH" style="">官网​</td><td data-page-node-id="eRDqhvF6klcgHTZ3qmTmkT"><span class="n" data-page-node-id="XX7iMOKg9qGltzNc5NQZ3v">26</span> 家</td></tr>
+        <tr data-page-node-id="S73uzjTus6l8CL4F6SvxWl"><td data-page-node-id="7DKyKkfkczBBeUNMowqPQH">富石国际</td><td data-page-node-id="GKWeGSR0ZIKrmXpu5caycr" style="">官网​</td><td data-page-node-id="ctAqZd7NO12AzccT2NYXqN"><span class="n" data-page-node-id="qnRNqeeMdg9DCHAryqecNe">18+</span> 家</td></tr>
+        <tr data-page-node-id="iShhSzpNw98YQa6e3OT43E"><td data-page-node-id="c3jGihWy5WNLWXzQSF9YKl">唯思财富 LMW</td><td data-page-node-id="XxGnA0aHKtdv4PY3oUF3bV">官网列名</td><td data-page-node-id="eySQ4QV2s9s3W4X3pwRMh7"><span class="n" data-page-node-id="LlBUdJpKpCP600cBd2KmeH">10+</span> 家</td></tr>
+        <tr data-page-node-id="qxC9b3aTymrK9U5V0QXqcs"><td data-page-node-id="ok8Xt5hWLnOrHPSsB6MUHd">康宏 Convoy</td><td data-page-node-id="1ne0GMQgGz7PfZVTF4CwYZ" style="">总裁受访（保险全品类）​​​</td><td data-page-node-id="MyHBwqEGqUW9M9Eq4TgQTZ" style="white-space: pre-wrap;"><span class="n" data-page-node-id="EGQlEdvZmFfsKI6vcSHtjs">100+</span>家供应商（非保险公司）</td></tr>
+        <tr data-page-node-id="1jXaHFvpHLrLPQZXjl3gK2"><td data-page-node-id="LeB0bVUp2c0NeX3DBFzf59">新湾国际</td><td data-page-node-id="DMXdNIZdWpb9IInupsIcZX" style="">开业受邀交流​</td><td data-page-node-id="YBWwjmaacMkRWmswXddZkB"><span class="n" data-page-node-id="59aFj3812Lr0PRyAex0NlH">≈24</span> 家</td></tr>
+      </tbody>
+    </table>
+    <p class="body muted" style="margin-top:var(--space-4)" data-page-node-id="ygh5TogqlDs0bifKXhBiK9">行业大致区间——</p>
+    <div class="band" data-page-node-id="zw3EqqO8xAVMvEpjS6gd88">
+      <div class="chip" data-page-node-id="PXMN6YLBV3UD3vg3cF75D9" style="">头部 / 大型：人寿 <b data-page-node-id="242YE7tksYBzFUy0rWE5ei">20–30+</b> 家，全品类 <b data-page-node-id="WNDzAzyJewCa6nYORyN0Rz">30–50</b> 家</div>
+      <div class="chip" data-page-node-id="7NKUa9zZ73x0tdWqopOsuL">中型：<b data-page-node-id="TWppnC8i8vxniPCdCRldGx">15–25</b> 家</div>
+      <div class="chip" data-page-node-id="0w9fGrZRRFYEqoY6ApCBDB">微型：<b data-page-node-id="VxZXvAPwuRZ2Y1EjK3EzZa">10–15</b> 家或更少</div>
+    </div>
+    <div class="notes" data-page-node-id="ZC9rhzVPuYcdLg9EUGn5wF">
+      <div class="note-card" data-page-node-id="WBC2a5phswX6gG73k0gkmj">
+        <div class="h" data-page-node-id="klaiw8Ew5lzdIH4bFZ2UaK">① 口径不一</div>
+        <p data-page-node-id="eLHKCBpyu9ITnYZYozng1B">有的说"保险公司"，有的说"产品供应商"（含基金 / MPF），有的分人寿 / 一般。横比要看口径，别直接拿数字硬比。</p>
+      </div>
+      <div class="note-card" data-page-node-id="01RVwXAxBD9ftLBNFitraJ">
+        <div class="h" data-page-node-id="ezaDTY3MVJNv8k9AMteDkE">② 数量 ≠ 主推</div>
+        <p data-page-node-id="ImaEY8YbGe1iNGdzwG4aQK">签了 20–30 家，不代表每家都主卖。真正产生较多保费的，往往集中在友邦、保诚、宏利、安盛、万通、国寿海外等头部几家。对"主要做人寿的经纪"，看人寿那部分家数更有意义。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 结尾 -->
+  <div class="outro reveal in" data-page-node-id="JRS4wzBTBJxjQZaxJyJuqG">
+    <div class="sec-head" style="border:none;padding-bottom:0;margin-bottom:var(--space-4)" data-page-node-id="AnUF7RnkQ0RzPgV3uL4wgF">
+      <span class="no" data-page-node-id="PDGaUr2MRPVkQDSQnOIS1V">04</span>
+      <h2 data-page-node-id="BgUA85SytJeqWyvF5COL5p">一句话总结</h2>
+    </div>
+    <p class="body" data-page-node-id="nG9yz4kAwMOqbDAqQ1xbQ1">香港保险经纪是典型的长尾行业——<strong data-page-node-id="Qw1LsFe2ETlAytFA4hYfAp">800 多家里，能打的就头部那几家</strong>；经纪签约保险公司虽无上限，但"货架全"和"真的适合你"，是两件事。</p>
+    <p class="body muted" data-page-node-id="w4ZPtXkrPMxHOwoxny0cu1">选平台，规模是参考，合规记录、专业度、长期服务更关键。你关心哪一家？或者想看某家的详细拆解？</p>
+  </div>
+
+  <div class="disc" data-page-node-id="bieReryTzcDkZuqOH3ASr7">
+    <b data-page-node-id="Yd3OjWmuuraGNcWiqFPGxT">数据说明：</b>本文数据来自香港保监局（IA）登记册公开资料整理，截至 2026-09-30；各公司人数为持牌业务代表（TR）口径，数字以登记册实时查询为准。本文为行业研究，非投资建议、非合作背书。
+  </div>
+
+  <!-- 跑马灯 -->
+  <div class="marquee" aria-hidden="true" data-page-node-id="4bM9rmrJSVZinC2pv1vAcU">
+    <div class="track" data-page-node-id="G06CUF5zBFl7X0zelwOCF9">
+      <span data-page-node-id="F2uGKlVz7YhRU2L1H638eG">香港保险<span class="dot" data-page-node-id="FRocpnRbvWH53adUtPD6Bz">·</span>IFA<span class="dot" data-page-node-id="espFFOGcEnLbRBYDKidCBo">·</span>经纪人<span class="dot" data-page-node-id="XfP8nFquMO6pki5SguX7YO">·</span>持牌<span class="dot" data-page-node-id="prvn0Dl3YXQpCWAPUpzDh9">·</span>保监局<span class="dot" data-page-node-id="7eVymwFAOAtCPq6bFd8bUj">·</span>分红险<span class="dot" data-page-node-id="3VRgF39swM6Lmb9bg5sABT">·</span>赴港投保<span class="dot" data-page-node-id="lcr7m9A6W3a9PBF8yh62Uk">·</span></span>
+      <span data-page-node-id="yFJtsujvWU6sdvLr6LlS58">香港保险<span class="dot" data-page-node-id="ZXn9vbbtBBTFWmE7O5QhH3">·</span>IFA<span class="dot" data-page-node-id="bCpwGB80yEG6ylGdc1rmqo">·</span>经纪人<span class="dot" data-page-node-id="WXQ0Jaws9gIsWqQYRFVFlW">·</span>持牌<span class="dot" data-page-node-id="3Dip1wOMk9uhZdCIVdonSD">·</span>保监局<span class="dot" data-page-node-id="hLx4jkVmoHauCWnlpC5k80">·</span>分红险<span class="dot" data-page-node-id="EkQbC2DGxvSWYIfeXdVnut">·</span>赴港投保<span class="dot" data-page-node-id="VrD0arhCUlBDkUVNMNi8aE">·</span></span>
+    </div>
+  </div>
+
+  <footer data-page-node-id="YvCTayMUPsT3VBtcBB5OgW">
+    <span class="col-name" data-page-node-id="BgpKMFVmkXz6GF7BmHkXfH">港险科普 · 行业研究</span>
+    <span data-page-node-id="xBUlDl75US0vKO4N6Ibz3Q">数据截至 2026-09-30 · 以保监局登记册实时查询为准</span>
+  </footer>
+</div>
+
+<script data-page-node-id="lc5DlCUHuVrjGfJtFb8aQX">
+  // 滚动入场：IntersectionObserver 触发 reveal
+  (function(){
+    var els = document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)){
+      els.forEach(function(e){e.classList.add('in');});
+      return;
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    },{threshold:0.12, rootMargin:'0px 0px -8% 0px'});
+    els.forEach(function(e){io.observe(e);});
+  })();
+</script>
+
+
+
+
+
+</body></html>
