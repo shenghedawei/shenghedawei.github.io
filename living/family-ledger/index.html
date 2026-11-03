@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>家庭生活台账 · 杨国栋养老费用 · 大威的网兜</title>
+<meta name="description" content="观音堂益康养老院 2026 年度（4–11月）养老费用台账：缴费总账、费用构成与收付款账户。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@500;700;900&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* ============ 设计令牌 ============ */
+:root{
+  --paper:#F4ECDA;        /* 宣纸暖白（主底 60%） */
+  --paper-2:#FBF6EA;      /* 卡面（更亮） */
+  --paper-3:#EDE2C9;      /* 深一档面板 */
+  --ink:#241A12;          /* 墨字 */
+  --ink-soft:#4A3B2C;
+  --muted:#6E5E48;        /* 次级文字（对比度≥4.5:1） */
+  --red:#9E2B25;          /* 朱红（辅助 30%） */
+  --red-deep:#7E201C;
+  --gold:#B8893B;         /* 鎏金（强调 10%） */
+  --gold-soft:#C9A85E;
+  --line:rgba(36,26,18,.14);
+  --line-strong:rgba(36,26,18,.30);
+  --shadow-1:0 2px 8px rgba(36,26,18,.10);
+  --shadow-2:0 10px 30px rgba(36,26,18,.16);
+  --shadow-3:0 24px 64px rgba(36,26,18,.22);
+  --r-sm:6px; --r-md:12px; --r-lg:22px;
+  --ease:cubic-bezier(.16,1,.3,1);
+  --dur:380ms;
+  --maxw:1120px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Noto Sans SC",sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.7;
+  letter-spacing:.02em;
+  overflow-x:hidden;
+  position:relative;
+}
+/* 暖色氛围：径向渐变 + 纸纹 */
+body::before{
+  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(60rem 40rem at 8% -5%, rgba(158,43,37,.10), transparent 55%),
+    radial-gradient(50rem 40rem at 100% 0%, rgba(184,137,59,.12), transparent 55%),
+    radial-gradient(70rem 50rem at 50% 120%, rgba(36,26,18,.06), transparent 60%);
+}
+/* 颗粒噪点 */
+.grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+/* 盛禾大威 水印层（极淡，置于内容之下） */
+.wm{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.wm span{position:absolute;font-family:"Ma Shan Zheng",serif;color:rgba(36,26,18,.05);
+  font-size:42px;white-space:nowrap;transform:rotate(-22deg);user-select:none}
+.wrap{position:relative;z-index:2;max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+/* ============ 面包屑 ============ */
+.crumb{position:relative;z-index:31;display:flex;align-items:center;gap:8px;flex-wrap:wrap;
+  padding:11px 24px;font-size:13px;color:var(--muted);background:rgba(244,236,218,.92);
+  border-bottom:1px solid var(--line)}
+.crumb a{color:var(--ink-soft);text-decoration:none}
+.crumb a:hover,.crumb a:focus-visible{color:var(--red);outline:none}
+.crumb a:focus-visible{box-shadow:0 0 0 2px var(--gold)}
+.crumb .sep{color:var(--gold);font-weight:700}
+.crumb em{font-style:normal;color:var(--red);font-weight:700}
+
+/* ============ 顶栏导航 ============ */
+.nav{position:sticky;top:0;z-index:30;backdrop-filter:blur(8px);
+  background:rgba(244,236,218,.82);border-bottom:1px solid var(--line);
+  display:flex;align-items:center;gap:18px;padding:12px 24px;flex-wrap:wrap}
+.nav .brand{font-family:"Noto Serif SC",serif;font-weight:900;font-size:18px;color:var(--red);letter-spacing:.04em}
+.nav .brand b{color:var(--ink)}
+.nav .links{margin-left:auto;display:flex;gap:6px;flex-wrap:wrap}
+.nav a{color:var(--ink-soft);text-decoration:none;font-size:14px;padding:8px 12px;border-radius:var(--r-sm);
+  transition:background var(--dur) var(--ease),color var(--dur) var(--ease)}
+.nav a:hover,.nav a:focus-visible{background:rgba(158,43,37,.10);color:var(--red);outline:none}
+.nav a:focus-visible{box-shadow:0 0 0 2px var(--gold)}
+
+/* ============ 封题 Hero ============ */
+.hero{position:relative;min-height:78vh;display:flex;align-items:flex-end;
+  background-image:
+    linear-gradient(to bottom, rgba(20,12,8,.45), rgba(20,12,8,.30) 38%, rgba(20,12,8,.78)),
+    url("门楼.png");
+  background-size:cover;background-position:center 38%;color:var(--paper-2);
+  padding:0 0 56px}
+.hero .eyebrow{font-family:"Noto Sans SC";font-weight:500;letter-spacing:.42em;
+  font-size:13px;color:var(--gold-soft);text-transform:uppercase;margin-bottom:18px}
+.hero h1{font-family:"Ma Shan Zheng",serif;font-size:clamp(48px,9vw,104px);
+  line-height:1.02;color:#F6E7C4;text-shadow:0 2px 24px rgba(0,0,0,.5);letter-spacing:.04em}
+.hero .sub{font-family:"Noto Serif SC",serif;font-weight:700;font-size:clamp(18px,3.2vw,30px);
+  color:var(--paper-2);margin-top:14px;letter-spacing:.06em}
+.hero .meta{margin-top:20px;font-size:14px;color:rgba(246,231,196,.82);letter-spacing:.04em;
+  display:flex;gap:18px;flex-wrap:wrap}
+.hero .meta span{border-left:2px solid var(--gold);padding-left:10px}
+/* 丙午年印章 */
+.seal{position:absolute;top:clamp(24px,7vw,80px);right:clamp(20px,5vw,60px);
+  width:96px;height:96px;border:3px solid rgba(200,60,50,.92);border-radius:10px;
+  display:grid;place-items:center;color:#E9554A;font-family:"Ma Shan Zheng",serif;
+  font-size:30px;line-height:1.05;text-align:center;background:rgba(126,32,28,.18);
+  box-shadow:0 6px 22px rgba(0,0,0,.35);transform:rotate(-6deg)}
+.seal small{display:block;font-size:13px;letter-spacing:.12em;margin-top:2px;color:#F0B7AE}
+.scrolltip{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);
+  font-size:12px;letter-spacing:.3em;color:rgba(246,231,196,.7);animation:bob 2.4s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,8px)}}
+
+/* ============ 通用区块 ============ */
+section{padding:clamp(30px,4vw,48px) 0}
+.sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:34px;flex-wrap:wrap}
+.sec-head .idx{font-family:"Noto Serif SC";font-weight:900;font-size:14px;color:var(--gold);
+  border:1.5px solid var(--gold);border-radius:50%;width:34px;height:34px;display:grid;place-items:center;flex:none}
+.sec-head h2{font-family:"Noto Serif SC";font-weight:900;font-size:clamp(26px,4.4vw,40px);
+  color:var(--ink);letter-spacing:.04em}
+.sec-head .en{font-size:12px;letter-spacing:.34em;color:var(--muted);text-transform:uppercase;margin-left:auto}
+
+/* ============ 概览 KPI ============ */
+.kpis{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
+.kpi{background:var(--paper-2);border:1px solid var(--line);border-radius:var(--r-md);
+  padding:26px 24px;box-shadow:var(--shadow-1);position:relative;overflow:hidden;
+  transition:transform var(--dur) var(--ease),box-shadow var(--dur) var(--ease)}
+.kpi::after{content:"";position:absolute;left:0;top:0;width:4px;height:100%;background:var(--red)}
+.kpi:nth-child(2)::after{background:var(--gold)}
+.kpi:nth-child(3)::after{background:var(--ink-soft)}
+.kpi .label{font-size:14px;color:var(--muted);letter-spacing:.06em}
+.kpi .num{font-family:"Noto Serif SC";font-weight:900;font-size:clamp(30px,5vw,46px);
+  color:var(--ink);margin-top:8px;font-variant-numeric:tabular-nums;line-height:1.05}
+.kpi .num .unit{font-size:18px;color:var(--red);font-weight:700;margin-left:4px}
+.kpi .note{font-size:13px;color:var(--muted);margin-top:6px}
+.kpi.big{grid-column:span 6}
+.kpi.sm{grid-column:span 3}
+@media(max-width:760px){.kpi.big,.kpi.sm{grid-column:span 6}}
+
+/* ============ 总账表 ============ */
+.ledger{border:1px solid var(--line-strong);border-radius:var(--r-lg);overflow:hidden;
+  box-shadow:var(--shadow-2);background:var(--paper-2)}
+.ledger .toprule{height:6px;background:linear-gradient(90deg,var(--red),var(--gold))}
+.tbl-scroll{overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:560px}
+thead th{background:var(--paper-3);color:var(--ink-soft);font-weight:700;font-size:14px;
+  text-align:right;padding:16px 14px;letter-spacing:.04em;border-bottom:2px solid var(--line-strong);
+  position:sticky;top:0;white-space:nowrap}
+thead th:first-child{text-align:left}
+tbody td{padding:15px 14px;text-align:right;font-size:15px;font-variant-numeric:tabular-nums;
+  border-bottom:1px solid var(--line);color:var(--ink-soft)}
+tbody td:first-child{text-align:left;font-weight:700;color:var(--ink)}
+tbody tr:hover{background:rgba(158,43,37,.06)}
+tbody tr:last-child td{border-bottom:none}
+tfoot td{background:var(--paper-3);font-weight:900;color:var(--ink);text-align:right;
+  padding:16px 14px;font-size:15px;font-variant-numeric:tabular-nums;border-top:2px solid var(--line-strong)}
+tfoot td:first-child{text-align:left}
+.total-amt{color:var(--red)!important;font-weight:900}
+
+/* ============ 费用构成 ============ */
+.compose{display:grid;grid-template-columns:1.15fr .85fr;gap:42px;align-items:center}
+@media(max-width:840px){.compose{grid-template-columns:1fr;gap:30px}}
+.pie-col{display:flex;flex-direction:column;align-items:center;gap:14px}
+.donut{width:100%;max-width:320px;height:auto;overflow:visible}
+.donut .seg{fill:none;stroke-width:30;stroke-linecap:butt;cursor:pointer;
+  transition:stroke-dasharray 1.1s cubic-bezier(.16,1,.3,1),stroke-width .25s ease,opacity .25s ease}
+.donut .seg.dim{opacity:.30}
+.donut .seg.hot{stroke-width:38}
+.pie-amt{font-family:"Noto Serif SC";font-weight:900;font-size:21px;fill:var(--ink);font-variant-numeric:tabular-nums}
+.pie-nm{font-size:11px;fill:var(--muted);letter-spacing:.06em}
+.pie-hint{font-size:13px;color:var(--muted);letter-spacing:.04em;margin:0}
+.legend{list-style:none;display:flex;flex-direction:column;gap:13px}
+.legend li{display:flex;align-items:center;gap:12px;font-size:15px;color:var(--ink-soft);
+  padding:4px 8px;border-radius:var(--r-sm);transition:background var(--dur) var(--ease)}
+.legend li.hot{background:rgba(158,43,37,.07)}
+.legend .dot{width:14px;height:14px;border-radius:4px;flex:none;border:1px solid var(--line-strong)}
+.legend .nm{font-weight:500;color:var(--ink)}
+.legend .pct{margin-left:auto;font-weight:700;font-variant-numeric:tabular-nums;color:var(--ink)}
+.legend .amt{color:var(--muted);font-variant-numeric:tabular-nums;min-width:78px;text-align:right}
+@media(prefers-reduced-motion:reduce){
+  .donut .seg{transition:none}
+}
+.note-box{margin-top:28px;background:var(--paper-2);border-left:4px solid var(--gold);
+  border-radius:var(--r-sm);padding:18px 20px;font-size:14px;color:var(--ink-soft);line-height:1.8}
+.note-box b{color:var(--red)}
+
+/* ============ 账户信息 ============ */
+.accts{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:760px){.accts{grid-template-columns:1fr}}
+.acct{background:var(--paper-2);border:1px solid var(--line);border-radius:var(--r-md);
+  padding:26px;box-shadow:var(--shadow-1);position:relative}
+.acct .tag{position:absolute;top:18px;right:18px;font-size:12px;color:var(--muted);
+  border:1px solid var(--line-strong);border-radius:20px;padding:3px 10px}
+.acct h3{font-family:"Noto Serif SC";font-weight:900;font-size:18px;color:var(--ink);margin-bottom:14px}
+.acct .row{display:flex;gap:12px;font-size:15px;padding:7px 0;border-bottom:1px dashed var(--line)}
+.acct .row:last-child{border-bottom:none}
+.acct .row .k{color:var(--muted);min-width:78px;flex:none}
+.acct .row .v{color:var(--ink);font-weight:500;font-variant-numeric:tabular-nums;word-break:break-all}
+.acct .warn{margin-top:14px;font-size:13px;color:var(--red-deep);background:rgba(158,43,37,.07);
+  border-radius:var(--r-sm);padding:10px 12px;line-height:1.7}
+
+/* ============ 页脚 ============ */
+footer{background:var(--ink);color:rgba(246,231,196,.78);padding:48px 0 40px;margin-top:40px;position:relative;z-index:2}
+footer .wrap{display:flex;flex-wrap:wrap;gap:30px;justify-content:space-between}
+footer h4{font-family:"Noto Serif SC";font-weight:900;color:#F6E7C4;font-size:16px;margin-bottom:12px;letter-spacing:.06em}
+footer p{font-size:13.5px;line-height:1.85;max-width:520px}
+footer .credit{font-family:"Ma Shan Zheng",serif;font-size:22px;color:var(--gold-soft);margin-top:8px}
+footer a{color:var(--gold-soft)}
+
+/* ============ 入场动效 ============ */
+.reveal{opacity:0;transform:translateY(22px)}
+.reveal.in{opacity:1;transform:none;transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease)}
+.hero .eyebrow,.hero h1,.hero .sub,.hero .meta,.seal{opacity:0;animation:rise .9s var(--ease) forwards}
+.hero .eyebrow{animation-delay:.05s}.hero h1{animation-delay:.18s}.hero .sub{animation-delay:.34s}
+.hero .meta{animation-delay:.5s}.seal{animation-delay:.62s}
+@keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+  .hero .eyebrow,.hero h1,.hero .sub,.hero .meta,.seal{opacity:1;animation:none}
+  .scrolltip{animation:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+<div class="wm" id="wm" aria-hidden="true"></div>
+
+<!-- 面包屑：首页 › 旅居 › 家庭生活台账 -->
+<nav class="crumb" aria-label="面包屑导航">
+  <a href="../../index.html">大威的网兜</a><span class="sep">›</span>
+  <a href="../living/index.html">旅居</a><span class="sep">›</span>
+  <em>家庭生活台账</em>
+</nav>
+
+<!-- 顶栏 -->
+<nav class="nav">
+  <div class="brand">家庭生活台账 · <b>杨国栋养老费</b></div>
+  <div class="links">
+    <a href="../../index.html">首页</a>
+    <a href="../living/index.html">旅居</a>
+    <a href="#overview">概览</a>
+    <a href="#ledger">月度总账</a>
+    <a href="#compose">费用构成</a>
+  </div>
+</nav>
+
+<!-- 封题 -->
+<header class="hero">
+  <div class="seal">丙午<small>岁次</small></div>
+  <div class="wrap" style="width:100%">
+    <div class="eyebrow">Guanyintang Yikang · Family Ledger</div>
+    <h1>观音堂益康养老院</h1>
+    <div class="sub">杨国栋 · 二〇二六年度养老费用台账</div>
+    <div class="meta">
+      <span>经办 宋玉杰</span>
+      <span>床位 #8266-1</span>
+      <span>台账建立 2026-11-03</span>
+    </div>
+  </div>
+  <div class="scrolltip">向下翻阅账册</div>
+</header>
+
+<main class="wrap">
+
+  <!-- 概览 -->
+  <section id="overview">
+    <div class="sec-head reveal">
+      <div class="idx">壹</div><h2>年度概览</h2><div class="en">Overview</div>
+    </div>
+    <div class="kpis reveal">
+      <div class="kpi big">
+        <div class="label">累计应缴（4–11月）</div>
+        <div class="num">¥60,180<span class="unit">元</span></div>
+        <div class="note">养老费 56,000 · 取暖 2,200 · 空调 600 · 医务 895 · 气垫 480</div>
+      </div>
+      <div class="kpi sm">
+        <div class="label">缴费跨度</div>
+        <div class="num">8<span class="unit">个月</span></div>
+        <div class="note">4月 – 11月</div>
+      </div>
+      <div class="kpi sm">
+        <div class="label">月均负担</div>
+        <div class="num">¥7,523</div>
+        <div class="note">60,180 ÷ 8</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 月度总账 -->
+  <section id="ledger">
+    <div class="sec-head reveal">
+      <div class="idx">贰</div><h2>月度缴费总账</h2><div class="en">Monthly Ledger</div>
+    </div>
+    <div class="ledger reveal">
+      <div class="toprule"></div>
+      <div class="tbl-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>缴费月份</th><th>养老费</th><th>气垫电费</th><th>医务费(上月)</th>
+              <th>空调费</th><th>取暖费</th><th>当月应缴</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>4月</td><td>7,000</td><td>60</td><td>115</td><td>—</td><td>—</td><td class="total-amt">7,175</td></tr>
+            <tr><td>5月</td><td>7,000</td><td>60</td><td>105</td><td>—</td><td>—</td><td class="total-amt">7,165</td></tr>
+            <tr><td>6月</td><td>7,000</td><td>60</td><td>100</td><td>200</td><td>—</td><td class="total-amt">7,360</td></tr>
+            <tr><td>7月</td><td>7,000</td><td>60</td><td>100</td><td>200</td><td>—</td><td class="total-amt">7,360</td></tr>
+            <tr><td>8月</td><td>7,000</td><td>60</td><td>115</td><td>200</td><td>—</td><td class="total-amt">7,375</td></tr>
+            <tr><td>9月</td><td>7,000</td><td>60</td><td>120</td><td>—</td><td>—</td><td class="total-amt">7,180</td></tr>
+            <tr><td>10月</td><td>7,000</td><td>60</td><td>120</td><td>—</td><td>—</td><td class="total-amt">7,180</td></tr>
+            <tr><td>11月</td><td>7,000</td><td>60</td><td>125</td><td>—</td><td>2,200</td><td class="total-amt">9,385</td></tr>
+          </tbody>
+          <tfoot>
+            <tr><td>累计</td><td>56,000</td><td>480</td><td>895</td><td>600</td><td>2,200</td><td class="total-amt">60,180</td></tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+    <p class="note-box reveal" style="margin-top:22px;border-left-color:var(--red)">
+      「养老费 <b>7,000</b>」为机构打包价（床位 2,450 + 伙食 1,260 固定，护理费浮动，差额由机构吸收）；
+      医务费列为「上月」发生、当月缴；空调费仅 6/7/8 月（夏季）各 200 元；取暖费仅 11 月预缴 2,200（覆盖 2026-11 ~ 2027-03，440/月）。
+    </p>
+  </section>
+
+  <!-- 费用构成 -->
+  <section id="compose">
+    <div class="sec-head reveal">
+      <div class="idx">叁</div><h2>费用构成</h2><div class="en">Composition</div>
+    </div>
+    <div class="compose reveal">
+      <div class="pie-col">
+        <svg class="donut" id="donut" viewBox="0 0 200 200" role="img" aria-label="费用构成饼图：养老费93.1%，取暖费3.7%，医务费1.5%，空调费1.0%，气垫电费0.8%">
+          <g transform="rotate(-90 100 100)" id="donut-segs"></g>
+          <text id="pie-amt" x="100" y="95" text-anchor="middle" class="pie-amt">¥60,180</text>
+          <text id="pie-nm" x="100" y="116" text-anchor="middle" class="pie-nm">年度总支出</text>
+        </svg>
+        <p class="pie-hint">悬停查看各项明细</p>
+      </div>
+      <ul class="legend" id="legend"></ul>
+    </div>
+  </section>
+
+  <!-- 账户信息 -->
+  <section id="acct">
+    <div class="sec-head reveal">
+      <div class="idx">肆</div><h2>收款与付款账户</h2><div class="en">Accounts</div>
+    </div>
+    <div class="accts reveal">
+      <div class="acct">
+        <span class="tag">机构指定收款</span>
+        <h3>收款账户</h3>
+        <div class="row"><span class="k">户名</span><span class="v">宋小美</span></div>
+        <div class="row"><span class="k">开户行</span><span class="v">中国农业银行</span></div>
+        <div class="row"><span class="k">卡号</span><span class="v">6228 4800 1872 3312 775</span></div>
+        <div class="warn">⚠ 为个人账户，非益康养老院对公账户；已于 2026-11-03 由用户确认并提供卡号，视为机构指定收款账户。建议持续留存每笔转账凭证。</div>
+      </div>
+      <div class="acct">
+        <span class="tag">付款方</span>
+        <h3>付款账户</h3>
+        <div class="row"><span class="k">户名</span><span class="v">杨巍</span></div>
+        <div class="row"><span class="k">开户行</span><span class="v">中国建设银行</span></div>
+        <div class="row"><span class="k">卡号</span><span class="v">6214 *** 0264</span></div>
+        <div class="warn">八个月养老费均经此账户手机银行/转账转出至宋小美农行卡，凭证已归档于「支付凭证」区。</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <h4>数据来源与说明</h4>
+      <p>本账册数据来自微信催缴通知（老有所依，3/30–11/01）、机构收费清单 3 张（10/11月）及银行转账支付凭证 8 张（4–11月全覆盖）。所有金额以实际转账凭证与机构单据为准。</p>
+      <p style="margin-top:10px">备注：1–3 月无凭证记录（聊天记录自 3/30 通知 4 月费起）；12 月起新缴费待发生后按相同格式追加。</p>
+    </div>
+    <div style="text-align:right">
+      <h4>项目信息</h4>
+      <p>归属于：大威的网兜 › 旅居 › 家庭生活台账<br>台账建立 2026-11-03 · 由养老费用台账自动汇编</p>
+      <div class="credit">盛禾大威 · 家庭台账</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* 盛禾大威 水印：生成 12 个极淡随机分布的文字水印（置于内容之下） */
+(function(){
+  var wm=document.getElementById('wm');
+  var n=12;
+  for(var i=0;i<n;i++){
+    var s=document.createElement('span');
+    s.textContent='盛禾大威';
+    s.style.left=(Math.random()*90)+'%';
+    s.style.top=(Math.random()*92)+'%';
+    s.style.transform='rotate('+(-30+Math.random()*16)+'deg)';
+    s.style.fontSize=(30+Math.random()*26)+'px';
+    s.style.opacity=(0.035+Math.random()*0.025).toFixed(3);
+    wm.appendChild(s);
+  }
+})();
+
+/* 滚动入场：IntersectionObserver 触发 reveal */
+(function(){
+  var els=document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return;}
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}
+    });
+  },{threshold:0.12,rootMargin:'0px 0px -8% 0px'});
+  els.forEach(function(e){io.observe(e);});
+})();
+
+/* 费用构成：动态饼图（滚动入场动画 + 悬停高亮联动） */
+(function(){
+  var C=2*Math.PI*70;
+  var data=[
+    {nm:'养老费（打包）', amt:56000, color:'#9E2B25'},
+    {nm:'取暖费（预缴5月）', amt:2200, color:'#B8893B'},
+    {nm:'医务费（按月实计）', amt:895, color:'#C97B6E'},
+    {nm:'空调费（夏3月）', amt:600, color:'#4A3B2C'},
+    {nm:'气垫电费', amt:480, color:'#D8C9A0'}
+  ];
+  var total=data.reduce(function(s,d){return s+d.amt;},0);
+  var segs=document.getElementById('donut-segs');
+  var legend=document.getElementById('legend');
+  var amtEl=document.getElementById('pie-amt');
+  var nmEl=document.getElementById('pie-nm');
+  if(!segs||!legend) return;
+  var SVG='http://www.w3.org/2000/svg';
+  var cum=0, circles=[], lis=[];
+  data.forEach(function(d){
+    var len=d.amt/total*C;
+    var c=document.createElementNS(SVG,'circle');
+    c.setAttribute('class','seg');
+    c.setAttribute('cx','100');c.setAttribute('cy','100');c.setAttribute('r','70');
+    c.setAttribute('stroke',d.color);
+    c.setAttribute('stroke-dasharray','0 '+C);
+    c.setAttribute('stroke-dashoffset',(-cum*C).toFixed(2));
+    c.dataset.len=len.toFixed(2);
+    segs.appendChild(c); circles.push(c);
+    var li=document.createElement('li');
+    li.innerHTML='<span class="dot" style="background:'+d.color+'"></span>'+
+      '<span class="nm">'+d.nm+'</span>'+
+      '<span class="amt">'+d.amt.toLocaleString()+'</span>'+
+      '<span class="pct">'+(d.amt/total*100).toFixed(1)+'%</span>';
+    legend.appendChild(li); lis.push(li);
+    cum+=len;
+  });
+  function focus(i){
+    circles.forEach(function(c,j){c.classList.toggle('dim',j!==i);c.classList.toggle('hot',j===i);});
+    lis.forEach(function(l,j){l.classList.toggle('hot',j===i);});
+    amtEl.textContent='¥'+data[i].amt.toLocaleString();
+    nmEl.textContent=data[i].nm;
+  }
+  function reset(){
+    circles.forEach(function(c){c.classList.remove('dim','hot');});
+    lis.forEach(function(l){l.classList.remove('hot');});
+    amtEl.textContent='¥'+total.toLocaleString();
+    nmEl.textContent='年度总支出';
+  }
+  circles.forEach(function(c,i){c.addEventListener('mouseenter',function(){focus(i);});c.addEventListener('mouseleave',reset);});
+  lis.forEach(function(l,i){l.addEventListener('mouseenter',function(){focus(i);});l.addEventListener('mouseleave',reset);});
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){
+      circles.forEach(function(c){c.setAttribute('stroke-dasharray',c.dataset.len+' '+C);});
+      io.disconnect();
+    }});
+  },{threshold:0.3});
+  io.observe(document.getElementById('donut'));
+})();
+</script>
+</body>
+</html>
