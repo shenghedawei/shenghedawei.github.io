@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>深蓝 S05 510 Max · 免费维修会员服务</title>
+<style>
+  :root{
+    --blue:#0A2A66;
+    --blue-2:#1148B0;
+    --blue-light:#E7EEFB;
+    --accent:#1E5BFF;
+    --ink:#16223D;
+    --muted:#5B6781;
+    --bg:#F4F7FC;
+    --card:#FFFFFF;
+    --line:#E1E8F4;
+    --ok:#0E9F6E;
+    --warn:#E8A33D;
+    --radius:16px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",Segoe UI,Roboto,sans-serif;
+    background:linear-gradient(180deg,#0A2A66 0%,#1148B0 280px,#F4F7FC 280px,#F4F7FC 100%);
+    color:var(--ink);
+    line-height:1.6;
+    padding:0 0 64px;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:0 16px}
+
+  /* 头部 */
+  header{padding:28px 4px 18px;color:#fff}
+  header .tag{display:inline-block;font-size:13px;letter-spacing:2px;background:rgba(255,255,255,.16);padding:5px 12px;border-radius:999px;margin-bottom:14px}
+  header h1{font-size:30px;font-weight:800;line-height:1.25;margin-bottom:8px}
+  header .sub{font-size:15px;opacity:.92}
+  header .price{margin-top:14px;font-size:14px;background:rgba(255,255,255,.12);display:inline-block;padding:8px 14px;border-radius:12px}
+  header .price b{font-weight:700}
+
+  /* 核心权益卡 */
+  .hero{background:var(--card);border-radius:var(--radius);padding:20px;margin-top:18px;box-shadow:0 10px 30px rgba(10,42,102,.12)}
+  .hero .big{font-size:24px;font-weight:800;color:var(--blue);line-height:1.35}
+  .hero .big .free{color:var(--accent);font-weight:900}
+  .hero .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:16px}
+  .hero .cell{background:var(--blue-light);border-radius:12px;padding:14px}
+  .hero .cell .t{font-size:13px;color:var(--muted);margin-bottom:4px}
+  .hero .cell .v{font-size:18px;font-weight:800;color:var(--blue-2)}
+  .fee-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+  .fee{background:#FFF4E6;color:#9A5B00;border:1px solid #F3D9A8;border-radius:999px;padding:6px 14px;font-size:14px;font-weight:700}
+  .fee.all{background:var(--ok);color:#fff;border-color:var(--ok)}
+
+  /* 好处 */
+  .benefits{display:grid;grid-template-columns:1fr;gap:12px;margin-top:18px}
+  .benefit{background:var(--card);border-radius:14px;padding:16px 18px;display:flex;gap:12px;align-items:flex-start;box-shadow:0 4px 14px rgba(10,42,102,.06)}
+  .benefit .ic{flex:0 0 30px;height:30px;border-radius:9px;background:var(--blue-light);color:var(--accent);font-weight:800;display:flex;align-items:center;justify-content:center;font-size:16px}
+  .benefit .ct{font-size:15px;color:var(--ink)}
+
+  /* 导航 */
+  .nav{position:sticky;top:0;z-index:5;background:rgba(244,247,252,.92);backdrop-filter:blur(8px);margin:22px -16px 0;padding:12px 16px}
+  .nav .lbl{font-size:12px;color:var(--muted);margin-bottom:8px}
+  .nav .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .nav a{font-size:13px;color:var(--blue-2);background:var(--card);border:1px solid var(--line);border-radius:999px;padding:6px 12px;text-decoration:none;font-weight:600}
+  .nav a:active{background:var(--blue-light)}
+
+  /* 系统块 */
+  .sys{background:var(--card);border-radius:var(--radius);margin-top:14px;box-shadow:0 4px 14px rgba(10,42,102,.06);overflow:hidden}
+  .sys summary{cursor:pointer;list-style:none;padding:16px 18px;display:flex;align-items:center;gap:12px}
+  .sys summary::-webkit-details-marker{display:none}
+  .sys summary .num{flex:0 0 30px;height:30px;border-radius:9px;background:var(--blue);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:15px}
+  .sys summary .name{font-size:17px;font-weight:800;color:var(--ink);flex:1}
+  .sys summary .cnt{font-size:12px;color:var(--muted)}
+  .sys summary .arrow{font-size:13px;color:var(--muted);transition:transform .2s}
+  .sys[open] summary .arrow{transform:rotate(180deg)}
+  .sys .body{padding:0 18px 18px}
+  .parts{display:flex;flex-wrap:wrap;gap:8px}
+  .parts span{font-size:13.5px;background:var(--blue-light);color:var(--blue-2);border-radius:8px;padding:6px 10px;line-height:1.3}
+  .parts span.note{background:#FFF4E6;color:#9A5B00}
+  .sys .tip{margin-top:12px;font-size:12.5px;color:var(--muted);background:#F7F9FD;border-radius:10px;padding:10px 12px}
+
+  /* 索赔流程 */
+  .claim{background:var(--card);border-radius:var(--radius);margin-top:18px;padding:20px;box-shadow:0 4px 14px rgba(10,42,102,.06)}
+  .claim h3{font-size:18px;color:var(--blue);margin-bottom:14px}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+  .step{text-align:center;background:var(--blue-light);border-radius:12px;padding:14px 8px}
+  .step .n{width:28px;height:28px;border-radius:50%;background:var(--blue);color:#fff;font-weight:800;margin:0 auto 8px;display:flex;align-items:center;justify-content:center}
+  .step .t{font-size:13.5px;font-weight:700;color:var(--blue-2)}
+  .step .d{font-size:12px;color:var(--muted);margin-top:4px}
+
+  /* 提醒 */
+  .note-box{background:#FFF8EC;border:1px solid #F3D9A8;border-radius:14px;margin-top:18px;padding:16px 18px}
+  .note-box h3{font-size:15px;color:#9A5B00;margin-bottom:8px}
+  .note-box li{font-size:13.5px;color:#7A5A1E;margin-left:18px;margin-bottom:6px}
+  .sign{margin-top:10px;font-size:13.5px;color:var(--muted);border-top:1px dashed var(--line);padding-top:10px}
+  .sign b{color:var(--ink)}
+
+  footer{text-align:center;color:var(--muted);font-size:12px;margin-top:26px;padding:0 16px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <span class="tag">付费加购 · 维修会员</span>
+    <h1>深蓝 S05 510 Max<br>免费维修会员服务</h1>
+    <div class="sub">规避车辆维修风险 · 提前锁定维修成本</div>
+    <div class="price">📌 购买价格与会员有效期：<b>图片未显示，以购车时合同 / 店内确认为准</b></div>
+  </header>
+
+  <section class="hero">
+    <div class="big">加入免费维修会员<br><span class="free">不限次数，工时费·材料费全免！！！</span></div>
+    <div class="grid">
+      <div class="cell"><div class="t">维修次数</div><div class="v">不限次数</div></div>
+      <div class="cell"><div class="t">工艺 / 配件</div><div class="v">原厂工艺·原厂配件</div></div>
+      <div class="cell"><div class="t">索赔方式</div><div class="v">开车到店·全程代办</div></div>
+      <div class="cell"><div class="t">覆盖系统</div><div class="v">7 大系统</div></div>
+    </div>
+    <div class="fee-row">
+      <span class="fee all">工时费 全免</span>
+      <span class="fee all">材料费 全免</span>
+      <span class="fee all">辅料费 全免</span>
+      <span class="fee all">检查费 全免</span>
+    </div>
+  </section>
+
+  <section class="benefits">
+    <div class="benefit"><div class="ic">✔</div><div class="ct">无论维修零部件及人工费有多高，都由免费维修会员服务承担，提前锁定爱车维修成本。</div></div>
+    <div class="benefit"><div class="ic">✔</div><div class="ct">索赔流程简单，只需将故障车辆开到店内，所有流程由门店帮忙完成，修复后即刻提车。</div></div>
+    <div class="benefit"><div class="ic">✔</div><div class="ct">原厂工艺、原厂配件，维修车辆有保障。</div></div>
+  </section>
+
+  <nav class="nav">
+    <div class="lbl">快速跳转 · 覆盖的 7 大系统</div>
+    <div class="chips">
+      <a href="#s1">① 车载多媒体</a>
+      <a href="#s2">② 底盘系统</a>
+      <a href="#s3">③ 空调系统</a>
+      <a href="#s4">④ 制动系统</a>
+      <a href="#s5">⑤ 高压电器</a>
+      <a href="#s6">⑥ 低压电器</a>
+      <a href="#s7">⑦ 全车低压线束</a>
+    </div>
+  </nav>
+
+  <!-- ① 车载多媒体系统 -->
+  <details class="sys" id="s1" open>
+    <summary><div class="num">1</div><div class="name">车载多媒体系统</div><div class="cnt">29 类</div><div class="arrow">▼</div></summary>
+    <div class="body">
+      <div class="parts">
+        <span>导航</span><span>多媒体系统</span><span>CD机</span><span>DVD主板</span><span>外置功放</span>
+        <span>核心底板备件包</span><span>机芯备件包</span><span>高通核心半成品备件包</span><span>显示屏半成品备件包</span>
+        <span>主机半成品备件包</span><span>面板总成备件包</span><span>主机总成备件包</span>
+        <span>多媒体控制面板总成备件包</span><span>多媒体内置功放主机总成备件包</span>
+        <span>USB接口总成</span><span>SD模块总成</span><span>3G模块</span><span>MU509小板</span>
+        <span>4G备用电源</span><span>WiFi天线总成</span><span>拧紧组合件</span><span>音频输入线</span>
+        <span>TV模块</span><span>4G模块</span><span>车载终端</span><span>4G天线</span><span>GPS天线</span>
+        <span class="note">辅料</span>
+      </div>
+    </div>
+  </details>
+
+  <!-- ② 底盘系统 -->
+  <details class="sys" id="s2" open>
+    <summary><div class="num">2</div><div class="name">底盘系统</div><div class="cnt">25 类</div><div class="arrow">▼</div></summary>
+    <div class="body">
+      <div class="parts">
+        <span>传动轴</span><span>传动轴固定螺丝</span><span>前轮轴承</span><span>后轮轴承</span>
+        <span>发动机副车架（元宝梁）</span><span>前稳定杆</span><span>前稳定杆胶套</span>
+        <span>稳定杆固定螺栓</span><span>前稳定杆拉杆</span><span>转向节（俗称羊角）</span>
+        <span>前后减震器</span><span>减震器弹簧</span><span>减震器座</span><span>减震器胶垫</span>
+        <span>减震器固定螺丝</span><span>转向管柱</span><span>电动液压力泵</span>
+        <span>电动转向机总成</span><span>转向轴锁</span><span>前麦弗逊独立悬架</span>
+        <span>后三连杆独立悬架</span><span>平衡杆胶套</span><span>油封</span>
+        <span>防尘罩 / 套</span><span>衬套 / 垫</span><span class="note">辅料</span>
+      </div>
+    </div>
+  </details>
+
+  <!-- ③ 空调系统 -->
+  <details class="sys" id="s3" open>
+    <summary><div class="num">3</div><div class="name">空调系统</div><div class="cnt">28 类</div><div class="arrow">▼</div></summary>
+    <div class="body">
+      <div class="parts">
+        <span>制冷压缩机</span><span>冷凝器总成</span><span>蒸发器总成</span><span>膨胀阀</span>
+        <span>蒸发器温度传感器</span><span>蒸发器壳体</span><span>冷凝器流出管</span>
+        <span>压缩机吸入管</span><span>压缩机排出管</span><span>空调管路卡扣</span>
+        <span>空调压力开关</span><span>管路接口密封圈</span><span>电动冷却液泵</span><span>双水阀</span>
+        <span>电加热装置壳体</span><span>电加热出口冷却液温度传感器</span><span>冷却液进、出软管</span>
+        <span>进出软管卡子</span><span>电动转换阀</span><span>冷却液热膨胀平衡罐</span>
+        <span>暖风交换器</span><span>接口卡扣及密封圈</span><span>电池冷却式转换器总成</span>
+        <span>电子膨胀阀总成</span><span>空调控制器</span><span>气液分离器</span><span>散热风扇</span>
+        <span class="note">辅料</span>
+      </div>
+    </div>
+  </details>
+
+  <!-- ④ 制动系统 -->
+  <details class="sys" id="s4" open>
+    <summary><div class="num">4</div><div class="name">制动系统</div><div class="cnt">14 类</div><div class="arrow">▼</div></summary>
+    <div class="body">
+      <div class="parts">
+        <span>制动踏板及支架</span><span>制动总泵</span><span>真空助力器</span><span>制动油管</span>
+        <span>制动软管</span><span>制动钳</span><span>壳体</span><span>制动分泵</span>
+        <span>ABS泵总成</span><span>ABS传感</span><span>ABS电脑</span><span>ACM泵</span>
+        <span>电动真空泵</span><span class="note">辅料</span>
+      </div>
+    </div>
+  </details>
+
+  <!-- ⑤ 高压电器 -->
+  <details class="sys" id="s5" open>
+    <summary><div class="num">5</div><div class="name">高压电器</div><div class="cnt">3 类</div><div class="arrow">▼</div></summary>
+    <div class="body">
+      <div class="parts">
+        <span>交流充电口总成</span><span>直流充电口总成</span><span>充电枪</span><span class="note">辅料</span>
+      </div>
+      <div class="tip">高压电器含：交流充电口总成、直流充电口总成、充电枪、辅料。</div>
+    </div>
+  </details>
+
+  <!-- ⑥ 低压电器 -->
+  <details class="sys" id="s6" open>
+    <summary><div class="num">6</div><div class="name">低压电器</div><div class="cnt">56 类</div><div class="arrow">▼</div></summary>
+    <div class="body">
+      <div class="parts">
+        <span>前后门升降开关</span><span>外后镜调节开关</span><span>转向辅助系统开关</span><span>雾灯开关</span>
+        <span>空调开关</span><span>前大灯开关</span><span>转向灯开关</span><span>信息显示器</span>
+        <span>天窗开关</span><span>制动灯开关</span><span>门控开关</span><span>双闪警示开关</span>
+        <span>驾驶室内阅读灯</span><span>电动座椅加热开关</span><span>座椅通风开关</span>
+        <span>多功能方向盘按键</span><span>组合仪表总成</span><span>空调开关（或空调控制面板）</span>
+        <span>电子手刹开关</span><span>固定卡扣</span><span>主控制器</span><span>电子驻车控制器</span>
+        <span>气囊电脑</span><span>转角传感器</span><span>气囊线圈</span><span>EPB模块</span>
+        <span>加速踏板</span><span>档位控制器</span><span>仪表靶电脑</span><span>前轮靶电脑</span>
+        <span>胎压检测控制器</span><span>胎压检测传感器</span><span>P档控制器</span><span>漏电传感器</span>
+        <span>外置功放</span><span>智能钥匙控制器</span><span>网关控制器</span><span>正极保险盒</span>
+        <span>高频接收器</span><span>记忆开关</span><span>后排开关</span><span>内后视镜 ECU</span>
+        <span>座椅 ECU</span><span>刮水电机</span><span>雨刮连杆</span><span>喷水电机</span>
+        <span>门锁执行器</span><span>充电口锁执行器</span><span>玻璃升降电机</span><span>模式切换开关</span>
+        <span>电子换挡杆</span><span>转速传感器</span><span>启动按钮</span><span>车内探测天线</span>
+        <span>车外探测天线</span><span>引擎模拟器</span><span>全景影像控制器</span><span>倒车雷达传感器</span>
+        <span>驻车辅助模块</span><span>电池冷却控制器</span><span class="note">辅料</span>
+      </div>
+    </div>
+  </details>
+
+  <!-- ⑦ 全车低压线束 -->
+  <details class="sys" id="s7" open>
+    <summary><div class="num">7</div><div class="name">全车低压线束</div><div class="cnt">2 区域</div><div class="arrow">▼</div></summary>
+    <div class="body">
+      <div class="parts">
+        <span>【发动机舱内】各类传感器线束</span><span>线束扎带</span><span>前舱线束</span><span>前横梁线束</span><span class="note">辅料</span>
+      </div>
+      <div class="parts" style="margin-top:8px">
+        <span>【驾驶室内】仪表台线束</span><span>地板线束</span><span>气囊线束</span><span>线束扎带</span>
+        <span>左地板线束</span><span>右地板线束</span><span>四门线束</span><span>顶棚线束</span>
+        <span>GPS 天线线束</span><span>前保险杠线束</span><span>后保险杠线束</span>
+        <span>蓄电池正极线束</span><span>蓄电池负极线束</span><span class="note">辅料</span>
+      </div>
+    </div>
+  </details>
+
+  <section class="claim">
+    <h3>索赔三步走</h3>
+    <div class="steps">
+      <div class="step"><div class="n">1</div><div class="t">开车到店</div><div class="d">故障车辆开到店内</div></div>
+      <div class="step"><div class="n">2</div><div class="t">门店代办</div><div class="d">所有流程由店方完成</div></div>
+      <div class="step"><div class="n">3</div><div class="t">修复提车</div><div class="d">修复后即刻提车走人</div></div>
+    </div>
+  </section>
+
+  <section class="note-box">
+    <h3>⚠️ 查看提醒</h3>
+    <ul>
+      <li>购买价格与会员有效期：购车时签署的服务说明页未显示，<b>具体请咨询店内工作人员 / 以购买合同为准</b>。</li>
+      <li>各系统部件清单内的「辅料」均包含在免费范围内。</li>
+      <li>本服务为<b>付费购买</b>的维修会员，权益以实际签署文件与门店解释为准。</li>
+      <li>原文件底部含「客户已知悉该服务」及客户签名栏，请妥善保管购车时的纸质 / 电子原件。</li>
+    </ul>
+    <div class="sign">整理来源：购车时的免费维修会员服务说明（2 页）· 客户已知悉该服务　客户签名：____________</div>
+  </section>
+
+  <footer>本页由大威整理自购车时服务说明，仅供个人查看参考，不作为门店理赔依据。</footer>
+
+</div>
+</body>
+</html>
